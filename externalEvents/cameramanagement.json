@@ -1,0 +1,378 @@
+{
+  "associatedLayout": "Stage",
+  "name": "CameraManagement",
+  "events": [
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "color": {
+        "b": 109,
+        "g": 230,
+        "r": 255,
+        "textB": 0,
+        "textG": 0,
+        "textR": 0
+      },
+      "comment": "HELLMED Etapa B: camara suave en X y en Y, siempre dentro del CameraRoom (zona) donde esta el heroe.\nEn pelea de jefe se centra en la arena. Si el salto es muy grande (puerta/portal) la camara se coloca de golpe."
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": {
+            "value": "DepartScene"
+          },
+          "parameters": [
+            ""
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "type": {
+            "value": "Cache"
+          },
+          "parameters": [
+            "CameraRoom"
+          ]
+        },
+        {
+          "type": {
+            "value": "Cache"
+          },
+          "parameters": [
+            "BossRoom"
+          ]
+        },
+        {
+          "type": {
+            "value": "ModVarScene"
+          },
+          "parameters": [
+            "CamSnap",
+            "=",
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "colorB": 228,
+      "colorG": 176,
+      "colorR": 74,
+      "creationTime": 0,
+      "folded": true,
+      "name": "Camera Movement",
+      "source": "",
+      "type": "BuiltinCommonInstructions::Group",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "CollisionNP"
+              },
+              "parameters": [
+                "HeroHitbox",
+                "CameraRoom",
+                "",
+                "",
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "CamTX",
+                "=",
+                "clamp(HeroHitbox.CenterX(), CameraRoom.X()+640, CameraRoom.X()+CameraRoom.Width()-640)"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "CamTY",
+                "=",
+                "clamp(HeroHitbox.CenterY()-40, CameraRoom.Y()+360, CameraRoom.Y()+CameraRoom.Height()-360)"
+              ]
+            }
+          ],
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarScene"
+                  },
+                  "parameters": [
+                    "JefeActivo",
+                    ">",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "VarObjet"
+                  },
+                  "parameters": [
+                    "BossRoom",
+                    "Id",
+                    "=",
+                    "Variable(JefeActivo)"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "CamTX",
+                    "=",
+                    "BossRoom.CenterX()"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "CamTY",
+                    "=",
+                    "BossRoom.CenterY()"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "SetCameraX"
+              },
+              "parameters": [
+                "",
+                "=",
+                "round(lerp(CameraX(\"\",0), Variable(CamTX), min(1, 7*TimeDelta())))",
+                "\"\"",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "SetCameraY"
+              },
+              "parameters": [
+                "",
+                "=",
+                "round(lerp(CameraY(\"\",0), Variable(CamTY), min(1, 7*TimeDelta())))",
+                "\"\"",
+                "0"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::Or"
+              },
+              "parameters": [],
+              "subInstructions": [
+                {
+                  "type": {
+                    "value": "VarScene"
+                  },
+                  "parameters": [
+                    "CamSnap",
+                    "=",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Egal"
+                  },
+                  "parameters": [
+                    "abs(CameraX(\"\",0)-Variable(CamTX))",
+                    ">",
+                    "700"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Egal"
+                  },
+                  "parameters": [
+                    "abs(CameraY(\"\",0)-Variable(CamTY))",
+                    ">",
+                    "500"
+                  ]
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetCameraX"
+              },
+              "parameters": [
+                "",
+                "=",
+                "Variable(CamTX)",
+                "\"\"",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "SetCameraY"
+              },
+              "parameters": [
+                "",
+                "=",
+                "Variable(CamTY)",
+                "\"\"",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "CamSnap",
+                "=",
+                "0"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "SetCameraX"
+              },
+              "parameters": [
+                "",
+                "=",
+                "CameraX(\"\",0)",
+                "\"DashEffect\"",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "SetCameraY"
+              },
+              "parameters": [
+                "",
+                "=",
+                "CameraY(\"\",0)",
+                "\"DashEffect\"",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "SetCameraX"
+              },
+              "parameters": [
+                "",
+                "=",
+                "CameraX(\"\",0)",
+                "\"DeathEffect\"",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "SetCameraY"
+              },
+              "parameters": [
+                "",
+                "=",
+                "CameraY(\"\",0)",
+                "\"DeathEffect\"",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreXY"
+              },
+              "parameters": [
+                "CutsceneCamera",
+                "=",
+                "HeroHitbox.CenterX()-(CutsceneCamera.Width()/2)",
+                "=",
+                "HeroHitbox.CenterY()-(CutsceneCamera.Height()/2)"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "SetCameraX"
+              },
+              "parameters": [
+                "",
+                "=",
+                "round(CameraX(\"\",0)*0.06)",
+                "\"BG1\"",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "SetCameraX"
+              },
+              "parameters": [
+                "",
+                "=",
+                "round(CameraX(\"\",0)*0.02)",
+                "\"BG2\"",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "SetCameraY"
+              },
+              "parameters": [
+                "",
+                "=",
+                "floor(CameraY(\"\",0)*0.025)",
+                "\"BG1\"",
+                "0"
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": []
+    }
+  ]
+}

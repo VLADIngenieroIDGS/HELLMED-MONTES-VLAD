@@ -1,0 +1,5219 @@
+{
+  "associatedLayout": "Stage",
+  "name": "Pantallas",
+  "events": [
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "color": {
+        "b": 109,
+        "g": 230,
+        "r": 255,
+        "textB": 0,
+        "textG": 0,
+        "textR": 0
+      },
+      "comment": "HELLMED - Pantallas y recompensas: cofres de los cuartos secretos, resumen al terminar cada nivel, ultima oportunidad de Phantom\ny pantalla de derrota. Todas las pantallas se manejan con teclado (W/S y K) o con mando (cruceta/stick y A)."
+    },
+    {
+      "colorB": 228,
+      "colorG": 176,
+      "colorR": 74,
+      "creationTime": 0,
+      "folded": true,
+      "name": "Letreros del tutorial",
+      "source": "",
+      "type": "BuiltinCommonInstructions::Group",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "color": {
+            "b": 109,
+            "g": 230,
+            "r": 255,
+            "textB": 0,
+            "textG": 0,
+            "textR": 0
+          },
+          "comment": "Letreros de madera en la Iglesia: al acercarse se lee la instruccion de la habilidad que se necesita en esa parte."
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "Cache"
+              },
+              "parameters": [
+                "LetreroTabla"
+              ]
+            },
+            {
+              "type": {
+                "value": "Cache"
+              },
+              "parameters": [
+                "LetreroTexto"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::ForEach",
+          "object": "Letrero",
+          "conditions": [],
+          "actions": [],
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "BuiltinCommonInstructions::CompareNumbers"
+                  },
+                  "parameters": [
+                    "abs(HeroHitbox.CenterX()-Letrero.CenterX())",
+                    "<",
+                    "150"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "BuiltinCommonInstructions::CompareNumbers"
+                  },
+                  "parameters": [
+                    "abs(HeroHitbox.CenterY()-Letrero.CenterY())",
+                    "<",
+                    "220"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "VarScene"
+                  },
+                  "parameters": [
+                    "Pant",
+                    "=",
+                    "0"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Montre"
+                  },
+                  "parameters": [
+                    "LetreroTabla",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Montre"
+                  },
+                  "parameters": [
+                    "LetreroTexto",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "BitmapText::BitmapTextObject::SetText"
+                  },
+                  "parameters": [
+                    "LetreroTexto",
+                    "=",
+                    "Letrero.VariableString(Texto)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "PanelSpriteObject::Width"
+                  },
+                  "parameters": [
+                    "LetreroTabla",
+                    "=",
+                    "LetreroTexto.Width()+36"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "PanelSpriteObject::Height"
+                  },
+                  "parameters": [
+                    "LetreroTabla",
+                    "=",
+                    "LetreroTexto.Height()+26"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "MettreXY"
+                  },
+                  "parameters": [
+                    "LetreroTabla",
+                    "=",
+                    "clamp(Letrero.CenterX()-LetreroTabla.Width()/2, CameraX(\"\",0)-630, CameraX(\"\",0)+630-LetreroTabla.Width())",
+                    "=",
+                    "Letrero.Y()-LetreroTabla.Height()-4"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "MettreXY"
+                  },
+                  "parameters": [
+                    "LetreroTexto",
+                    "=",
+                    "LetreroTabla.X()+18",
+                    "=",
+                    "LetreroTabla.Y()+13"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": []
+    },
+    {
+      "colorB": 228,
+      "colorG": 176,
+      "colorR": 74,
+      "creationTime": 0,
+      "folded": true,
+      "name": "Inicio",
+      "source": "",
+      "type": "BuiltinCommonInstructions::Group",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "DepartScene"
+              },
+              "parameters": [
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Cache"
+              },
+              "parameters": [
+                "PantUI"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "Pant",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "ResOK",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "StartX",
+                "=",
+                "HeroHitbox.X()"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "StartY",
+                "=",
+                "HeroHitbox.Y()"
+              ]
+            },
+            {
+              "type": {
+                "value": "Cache"
+              },
+              "parameters": [
+                "PadreEscena"
+              ]
+            },
+            {
+              "type": {
+                "value": "Cache"
+              },
+              "parameters": [
+                "PhantomEscena"
+              ]
+            },
+            {
+              "type": {
+                "value": "ChangeLayerTimeScale"
+              },
+              "parameters": [
+                "",
+                "\"\"",
+                "1"
+              ]
+            }
+          ],
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::ForEach",
+              "object": "Cofre",
+              "conditions": [],
+              "actions": [],
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "VarGlobal"
+                      },
+                      "parameters": [
+                        "Prog.Cofre[ToString(Cofre.Variable(Id))]",
+                        "=",
+                        "GlobalVariable(Prog.Partida)"
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "ModVarObjet"
+                      },
+                      "parameters": [
+                        "Cofre",
+                        "Abierto",
+                        "=",
+                        "1"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ModVarObjet"
+                      },
+                      "parameters": [
+                        "Cofre",
+                        "Entregado",
+                        "=",
+                        "1"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "SetAnimationName"
+                      },
+                      "parameters": [
+                        "Cofre",
+                        "\"Abierto\""
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "VarGlobal"
+                      },
+                      "parameters": [
+                        "Prog.Cofre[ToString(Cofre.Variable(Id))]",
+                        "!=",
+                        "GlobalVariable(Prog.Partida)"
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "SetAnimationName"
+                      },
+                      "parameters": [
+                        "Cofre",
+                        "\"Cerrado\""
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": []
+    },
+    {
+      "colorB": 228,
+      "colorG": 176,
+      "colorR": 74,
+      "creationTime": 0,
+      "folded": true,
+      "name": "Teclas sueltas",
+      "source": "",
+      "type": "BuiltinCommonInstructions::Group",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "Pant",
+                ">",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "KeyFromTextPressed",
+                "inverted": true
+              },
+              "parameters": [
+                "",
+                "\"w\""
+              ]
+            },
+            {
+              "type": {
+                "value": "KeyFromTextPressed",
+                "inverted": true
+              },
+              "parameters": [
+                "",
+                "\"Up\""
+              ]
+            },
+            {
+              "type": {
+                "value": "Gamepads::C_Button_pressed",
+                "inverted": true
+              },
+              "parameters": [
+                "",
+                "1",
+                "\"UP\"",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "Gamepads::C_Axis_pushed",
+                "inverted": true
+              },
+              "parameters": [
+                "",
+                "1",
+                "\"LEFT\"",
+                "\"UP\"",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "KeyFromTextPressed",
+                "inverted": true
+              },
+              "parameters": [
+                "",
+                "\"s\""
+              ]
+            },
+            {
+              "type": {
+                "value": "KeyFromTextPressed",
+                "inverted": true
+              },
+              "parameters": [
+                "",
+                "\"Down\""
+              ]
+            },
+            {
+              "type": {
+                "value": "Gamepads::C_Button_pressed",
+                "inverted": true
+              },
+              "parameters": [
+                "",
+                "1",
+                "\"DOWN\"",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "Gamepads::C_Axis_pushed",
+                "inverted": true
+              },
+              "parameters": [
+                "",
+                "1",
+                "\"LEFT\"",
+                "\"DOWN\"",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "KeyFromTextPressed",
+                "inverted": true
+              },
+              "parameters": [
+                "",
+                "\"k\""
+              ]
+            },
+            {
+              "type": {
+                "value": "KeyFromTextPressed",
+                "inverted": true
+              },
+              "parameters": [
+                "",
+                "\"j\""
+              ]
+            },
+            {
+              "type": {
+                "value": "KeyFromTextPressed",
+                "inverted": true
+              },
+              "parameters": [
+                "",
+                "\"Return\""
+              ]
+            },
+            {
+              "type": {
+                "value": "Gamepads::C_Button_pressed",
+                "inverted": true
+              },
+              "parameters": [
+                "",
+                "1",
+                "\"A\"",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "KeyFromTextPressed",
+                "inverted": true
+              },
+              "parameters": [
+                "",
+                "\"Escape\""
+              ]
+            },
+            {
+              "type": {
+                "value": "KeyFromTextPressed",
+                "inverted": true
+              },
+              "parameters": [
+                "",
+                "\"p\""
+              ]
+            },
+            {
+              "type": {
+                "value": "Gamepads::C_Button_pressed",
+                "inverted": true
+              },
+              "parameters": [
+                "",
+                "1",
+                "\"B\"",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "Gamepads::C_Button_pressed",
+                "inverted": true
+              },
+              "parameters": [
+                "",
+                "1",
+                "\"START\"",
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "PantListo",
+                "=",
+                "1"
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": []
+    },
+    {
+      "colorB": 228,
+      "colorG": 176,
+      "colorR": 74,
+      "creationTime": 0,
+      "folded": true,
+      "name": "Cofres de los cuartos secretos",
+      "source": "",
+      "type": "BuiltinCommonInstructions::Group",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "color": {
+            "b": 109,
+            "g": 230,
+            "r": 255,
+            "textB": 0,
+            "textG": 0,
+            "textR": 0
+          },
+          "comment": "Al final de cada cuarto secreto hay un cofre. Con W (o arriba en el mando) se abre y da una cruz o pocion al azar que mejora al Padre."
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "CollisionNP"
+              },
+              "parameters": [
+                "HeroHitbox",
+                "Cofre",
+                "",
+                "",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "VarObjet"
+              },
+              "parameters": [
+                "Cofre",
+                "Abierto",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "Pant",
+                "=",
+                "0"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "BitmapText::BitmapTextObject::SetText"
+              },
+              "parameters": [
+                "MsgText",
+                "=",
+                "\"W: ABRIR EL COFRE\""
+              ]
+            },
+            {
+              "type": {
+                "value": "ResetObjectTimer"
+              },
+              "parameters": [
+                "MsgText",
+                "\"Msg\""
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "CollisionNP"
+              },
+              "parameters": [
+                "HeroHitbox",
+                "Cofre",
+                "",
+                "",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "VarObjet"
+              },
+              "parameters": [
+                "Cofre",
+                "Abierto",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "Pant",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "VarGlobal"
+              },
+              "parameters": [
+                "Cutscene",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::Or"
+              },
+              "parameters": [],
+              "subInstructions": [
+                {
+                  "type": {
+                    "value": "KeyFromTextPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "GlobalVariableString(keyboardUp)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Gamepads::C_Button_pressed"
+                  },
+                  "parameters": [
+                    "",
+                    "1",
+                    "GlobalVariableString(gamepadUp)",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Gamepads::C_Axis_pushed"
+                  },
+                  "parameters": [
+                    "",
+                    "1",
+                    "\"LEFT\"",
+                    "\"UP\"",
+                    ""
+                  ]
+                }
+              ]
+            },
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::Once"
+              },
+              "parameters": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ModVarObjet"
+              },
+              "parameters": [
+                "Cofre",
+                "Abierto",
+                "=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "SetAnimationName"
+              },
+              "parameters": [
+                "Cofre",
+                "\"Abriendo\""
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarGlobal"
+              },
+              "parameters": [
+                "Prog.Cofre[ToString(Cofre.Variable(Id))]",
+                "=",
+                "GlobalVariable(Prog.Partida)"
+              ]
+            },
+            {
+              "type": {
+                "value": "PlaySoundCanal"
+              },
+              "parameters": [
+                "",
+                "Select.wav",
+                "15",
+                "",
+                "90",
+                "0.7"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::ForEach",
+          "object": "Cofre",
+          "conditions": [
+            {
+              "type": {
+                "value": "VarObjet"
+              },
+              "parameters": [
+                "Cofre",
+                "Abierto",
+                "=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "VarObjet"
+              },
+              "parameters": [
+                "Cofre",
+                "Entregado",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "AnimationEnded"
+              },
+              "parameters": [
+                "Cofre"
+              ]
+            }
+          ],
+          "actions": [],
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Cofre",
+                    "Entregado",
+                    "=",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetAnimationName"
+                  },
+                  "parameters": [
+                    "Cofre",
+                    "\"Abierto\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "Item",
+                    "=",
+                    "RandomInRange(1,6)"
+                  ]
+                }
+              ],
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Repeat",
+                  "repeatExpression": "6",
+                  "conditions": [],
+                  "actions": [],
+                  "events": [
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "value": "VarGlobal"
+                          },
+                          "parameters": [
+                            "Prog.Obj[ToString(Variable(Item))]",
+                            "=",
+                            "GlobalVariable(Prog.Partida)"
+                          ]
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "ModVarScene"
+                          },
+                          "parameters": [
+                            "Item",
+                            "=",
+                            "mod(Variable(Item),6)+1"
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "ModVarGlobal"
+                      },
+                      "parameters": [
+                        "Prog.Obj[ToString(Variable(Item))]",
+                        "=",
+                        "GlobalVariable(Prog.Partida)"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "Create"
+                      },
+                      "parameters": [
+                        "",
+                        "Premio",
+                        "Cofre.CenterX()",
+                        "Cofre.Y()+10",
+                        "\"\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ModVarObjet"
+                      },
+                      "parameters": [
+                        "Premio",
+                        "t",
+                        "=",
+                        "0"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ResetObjectTimer"
+                      },
+                      "parameters": [
+                        "Premio",
+                        "\"t\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "PlaySoundCanal"
+                      },
+                      "parameters": [
+                        "",
+                        "bossdeathsfx_exp_cluster1.wav",
+                        "15",
+                        "",
+                        "70",
+                        "1.6"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ModVarGlobal"
+                      },
+                      "parameters": [
+                        "Prog.Puntos",
+                        "+",
+                        "500"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "VarScene"
+                      },
+                      "parameters": [
+                        "Item",
+                        "=",
+                        "1"
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "SetAnimationName"
+                      },
+                      "parameters": [
+                        "Premio",
+                        "\"CruzOro\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ModVarGlobal"
+                      },
+                      "parameters": [
+                        "Prog.BonusDMG",
+                        "+",
+                        "6"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "BitmapText::BitmapTextObject::SetText"
+                      },
+                      "parameters": [
+                        "PhantomTexto",
+                        "=",
+                        "\"CRUZ DE ORO!\"+NewLine()+\"TUS GOLPES CON LA CRUZ HACEN +6 DE DANO\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ModVarObjet"
+                      },
+                      "parameters": [
+                        "PhantomTexto",
+                        "on",
+                        "=",
+                        "1"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ResetObjectTimer"
+                      },
+                      "parameters": [
+                        "PhantomTexto",
+                        "\"t\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "BitmapText::BitmapTextObject::SetText"
+                      },
+                      "parameters": [
+                        "MsgText",
+                        "=",
+                        "\"ENCONTRASTE: CRUZ DE ORO (+500)\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ResetObjectTimer"
+                      },
+                      "parameters": [
+                        "MsgText",
+                        "\"Msg\""
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "VarScene"
+                      },
+                      "parameters": [
+                        "Item",
+                        "=",
+                        "2"
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "SetAnimationName"
+                      },
+                      "parameters": [
+                        "Premio",
+                        "\"CruzPlata\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ModVarGlobal"
+                      },
+                      "parameters": [
+                        "Prog.ChantDesc",
+                        "+",
+                        "12"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "BitmapText::BitmapTextObject::SetText"
+                      },
+                      "parameters": [
+                        "PhantomTexto",
+                        "=",
+                        "\"CRUZ DE PLATA!\"+NewLine()+\"EL CANTICO GASTA MENOS ESTAMINA\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ModVarObjet"
+                      },
+                      "parameters": [
+                        "PhantomTexto",
+                        "on",
+                        "=",
+                        "1"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ResetObjectTimer"
+                      },
+                      "parameters": [
+                        "PhantomTexto",
+                        "\"t\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "BitmapText::BitmapTextObject::SetText"
+                      },
+                      "parameters": [
+                        "MsgText",
+                        "=",
+                        "\"ENCONTRASTE: CRUZ DE PLATA (+500)\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ResetObjectTimer"
+                      },
+                      "parameters": [
+                        "MsgText",
+                        "\"Msg\""
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "VarScene"
+                      },
+                      "parameters": [
+                        "Item",
+                        "=",
+                        "3"
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "SetAnimationName"
+                      },
+                      "parameters": [
+                        "Premio",
+                        "\"CruzSangre\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ModVarGlobal"
+                      },
+                      "parameters": [
+                        "Prog.Vamp",
+                        "=",
+                        "1"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "BitmapText::BitmapTextObject::SetText"
+                      },
+                      "parameters": [
+                        "PhantomTexto",
+                        "=",
+                        "\"CRUZ DE SANGRE!\"+NewLine()+\"CADA ENEMIGO DERROTADO TE CURA 25 DE VIDA\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ModVarObjet"
+                      },
+                      "parameters": [
+                        "PhantomTexto",
+                        "on",
+                        "=",
+                        "1"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ResetObjectTimer"
+                      },
+                      "parameters": [
+                        "PhantomTexto",
+                        "\"t\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "BitmapText::BitmapTextObject::SetText"
+                      },
+                      "parameters": [
+                        "MsgText",
+                        "=",
+                        "\"ENCONTRASTE: CRUZ DE SANGRE (+500)\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ResetObjectTimer"
+                      },
+                      "parameters": [
+                        "MsgText",
+                        "\"Msg\""
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "VarScene"
+                      },
+                      "parameters": [
+                        "Item",
+                        "=",
+                        "4"
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "SetAnimationName"
+                      },
+                      "parameters": [
+                        "Premio",
+                        "\"PocionRoja\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ModVarGlobal"
+                      },
+                      "parameters": [
+                        "Prog.BonusHP",
+                        "+",
+                        "150"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ModVarObjet"
+                      },
+                      "parameters": [
+                        "Hero",
+                        "heroMaxHP",
+                        "=",
+                        "Hero.Variable(heroMaxHP)+150"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ModVarObjet"
+                      },
+                      "parameters": [
+                        "Hero",
+                        "heroHP",
+                        "=",
+                        "Hero.Variable(heroMaxHP)"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "BitmapText::BitmapTextObject::SetText"
+                      },
+                      "parameters": [
+                        "PhantomTexto",
+                        "=",
+                        "\"POCION DE VIDA!\"+NewLine()+\"+150 DE VIDA MAXIMA\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ModVarObjet"
+                      },
+                      "parameters": [
+                        "PhantomTexto",
+                        "on",
+                        "=",
+                        "1"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ResetObjectTimer"
+                      },
+                      "parameters": [
+                        "PhantomTexto",
+                        "\"t\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "BitmapText::BitmapTextObject::SetText"
+                      },
+                      "parameters": [
+                        "MsgText",
+                        "=",
+                        "\"ENCONTRASTE: POCION DE VIDA (+500)\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ResetObjectTimer"
+                      },
+                      "parameters": [
+                        "MsgText",
+                        "\"Msg\""
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "VarScene"
+                      },
+                      "parameters": [
+                        "Item",
+                        "=",
+                        "5"
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "SetAnimationName"
+                      },
+                      "parameters": [
+                        "Premio",
+                        "\"PocionAzul\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ModVarGlobal"
+                      },
+                      "parameters": [
+                        "Prog.BonusStam",
+                        "+",
+                        "40"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ModVarObjet"
+                      },
+                      "parameters": [
+                        "Hero",
+                        "heroMaxStam",
+                        "=",
+                        "Hero.Variable(heroMaxStam)+40"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ModVarObjet"
+                      },
+                      "parameters": [
+                        "Hero",
+                        "heroStam",
+                        "=",
+                        "Hero.Variable(heroMaxStam)"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "BitmapText::BitmapTextObject::SetText"
+                      },
+                      "parameters": [
+                        "PhantomTexto",
+                        "=",
+                        "\"POCION DE ESPIRITU!\"+NewLine()+\"+40 DE ESTAMINA MAXIMA\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ModVarObjet"
+                      },
+                      "parameters": [
+                        "PhantomTexto",
+                        "on",
+                        "=",
+                        "1"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ResetObjectTimer"
+                      },
+                      "parameters": [
+                        "PhantomTexto",
+                        "\"t\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "BitmapText::BitmapTextObject::SetText"
+                      },
+                      "parameters": [
+                        "MsgText",
+                        "=",
+                        "\"ENCONTRASTE: POCION DE ESPIRITU (+500)\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ResetObjectTimer"
+                      },
+                      "parameters": [
+                        "MsgText",
+                        "\"Msg\""
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "VarScene"
+                      },
+                      "parameters": [
+                        "Item",
+                        "=",
+                        "6"
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "SetAnimationName"
+                      },
+                      "parameters": [
+                        "Premio",
+                        "\"PocionDorada\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ModVarGlobal"
+                      },
+                      "parameters": [
+                        "Prog.Armadura",
+                        "=",
+                        "0.25"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "BitmapText::BitmapTextObject::SetText"
+                      },
+                      "parameters": [
+                        "PhantomTexto",
+                        "=",
+                        "\"POCION SANTA!\"+NewLine()+\"RECIBES 25% MENOS DANO\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ModVarObjet"
+                      },
+                      "parameters": [
+                        "PhantomTexto",
+                        "on",
+                        "=",
+                        "1"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ResetObjectTimer"
+                      },
+                      "parameters": [
+                        "PhantomTexto",
+                        "\"t\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "BitmapText::BitmapTextObject::SetText"
+                      },
+                      "parameters": [
+                        "MsgText",
+                        "=",
+                        "\"ENCONTRASTE: POCION SANTA (+500)\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ResetObjectTimer"
+                      },
+                      "parameters": [
+                        "MsgText",
+                        "\"Msg\""
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "AddForceXY"
+              },
+              "parameters": [
+                "Premio",
+                "0",
+                "-45",
+                "0"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "ObjectTimer"
+              },
+              "parameters": [
+                "Premio",
+                "\"t\"",
+                "1.6"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ChangeOpacity"
+              },
+              "parameters": [
+                "Premio",
+                "-",
+                "TimeDelta()*400"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "ObjectTimer"
+              },
+              "parameters": [
+                "Premio",
+                "\"t\"",
+                "2.4"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Delete"
+              },
+              "parameters": [
+                "Premio",
+                ""
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": []
+    },
+    {
+      "colorB": 228,
+      "colorG": 176,
+      "colorR": 74,
+      "creationTime": 0,
+      "folded": true,
+      "name": "Resumen del nivel",
+      "source": "",
+      "type": "BuiltinCommonInstructions::Group",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "color": {
+            "b": 109,
+            "g": 230,
+            "r": 255,
+            "textB": 0,
+            "textG": 0,
+            "textR": 0
+          },
+          "comment": "Al tocar el portal de salida de un nivel se muestra el resumen: enemigos, personas salvadas, cofres y puntos. K / A para continuar."
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "CollisionNP"
+              },
+              "parameters": [
+                "HeroHitbox",
+                "Portal",
+                "",
+                "",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "Pant",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "ResOK",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "Saliendo",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "VarGlobal"
+              },
+              "parameters": [
+                "Cutscene",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::Once"
+              },
+              "parameters": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "Pant",
+                "=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarGlobal"
+              },
+              "parameters": [
+                "Cutscene",
+                "=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "ChangeTimeScale"
+              },
+              "parameters": [
+                "",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "PlaySoundCanal"
+              },
+              "parameters": [
+                "",
+                "Select.wav",
+                "15",
+                "",
+                "90",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "TotH",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "SalvH",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "TotC",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "AbiC",
+                "=",
+                "0"
+              ]
+            }
+          ],
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "Zona",
+                    "=",
+                    "\"Iglesia\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "NivelN",
+                    "=",
+                    "1"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "Zona",
+                    "=",
+                    "\"Pueblo\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "NivelN",
+                    "=",
+                    "2"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "Zona",
+                    "=",
+                    "\"Bosque\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "NivelN",
+                    "=",
+                    "3"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarObjet"
+                  },
+                  "parameters": [
+                    "Herido",
+                    "Nivel",
+                    "=",
+                    "Variable(NivelN)"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "TotH",
+                    "=",
+                    "Count(Herido)"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarObjet"
+                  },
+                  "parameters": [
+                    "Herido",
+                    "Nivel",
+                    "=",
+                    "Variable(NivelN)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "VarObjet"
+                  },
+                  "parameters": [
+                    "Herido",
+                    "Estado",
+                    "=",
+                    "2"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "SalvH",
+                    "=",
+                    "Count(Herido)"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarObjet"
+                  },
+                  "parameters": [
+                    "Cofre",
+                    "Nivel",
+                    "=",
+                    "Variable(NivelN)"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "TotC",
+                    "=",
+                    "Count(Cofre)"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarObjet"
+                  },
+                  "parameters": [
+                    "Cofre",
+                    "Nivel",
+                    "=",
+                    "Variable(NivelN)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "VarObjet"
+                  },
+                  "parameters": [
+                    "Cofre",
+                    "Abierto",
+                    "=",
+                    "1"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "AbiC",
+                    "=",
+                    "Count(Cofre)"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Montre"
+                  },
+                  "parameters": [
+                    "PantUI",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Cache"
+                  },
+                  "parameters": [
+                    "PantOp1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Cache"
+                  },
+                  "parameters": [
+                    "PantOp2"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Cache"
+                  },
+                  "parameters": [
+                    "PantSel"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "BitmapText::BitmapTextObject::SetText"
+                  },
+                  "parameters": [
+                    "PantTitulo",
+                    "=",
+                    "\"NIVEL COMPLETADO\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Cache"
+                  },
+                  "parameters": [
+                    "PantTituloR"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "BitmapText::BitmapTextObject::SetText"
+                  },
+                  "parameters": [
+                    "PantSub",
+                    "=",
+                    "\"\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "BitmapText::BitmapTextObject::SetText"
+                  },
+                  "parameters": [
+                    "PantTexto",
+                    "=",
+                    "\"ENEMIGOS DERROTADOS:   \"+ToString(GlobalVariable(Prog.Kills)-GlobalVariable(Prog.KillsIni))+NewLine()+NewLine()+\"PERSONAS SALVADAS:     \"+ToString(Variable(SalvH))+\" / \"+ToString(Variable(TotH))+NewLine()+NewLine()+\"COFRES ABIERTOS:       \"+ToString(Variable(AbiC))+\" / \"+ToString(Variable(TotC))+NewLine()+NewLine()+\"PUNTOS DEL NIVEL:      +\"+ToString(GlobalVariable(Prog.Puntos)-GlobalVariable(Prog.PuntosIni))+NewLine()+NewLine()+\"PUNTAJE TOTAL:         \"+ToString(GlobalVariable(Prog.Puntos))"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "BitmapText::BitmapTextObject::SetText"
+                  },
+                  "parameters": [
+                    "PantPie",
+                    "=",
+                    "\"K / A: CONTINUAR\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "PantListo",
+                    "=",
+                    "0"
+                  ]
+                }
+              ],
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "VarScene"
+                      },
+                      "parameters": [
+                        "NivelN",
+                        "=",
+                        "1"
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "BitmapText::BitmapTextObject::SetText"
+                      },
+                      "parameters": [
+                        "PantSub",
+                        "=",
+                        "\"LA IGLESIA\""
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "VarScene"
+                      },
+                      "parameters": [
+                        "NivelN",
+                        "=",
+                        "2"
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "BitmapText::BitmapTextObject::SetText"
+                      },
+                      "parameters": [
+                        "PantSub",
+                        "=",
+                        "\"EL PUEBLO\""
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "VarScene"
+                      },
+                      "parameters": [
+                        "NivelN",
+                        "=",
+                        "3"
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "BitmapText::BitmapTextObject::SetText"
+                      },
+                      "parameters": [
+                        "PantSub",
+                        "=",
+                        "\"EL BOSQUE\""
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "Pant",
+                "=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "PantListo",
+                "=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::Or"
+              },
+              "parameters": [],
+              "subInstructions": [
+                {
+                  "type": {
+                    "value": "KeyFromTextPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "\"k\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "KeyFromTextPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "\"j\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "KeyFromTextPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "\"Return\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Gamepads::C_Button_pressed"
+                  },
+                  "parameters": [
+                    "",
+                    "1",
+                    "\"A\"",
+                    ""
+                  ]
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "Pant",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "Cache"
+              },
+              "parameters": [
+                "PantUI"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarGlobal"
+              },
+              "parameters": [
+                "Cutscene",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "ChangeTimeScale"
+              },
+              "parameters": [
+                "",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "ResOK",
+                "=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarGlobal"
+              },
+              "parameters": [
+                "Prog.KillsIni",
+                "=",
+                "GlobalVariable(Prog.Kills)"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarGlobal"
+              },
+              "parameters": [
+                "Prog.PuntosIni",
+                "=",
+                "GlobalVariable(Prog.Puntos)"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "CollisionNP",
+                "inverted": true
+              },
+              "parameters": [
+                "HeroHitbox",
+                "Portal",
+                "",
+                "",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "Pant",
+                "=",
+                "0"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "ResOK",
+                "=",
+                "0"
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": []
+    },
+    {
+      "colorB": 228,
+      "colorG": 176,
+      "colorR": 74,
+      "creationTime": 0,
+      "folded": true,
+      "name": "Ultima oportunidad de Phantom",
+      "source": "",
+      "type": "BuiltinCommonInstructions::Group",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "color": {
+            "b": 109,
+            "g": 230,
+            "r": 255,
+            "textB": 0,
+            "textG": 0,
+            "textR": 0
+          },
+          "comment": "Si el Padre muere sin vidas, Phantom le ofrece revivir UNA vez con la mitad de la vida o rendirse. Si se rinde (o ya la uso) sale la pantalla de derrota."
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::Or"
+              },
+              "parameters": [],
+              "subInstructions": [
+                {
+                  "type": {
+                    "value": "VarObjet"
+                  },
+                  "parameters": [
+                    "Hero",
+                    "heroHP",
+                    "<=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "VarObjetTxt"
+                  },
+                  "parameters": [
+                    "Hero",
+                    "heroFSM",
+                    "=",
+                    "\"Death\""
+                  ]
+                }
+              ]
+            },
+            {
+              "type": {
+                "value": "VarGlobal"
+              },
+              "parameters": [
+                "GameState.Lives",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "Pant",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "Derrota",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "VarGlobal"
+              },
+              "parameters": [
+                "Prog.Ultima",
+                "!=",
+                "GlobalVariable(Prog.Partida)"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "Foso",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "Pant",
+                "=",
+                "2"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarGlobal"
+              },
+              "parameters": [
+                "Cutscene",
+                "=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "ChangeLayerTimeScale"
+              },
+              "parameters": [
+                "",
+                "\"\"",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "Cache"
+              },
+              "parameters": [
+                "Hero"
+              ]
+            },
+            {
+              "type": {
+                "value": "Montre"
+              },
+              "parameters": [
+                "PadreEscena",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreXY"
+              },
+              "parameters": [
+                "PadreEscena",
+                "=",
+                "Hero.X()",
+                "=",
+                "Hero.Y()"
+              ]
+            },
+            {
+              "type": {
+                "value": "SetAnimationName"
+              },
+              "parameters": [
+                "PadreEscena",
+                "\"Cae\""
+              ]
+            },
+            {
+              "type": {
+                "value": "Delete"
+              },
+              "parameters": [
+                "JefeFuego",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "Delete"
+              },
+              "parameters": [
+                "JefeOrbe",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVolumeSoundCanal"
+              },
+              "parameters": [
+                "",
+                "100",
+                "=",
+                "10"
+              ]
+            },
+            {
+              "type": {
+                "value": "Montre"
+              },
+              "parameters": [
+                "PantUI",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "Cache"
+              },
+              "parameters": [
+                "PantTituloR"
+              ]
+            },
+            {
+              "type": {
+                "value": "BitmapText::BitmapTextObject::SetText"
+              },
+              "parameters": [
+                "PantTitulo",
+                "=",
+                "\"PHANTOM\""
+              ]
+            },
+            {
+              "type": {
+                "value": "BitmapText::BitmapTextObject::SetText"
+              },
+              "parameters": [
+                "PantSub",
+                "=",
+                "\"PADRE... AUN NO ES TU HORA.\""
+              ]
+            },
+            {
+              "type": {
+                "value": "BitmapText::BitmapTextObject::SetText"
+              },
+              "parameters": [
+                "PantTexto",
+                "=",
+                "\"PUEDO DEVOLVERTE A LA VIDA CON LA MITAD\"+NewLine()+\"DE TU FUERZA... PERO SOLO UNA VEZ.\""
+              ]
+            },
+            {
+              "type": {
+                "value": "BitmapText::BitmapTextObject::SetText"
+              },
+              "parameters": [
+                "PantOp1",
+                "=",
+                "\"REVIVIR CON LA MITAD DE VIDA\""
+              ]
+            },
+            {
+              "type": {
+                "value": "BitmapText::BitmapTextObject::SetText"
+              },
+              "parameters": [
+                "PantOp2",
+                "=",
+                "\"RENDIRSE\""
+              ]
+            },
+            {
+              "type": {
+                "value": "BitmapText::BitmapTextObject::SetText"
+              },
+              "parameters": [
+                "PantPie",
+                "=",
+                "\"W/S: ELEGIR    K / A: ACEPTAR\""
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "PantSel",
+                "=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "PantListo",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "Montre"
+              },
+              "parameters": [
+                "PhantomEscena",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "Cache"
+              },
+              "parameters": [
+                "Phantom"
+              ]
+            },
+            {
+              "type": {
+                "value": "Cache"
+              },
+              "parameters": [
+                "PhantomGlobo"
+              ]
+            },
+            {
+              "type": {
+                "value": "Cache"
+              },
+              "parameters": [
+                "PhantomTexto"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreXY"
+              },
+              "parameters": [
+                "PhantomEscena",
+                "=",
+                "Hero.X()-150",
+                "=",
+                "Hero.Y()+60"
+              ]
+            },
+            {
+              "type": {
+                "value": "SetAnimationName"
+              },
+              "parameters": [
+                "PhantomEscena",
+                "\"Ayuda\""
+              ]
+            },
+            {
+              "type": {
+                "value": "PlaySoundCanal"
+              },
+              "parameters": [
+                "",
+                "Select.wav",
+                "15",
+                "",
+                "90",
+                "0.5"
+              ]
+            }
+          ],
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "IsFlippedX"
+                  },
+                  "parameters": [
+                    "Hero"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "FlipX"
+                  },
+                  "parameters": [
+                    "PadreEscena",
+                    "yes"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "IsFlippedX",
+                    "inverted": true
+                  },
+                  "parameters": [
+                    "Hero"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "FlipX"
+                  },
+                  "parameters": [
+                    "PadreEscena",
+                    "no"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "BuiltinCommonInstructions::Or"
+                  },
+                  "parameters": [],
+                  "subInstructions": [
+                    {
+                      "type": {
+                        "value": "CollisionNP"
+                      },
+                      "parameters": [
+                        "HeroHitbox",
+                        "DeathPit",
+                        "",
+                        "",
+                        ""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "VarObjet"
+                      },
+                      "parameters": [
+                        "Hero",
+                        "heroHP",
+                        ">",
+                        "0"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "Foso",
+                    "=",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Hero",
+                    "heroHP",
+                    "=",
+                    "0"
+                  ]
+                }
+              ],
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "VarGlobal"
+                      },
+                      "parameters": [
+                        "Prog.CPSet",
+                        "=",
+                        "1"
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "MettreXY"
+                      },
+                      "parameters": [
+                        "HeroHitbox",
+                        "=",
+                        "GlobalVariable(Prog.CPX)",
+                        "=",
+                        "GlobalVariable(Prog.CPY)"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "MettreXY"
+                      },
+                      "parameters": [
+                        "PadreEscena",
+                        "=",
+                        "GlobalVariable(Prog.CPX)",
+                        "=",
+                        "GlobalVariable(Prog.CPY)"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "MettreXY"
+                      },
+                      "parameters": [
+                        "PhantomEscena",
+                        "=",
+                        "GlobalVariable(Prog.CPX)-150",
+                        "=",
+                        "GlobalVariable(Prog.CPY)+60"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ModVarScene"
+                      },
+                      "parameters": [
+                        "CamSnap",
+                        "=",
+                        "1"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "VarGlobal"
+                      },
+                      "parameters": [
+                        "Prog.CPSet",
+                        "!=",
+                        "1"
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "MettreXY"
+                      },
+                      "parameters": [
+                        "HeroHitbox",
+                        "=",
+                        "Variable(StartX)",
+                        "=",
+                        "Variable(StartY)"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "MettreXY"
+                      },
+                      "parameters": [
+                        "PadreEscena",
+                        "=",
+                        "Variable(StartX)",
+                        "=",
+                        "Variable(StartY)"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "MettreXY"
+                      },
+                      "parameters": [
+                        "PhantomEscena",
+                        "=",
+                        "Variable(StartX)-150",
+                        "=",
+                        "Variable(StartY)+60"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ModVarScene"
+                      },
+                      "parameters": [
+                        "CamSnap",
+                        "=",
+                        "1"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::Or"
+              },
+              "parameters": [],
+              "subInstructions": [
+                {
+                  "type": {
+                    "value": "VarObjet"
+                  },
+                  "parameters": [
+                    "Hero",
+                    "heroHP",
+                    "<=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "VarObjetTxt"
+                  },
+                  "parameters": [
+                    "Hero",
+                    "heroFSM",
+                    "=",
+                    "\"Death\""
+                  ]
+                }
+              ]
+            },
+            {
+              "type": {
+                "value": "VarGlobal"
+              },
+              "parameters": [
+                "GameState.Lives",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "Pant",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "Derrota",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "VarGlobal"
+              },
+              "parameters": [
+                "Prog.Ultima",
+                "=",
+                "GlobalVariable(Prog.Partida)"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "Foso",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "Pant",
+                "=",
+                "3"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "Derrota",
+                "=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarGlobal"
+              },
+              "parameters": [
+                "Cutscene",
+                "=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "ChangeLayerTimeScale"
+              },
+              "parameters": [
+                "",
+                "\"\"",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "Cache"
+              },
+              "parameters": [
+                "Hero"
+              ]
+            },
+            {
+              "type": {
+                "value": "Montre"
+              },
+              "parameters": [
+                "PadreEscena",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreXY"
+              },
+              "parameters": [
+                "PadreEscena",
+                "=",
+                "Hero.X()",
+                "=",
+                "Hero.Y()"
+              ]
+            },
+            {
+              "type": {
+                "value": "SetAnimationName"
+              },
+              "parameters": [
+                "PadreEscena",
+                "\"Cae\""
+              ]
+            },
+            {
+              "type": {
+                "value": "Delete"
+              },
+              "parameters": [
+                "JefeFuego",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "Delete"
+              },
+              "parameters": [
+                "JefeOrbe",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVolumeSoundCanal"
+              },
+              "parameters": [
+                "",
+                "100",
+                "=",
+                "10"
+              ]
+            },
+            {
+              "type": {
+                "value": "Montre"
+              },
+              "parameters": [
+                "PantUI",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "Cache"
+              },
+              "parameters": [
+                "PantOp1"
+              ]
+            },
+            {
+              "type": {
+                "value": "Cache"
+              },
+              "parameters": [
+                "PantOp2"
+              ]
+            },
+            {
+              "type": {
+                "value": "Cache"
+              },
+              "parameters": [
+                "PantSel"
+              ]
+            },
+            {
+              "type": {
+                "value": "Cache"
+              },
+              "parameters": [
+                "PhantomEscena"
+              ]
+            },
+            {
+              "type": {
+                "value": "Cache"
+              },
+              "parameters": [
+                "PantTitulo"
+              ]
+            },
+            {
+              "type": {
+                "value": "BitmapText::BitmapTextObject::SetText"
+              },
+              "parameters": [
+                "PantSub",
+                "=",
+                "\"EL PADRE HA CAIDO...\""
+              ]
+            },
+            {
+              "type": {
+                "value": "BitmapText::BitmapTextObject::SetText"
+              },
+              "parameters": [
+                "PantPie",
+                "=",
+                "\"K / A: VOLVER AL TITULO\""
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "PantListo",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "StopSoundCanal"
+              },
+              "parameters": [
+                "",
+                "100"
+              ]
+            },
+            {
+              "type": {
+                "value": "PlaySoundCanal"
+              },
+              "parameters": [
+                "",
+                "Jonathan_So-FallenInBattle.ogg",
+                "0",
+                "",
+                "100",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "TotH",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "SalvH",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "TotC",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "AbiC",
+                "=",
+                "0"
+              ]
+            }
+          ],
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "IsFlippedX"
+                  },
+                  "parameters": [
+                    "Hero"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "FlipX"
+                  },
+                  "parameters": [
+                    "PadreEscena",
+                    "yes"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "IsFlippedX",
+                    "inverted": true
+                  },
+                  "parameters": [
+                    "Hero"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "FlipX"
+                  },
+                  "parameters": [
+                    "PadreEscena",
+                    "no"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "TotH",
+                    "=",
+                    "Count(Herido)"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarObjet"
+                  },
+                  "parameters": [
+                    "Herido",
+                    "Estado",
+                    "=",
+                    "2"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "SalvH",
+                    "=",
+                    "Count(Herido)"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "TotC",
+                    "=",
+                    "Count(Cofre)"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarObjet"
+                  },
+                  "parameters": [
+                    "Cofre",
+                    "Abierto",
+                    "=",
+                    "1"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "AbiC",
+                    "=",
+                    "Count(Cofre)"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "BitmapText::BitmapTextObject::SetText"
+                  },
+                  "parameters": [
+                    "PantTexto",
+                    "=",
+                    "\"ENEMIGOS DERROTADOS:   \"+ToString(GlobalVariable(Prog.Kills))+NewLine()+NewLine()+\"PERSONAS SALVADAS:     \"+ToString(Variable(SalvH))+\" / \"+ToString(Variable(TotH))+NewLine()+NewLine()+\"COFRES ABIERTOS:       \"+ToString(Variable(AbiC))+\" / \"+ToString(Variable(TotC))+NewLine()+NewLine()+\"PUNTAJE FINAL:         \"+ToString(GlobalVariable(Prog.Puntos))"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "BuiltinCommonInstructions::Or"
+                  },
+                  "parameters": [],
+                  "subInstructions": [
+                    {
+                      "type": {
+                        "value": "CollisionNP"
+                      },
+                      "parameters": [
+                        "HeroHitbox",
+                        "DeathPit",
+                        "",
+                        "",
+                        ""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "VarObjet"
+                      },
+                      "parameters": [
+                        "Hero",
+                        "heroHP",
+                        ">",
+                        "0"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "Foso",
+                    "=",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Hero",
+                    "heroHP",
+                    "=",
+                    "0"
+                  ]
+                }
+              ],
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "VarGlobal"
+                      },
+                      "parameters": [
+                        "Prog.CPSet",
+                        "=",
+                        "1"
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "MettreXY"
+                      },
+                      "parameters": [
+                        "HeroHitbox",
+                        "=",
+                        "GlobalVariable(Prog.CPX)",
+                        "=",
+                        "GlobalVariable(Prog.CPY)"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "MettreXY"
+                      },
+                      "parameters": [
+                        "PadreEscena",
+                        "=",
+                        "GlobalVariable(Prog.CPX)",
+                        "=",
+                        "GlobalVariable(Prog.CPY)"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "MettreXY"
+                      },
+                      "parameters": [
+                        "PhantomEscena",
+                        "=",
+                        "GlobalVariable(Prog.CPX)-150",
+                        "=",
+                        "GlobalVariable(Prog.CPY)+60"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ModVarScene"
+                      },
+                      "parameters": [
+                        "CamSnap",
+                        "=",
+                        "1"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "VarGlobal"
+                      },
+                      "parameters": [
+                        "Prog.CPSet",
+                        "!=",
+                        "1"
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "MettreXY"
+                      },
+                      "parameters": [
+                        "HeroHitbox",
+                        "=",
+                        "Variable(StartX)",
+                        "=",
+                        "Variable(StartY)"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "MettreXY"
+                      },
+                      "parameters": [
+                        "PadreEscena",
+                        "=",
+                        "Variable(StartX)",
+                        "=",
+                        "Variable(StartY)"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "MettreXY"
+                      },
+                      "parameters": [
+                        "PhantomEscena",
+                        "=",
+                        "Variable(StartX)-150",
+                        "=",
+                        "Variable(StartY)+60"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ModVarScene"
+                      },
+                      "parameters": [
+                        "CamSnap",
+                        "=",
+                        "1"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "Pant",
+                ">=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "Pant",
+                "!=",
+                "2"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "MettreXY"
+              },
+              "parameters": [
+                "PantFondo",
+                "=",
+                "CameraX(\"GUI\",0)-640",
+                "=",
+                "CameraY(\"GUI\",0)-360"
+              ]
+            },
+            {
+              "type": {
+                "value": "ChangeWidth"
+              },
+              "parameters": [
+                "PantFondo",
+                "=",
+                "1280"
+              ]
+            },
+            {
+              "type": {
+                "value": "ChangeHeight"
+              },
+              "parameters": [
+                "PantFondo",
+                "=",
+                "720"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreXY"
+              },
+              "parameters": [
+                "PantMarco",
+                "=",
+                "CameraX(\"GUI\",0)-400",
+                "=",
+                "CameraY(\"GUI\",0)-270"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreXY"
+              },
+              "parameters": [
+                "PantTitulo",
+                "=",
+                "CameraX(\"GUI\",0)-PantTitulo.Width()/2",
+                "=",
+                "CameraY(\"GUI\",0)-245"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreXY"
+              },
+              "parameters": [
+                "PantSub",
+                "=",
+                "CameraX(\"GUI\",0)-PantSub.Width()/2",
+                "=",
+                "CameraY(\"GUI\",0)-180"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreXY"
+              },
+              "parameters": [
+                "PantTexto",
+                "=",
+                "CameraX(\"GUI\",0)-PantTexto.Width()/2",
+                "=",
+                "CameraY(\"GUI\",0)-125"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreXY"
+              },
+              "parameters": [
+                "PantPie",
+                "=",
+                "CameraX(\"GUI\",0)-PantPie.Width()/2",
+                "=",
+                "CameraY(\"GUI\",0)+215"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreXY"
+              },
+              "parameters": [
+                "PantOp1",
+                "=",
+                "CameraX(\"GUI\",0)-PantOp1.Width()/2",
+                "=",
+                "CameraY(\"GUI\",0)+60"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreXY"
+              },
+              "parameters": [
+                "PantOp2",
+                "=",
+                "CameraX(\"GUI\",0)-PantOp2.Width()/2",
+                "=",
+                "CameraY(\"GUI\",0)+120"
+              ]
+            },
+            {
+              "type": {
+                "value": "PanelSpriteObject::Height"
+              },
+              "parameters": [
+                "PantMarco",
+                "=",
+                "540"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreXY"
+              },
+              "parameters": [
+                "PantTituloR",
+                "=",
+                "CameraX(\"GUI\",0)-PantTituloR.Width()/2",
+                "=",
+                "CameraY(\"GUI\",0)-245"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "Pant",
+                "=",
+                "2"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "MettreXY"
+              },
+              "parameters": [
+                "PantFondo",
+                "=",
+                "CameraX(\"GUI\",0)-640",
+                "=",
+                "CameraY(\"GUI\",0)-360"
+              ]
+            },
+            {
+              "type": {
+                "value": "ChangeWidth"
+              },
+              "parameters": [
+                "PantFondo",
+                "=",
+                "1280"
+              ]
+            },
+            {
+              "type": {
+                "value": "ChangeHeight"
+              },
+              "parameters": [
+                "PantFondo",
+                "=",
+                "720"
+              ]
+            },
+            {
+              "type": {
+                "value": "ChangeOpacity"
+              },
+              "parameters": [
+                "PantFondo",
+                "=",
+                "90"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreXY"
+              },
+              "parameters": [
+                "PantMarco",
+                "=",
+                "CameraX(\"GUI\",0)-400",
+                "=",
+                "CameraY(\"GUI\",0)+20"
+              ]
+            },
+            {
+              "type": {
+                "value": "PanelSpriteObject::Height"
+              },
+              "parameters": [
+                "PantMarco",
+                "=",
+                "330"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreXY"
+              },
+              "parameters": [
+                "PantTitulo",
+                "=",
+                "CameraX(\"GUI\",0)-PantTitulo.Width()/2",
+                "=",
+                "CameraY(\"GUI\",0)+38"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreXY"
+              },
+              "parameters": [
+                "PantSub",
+                "=",
+                "CameraX(\"GUI\",0)-PantSub.Width()/2",
+                "=",
+                "CameraY(\"GUI\",0)+92"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreXY"
+              },
+              "parameters": [
+                "PantTexto",
+                "=",
+                "CameraX(\"GUI\",0)-PantTexto.Width()/2",
+                "=",
+                "CameraY(\"GUI\",0)+130"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreXY"
+              },
+              "parameters": [
+                "PantOp1",
+                "=",
+                "CameraX(\"GUI\",0)-PantOp1.Width()/2",
+                "=",
+                "CameraY(\"GUI\",0)+205"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreXY"
+              },
+              "parameters": [
+                "PantOp2",
+                "=",
+                "CameraX(\"GUI\",0)-PantOp2.Width()/2",
+                "=",
+                "CameraY(\"GUI\",0)+250"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreXY"
+              },
+              "parameters": [
+                "PantPie",
+                "=",
+                "CameraX(\"GUI\",0)-PantPie.Width()/2",
+                "=",
+                "CameraY(\"GUI\",0)+305"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "Pant",
+                "!=",
+                "2"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ChangeOpacity"
+              },
+              "parameters": [
+                "PantFondo",
+                "=",
+                "200"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "Pant",
+                "=",
+                "2"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "MettreXY"
+              },
+              "parameters": [
+                "PantSel",
+                "=",
+                "CameraX(\"GUI\",0)-340",
+                "=",
+                "CameraY(\"GUI\",0)+188+(Variable(PantSel)-1)*45"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "Pant",
+                "=",
+                "2"
+              ]
+            },
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "PantListo",
+                "=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::Or"
+              },
+              "parameters": [],
+              "subInstructions": [
+                {
+                  "type": {
+                    "value": "BuiltinCommonInstructions::Or"
+                  },
+                  "parameters": [],
+                  "subInstructions": [
+                    {
+                      "type": {
+                        "value": "KeyFromTextPressed"
+                      },
+                      "parameters": [
+                        "",
+                        "\"w\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "KeyFromTextPressed"
+                      },
+                      "parameters": [
+                        "",
+                        "\"Up\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "Gamepads::C_Button_pressed"
+                      },
+                      "parameters": [
+                        "",
+                        "1",
+                        "\"UP\"",
+                        ""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "Gamepads::C_Axis_pushed"
+                      },
+                      "parameters": [
+                        "",
+                        "1",
+                        "\"LEFT\"",
+                        "\"UP\"",
+                        ""
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "BuiltinCommonInstructions::Or"
+                  },
+                  "parameters": [],
+                  "subInstructions": [
+                    {
+                      "type": {
+                        "value": "KeyFromTextPressed"
+                      },
+                      "parameters": [
+                        "",
+                        "\"s\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "KeyFromTextPressed"
+                      },
+                      "parameters": [
+                        "",
+                        "\"Down\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "Gamepads::C_Button_pressed"
+                      },
+                      "parameters": [
+                        "",
+                        "1",
+                        "\"DOWN\"",
+                        ""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "Gamepads::C_Axis_pushed"
+                      },
+                      "parameters": [
+                        "",
+                        "1",
+                        "\"LEFT\"",
+                        "\"DOWN\"",
+                        ""
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "PantSel",
+                "=",
+                "3-Variable(PantSel)"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "PantListo",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "PlaySoundCanal"
+              },
+              "parameters": [
+                "",
+                "MenuMove.wav",
+                "15",
+                "",
+                "60",
+                "1"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "Pant",
+                "=",
+                "2"
+              ]
+            },
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "PantListo",
+                "=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "PantSel",
+                "=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::Or"
+              },
+              "parameters": [],
+              "subInstructions": [
+                {
+                  "type": {
+                    "value": "KeyFromTextPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "\"k\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "KeyFromTextPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "\"j\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "KeyFromTextPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "\"Return\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Gamepads::C_Button_pressed"
+                  },
+                  "parameters": [
+                    "",
+                    "1",
+                    "\"A\"",
+                    ""
+                  ]
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "Pant",
+                "=",
+                "4"
+              ]
+            },
+            {
+              "type": {
+                "value": "Cache"
+              },
+              "parameters": [
+                "PantUI"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarGlobal"
+              },
+              "parameters": [
+                "Prog.Ultima",
+                "=",
+                "GlobalVariable(Prog.Partida)"
+              ]
+            },
+            {
+              "type": {
+                "value": "SetAnimationName"
+              },
+              "parameters": [
+                "PadreEscena",
+                "\"Revive\""
+              ]
+            },
+            {
+              "type": {
+                "value": "PlaySoundCanal"
+              },
+              "parameters": [
+                "",
+                "bossdeathsfx_exp_cluster1.wav",
+                "15",
+                "",
+                "80",
+                "1.5"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "Pant",
+                "=",
+                "2"
+              ]
+            },
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "PantListo",
+                "=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "PantSel",
+                "=",
+                "2"
+              ]
+            },
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::Or"
+              },
+              "parameters": [],
+              "subInstructions": [
+                {
+                  "type": {
+                    "value": "KeyFromTextPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "\"k\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "KeyFromTextPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "\"j\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "KeyFromTextPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "\"Return\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Gamepads::C_Button_pressed"
+                  },
+                  "parameters": [
+                    "",
+                    "1",
+                    "\"A\"",
+                    ""
+                  ]
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "Pant",
+                "=",
+                "3"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "Derrota",
+                "=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "Montre"
+              },
+              "parameters": [
+                "PantUI",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "Cache"
+              },
+              "parameters": [
+                "PantOp1"
+              ]
+            },
+            {
+              "type": {
+                "value": "Cache"
+              },
+              "parameters": [
+                "PantOp2"
+              ]
+            },
+            {
+              "type": {
+                "value": "Cache"
+              },
+              "parameters": [
+                "PantSel"
+              ]
+            },
+            {
+              "type": {
+                "value": "Cache"
+              },
+              "parameters": [
+                "PhantomEscena"
+              ]
+            },
+            {
+              "type": {
+                "value": "Cache"
+              },
+              "parameters": [
+                "PantTitulo"
+              ]
+            },
+            {
+              "type": {
+                "value": "BitmapText::BitmapTextObject::SetText"
+              },
+              "parameters": [
+                "PantSub",
+                "=",
+                "\"EL PADRE HA CAIDO...\""
+              ]
+            },
+            {
+              "type": {
+                "value": "BitmapText::BitmapTextObject::SetText"
+              },
+              "parameters": [
+                "PantPie",
+                "=",
+                "\"K / A: VOLVER AL TITULO\""
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "PantListo",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "StopSoundCanal"
+              },
+              "parameters": [
+                "",
+                "100"
+              ]
+            },
+            {
+              "type": {
+                "value": "PlaySoundCanal"
+              },
+              "parameters": [
+                "",
+                "Jonathan_So-FallenInBattle.ogg",
+                "0",
+                "",
+                "100",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "TotH",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "SalvH",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "TotC",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "AbiC",
+                "=",
+                "0"
+              ]
+            }
+          ],
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "TotH",
+                    "=",
+                    "Count(Herido)"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarObjet"
+                  },
+                  "parameters": [
+                    "Herido",
+                    "Estado",
+                    "=",
+                    "2"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "SalvH",
+                    "=",
+                    "Count(Herido)"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "TotC",
+                    "=",
+                    "Count(Cofre)"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarObjet"
+                  },
+                  "parameters": [
+                    "Cofre",
+                    "Abierto",
+                    "=",
+                    "1"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "AbiC",
+                    "=",
+                    "Count(Cofre)"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "BitmapText::BitmapTextObject::SetText"
+                  },
+                  "parameters": [
+                    "PantTexto",
+                    "=",
+                    "\"ENEMIGOS DERROTADOS:   \"+ToString(GlobalVariable(Prog.Kills))+NewLine()+NewLine()+\"PERSONAS SALVADAS:     \"+ToString(Variable(SalvH))+\" / \"+ToString(Variable(TotH))+NewLine()+NewLine()+\"COFRES ABIERTOS:       \"+ToString(Variable(AbiC))+\" / \"+ToString(Variable(TotC))+NewLine()+NewLine()+\"PUNTAJE FINAL:         \"+ToString(GlobalVariable(Prog.Puntos))"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "Pant",
+                "=",
+                "4"
+              ]
+            },
+            {
+              "type": {
+                "value": "AnimationEnded"
+              },
+              "parameters": [
+                "PadreEscena"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "Pant",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "ChangeLayerTimeScale"
+              },
+              "parameters": [
+                "",
+                "\"\"",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarGlobal"
+              },
+              "parameters": [
+                "Cutscene",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "Cache"
+              },
+              "parameters": [
+                "PadreEscena"
+              ]
+            },
+            {
+              "type": {
+                "value": "Cache"
+              },
+              "parameters": [
+                "PhantomEscena"
+              ]
+            },
+            {
+              "type": {
+                "value": "Montre"
+              },
+              "parameters": [
+                "Hero",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "Montre"
+              },
+              "parameters": [
+                "Phantom",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarObjet"
+              },
+              "parameters": [
+                "Hero",
+                "heroHP",
+                "=",
+                "floor(Hero.Variable(heroMaxHP)/2)"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarObjetTxt"
+              },
+              "parameters": [
+                "Hero",
+                "heroFSM",
+                "=",
+                "\"Fall\""
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarObjetTxt"
+              },
+              "parameters": [
+                "Hero",
+                "estado",
+                "=",
+                "\"\""
+              ]
+            },
+            {
+              "type": {
+                "value": "Opacity"
+              },
+              "parameters": [
+                "Hero",
+                "=",
+                "120"
+              ]
+            },
+            {
+              "type": {
+                "value": "ResetObjectTimer"
+              },
+              "parameters": [
+                "Hero",
+                "\"renace\""
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVolumeSoundCanal"
+              },
+              "parameters": [
+                "",
+                "100",
+                "=",
+                "25"
+              ]
+            },
+            {
+              "type": {
+                "value": "BitmapText::BitmapTextObject::SetText"
+              },
+              "parameters": [
+                "PhantomTexto",
+                "=",
+                "\"LEVANTATE, PADRE!\"+NewLine()+\"NO TE RINDAS AHORA\""
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarObjet"
+              },
+              "parameters": [
+                "PhantomTexto",
+                "on",
+                "=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "ResetObjectTimer"
+              },
+              "parameters": [
+                "PhantomTexto",
+                "\"t\""
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "ObjectTimer"
+              },
+              "parameters": [
+                "Hero",
+                "\"renace\"",
+                "2.5"
+              ]
+            },
+            {
+              "type": {
+                "value": "Opacity"
+              },
+              "parameters": [
+                "Hero",
+                "=",
+                "120"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Opacity"
+              },
+              "parameters": [
+                "Hero",
+                "=",
+                "255"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "Pant",
+                "=",
+                "3"
+              ]
+            },
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "PantListo",
+                "=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::Or"
+              },
+              "parameters": [],
+              "subInstructions": [
+                {
+                  "type": {
+                    "value": "KeyFromTextPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "\"k\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "KeyFromTextPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "\"j\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "KeyFromTextPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "\"Return\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Gamepads::C_Button_pressed"
+                  },
+                  "parameters": [
+                    "",
+                    "1",
+                    "\"A\"",
+                    ""
+                  ]
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "Pant",
+                "=",
+                "5"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "PantListo",
+                "=",
+                "0"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "Pant",
+                "=",
+                "5"
+              ]
+            },
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "PantListo",
+                "=",
+                "1"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ChangeLayerTimeScale"
+              },
+              "parameters": [
+                "",
+                "\"\"",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarGlobal"
+              },
+              "parameters": [
+                "Cutscene",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "Scene"
+              },
+              "parameters": [
+                "",
+                "\"Title\"",
+                ""
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": []
+    },
+    {
+      "colorB": 228,
+      "colorG": 176,
+      "colorR": 74,
+      "creationTime": 0,
+      "folded": true,
+      "name": "PRUEBAS 2 (quitar al entregar)",
+      "source": "",
+      "type": "BuiltinCommonInstructions::Group",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "color": {
+            "b": 109,
+            "g": 230,
+            "r": 255,
+            "textB": 0,
+            "textG": 0,
+            "textR": 0
+          },
+          "comment": "F9: jefe activo con 1 de vida. F10: quedarse sin vidas y con 1 de vida. F11: ir al cofre de las catacumbas."
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "KeyFromTextPressed"
+              },
+              "parameters": [
+                "",
+                "\"F9\""
+              ]
+            },
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::Once"
+              },
+              "parameters": []
+            },
+            {
+              "type": {
+                "value": "VarObjet"
+              },
+              "parameters": [
+                "BossSkull",
+                "Id",
+                "=",
+                "Variable(JefeActivo)"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ModVarObjet"
+              },
+              "parameters": [
+                "BossSkull",
+                "enemyHP",
+                "=",
+                "1"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "KeyFromTextPressed"
+              },
+              "parameters": [
+                "",
+                "\"F10\""
+              ]
+            },
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::Once"
+              },
+              "parameters": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ModVarGlobal"
+              },
+              "parameters": [
+                "GameState.Lives",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarObjet"
+              },
+              "parameters": [
+                "Hero",
+                "heroHP",
+                "=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "BitmapText::BitmapTextObject::SetText"
+              },
+              "parameters": [
+                "MsgText",
+                "=",
+                "\"PRUEBA: SIN VIDAS\""
+              ]
+            },
+            {
+              "type": {
+                "value": "ResetObjectTimer"
+              },
+              "parameters": [
+                "MsgText",
+                "\"Msg\""
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "KeyFromTextPressed"
+              },
+              "parameters": [
+                "",
+                "\"F11\""
+              ]
+            },
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::Once"
+              },
+              "parameters": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "MettreXY"
+              },
+              "parameters": [
+                "HeroHitbox",
+                "=",
+                "2240",
+                "=",
+                "6456"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "CamSnap",
+                "=",
+                "1"
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": []
+    }
+  ]
+}

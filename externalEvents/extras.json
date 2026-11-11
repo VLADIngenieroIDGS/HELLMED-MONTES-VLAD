@@ -1,0 +1,4757 @@
+{
+  "associatedLayout": "Stage",
+  "name": "Extras",
+  "events": [
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "color": {
+        "b": 109,
+        "g": 230,
+        "r": 255,
+        "textB": 0,
+        "textG": 0,
+        "textR": 0
+      },
+      "comment": "HELLMED - Extras para la lista de cotejo: puntaje y coleccionables, menu de pausa (mapa, controles, menu principal),\nluces (naturales y artificiales) y sistemas de particulas por zona."
+    },
+    {
+      "colorB": 228,
+      "colorG": 176,
+      "colorR": 74,
+      "creationTime": 0,
+      "folded": true,
+      "name": "Puntaje y coleccionables",
+      "source": "",
+      "type": "BuiltinCommonInstructions::Group",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "color": {
+            "b": 109,
+            "g": 230,
+            "r": 255,
+            "textB": 0,
+            "textG": 0,
+            "textR": 0
+          },
+          "comment": "Cruz dorada = 50 puntos, Alma = 150, enemigo = 100, jefe = 1000. Lo recogido no reaparece al morir (Prog.Rel)."
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "DepartScene"
+              },
+              "parameters": [
+                ""
+              ]
+            }
+          ],
+          "actions": [],
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarObjetTxt"
+                  },
+                  "parameters": [
+                    "Reliquia",
+                    "Tipo",
+                    "=",
+                    "\"Alma\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "SetAnimationName"
+                  },
+                  "parameters": [
+                    "Reliquia",
+                    "\"Alma\""
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::ForEach",
+              "object": "Reliquia",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarGlobal"
+                  },
+                  "parameters": [
+                    "Prog.Rel[ToString(Reliquia.Variable(Id))]",
+                    "=",
+                    "GlobalVariable(Prog.Partida)"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Delete"
+                  },
+                  "parameters": [
+                    "Reliquia",
+                    ""
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "CollisionNP"
+              },
+              "parameters": [
+                "HeroHitbox",
+                "Reliquia",
+                "",
+                "",
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ModVarGlobal"
+              },
+              "parameters": [
+                "Prog.Puntos",
+                "+",
+                "Reliquia.Variable(Pts)"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarGlobal"
+              },
+              "parameters": [
+                "Prog.Rel[ToString(Reliquia.Variable(Id))]",
+                "=",
+                "GlobalVariable(Prog.Partida)"
+              ]
+            },
+            {
+              "type": {
+                "value": "Create"
+              },
+              "parameters": [
+                "",
+                "DmgText",
+                "Reliquia.CenterX()",
+                "Reliquia.Y()-10",
+                "\"\""
+              ]
+            },
+            {
+              "type": {
+                "value": "BitmapText::BitmapTextObject::SetText"
+              },
+              "parameters": [
+                "DmgText",
+                "=",
+                "\"+\"+ToString(Reliquia.Variable(Pts))"
+              ]
+            },
+            {
+              "type": {
+                "value": "ResetObjectTimer"
+              },
+              "parameters": [
+                "DmgText",
+                "\"t\""
+              ]
+            },
+            {
+              "type": {
+                "value": "ChangePlan"
+              },
+              "parameters": [
+                "DmgText",
+                "=",
+                "9500"
+              ]
+            },
+            {
+              "type": {
+                "value": "PlaySoundCanal"
+              },
+              "parameters": [
+                "",
+                "Select.wav",
+                "15",
+                "",
+                "70",
+                "1.5"
+              ]
+            }
+          ],
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Create"
+                  },
+                  "parameters": [
+                    "",
+                    "Particula",
+                    "Reliquia.CenterX()",
+                    "Reliquia.CenterY()",
+                    "\"\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetAnimationName"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "\"Chispa\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "AddForceXY"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "RandomInRange(-120,120)",
+                    "RandomInRange(-160,-40)",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "life",
+                    "=",
+                    "0.6"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "a",
+                    "=",
+                    "255"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ResetObjectTimer"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "\"p\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ChangeOpacity"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ChangePlan"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "=",
+                    "9000"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Create"
+                  },
+                  "parameters": [
+                    "",
+                    "Particula",
+                    "Reliquia.CenterX()",
+                    "Reliquia.CenterY()",
+                    "\"\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetAnimationName"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "\"Chispa\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "AddForceXY"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "RandomInRange(-120,120)",
+                    "RandomInRange(-160,-40)",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "life",
+                    "=",
+                    "0.6"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "a",
+                    "=",
+                    "255"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ResetObjectTimer"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "\"p\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ChangeOpacity"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ChangePlan"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "=",
+                    "9000"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Create"
+                  },
+                  "parameters": [
+                    "",
+                    "Particula",
+                    "Reliquia.CenterX()",
+                    "Reliquia.CenterY()",
+                    "\"\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetAnimationName"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "\"Chispa\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "AddForceXY"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "RandomInRange(-120,120)",
+                    "RandomInRange(-160,-40)",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "life",
+                    "=",
+                    "0.6"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "a",
+                    "=",
+                    "255"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ResetObjectTimer"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "\"p\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ChangeOpacity"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ChangePlan"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "=",
+                    "9000"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Create"
+                  },
+                  "parameters": [
+                    "",
+                    "Particula",
+                    "Reliquia.CenterX()",
+                    "Reliquia.CenterY()",
+                    "\"\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetAnimationName"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "\"Chispa\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "AddForceXY"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "RandomInRange(-120,120)",
+                    "RandomInRange(-160,-40)",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "life",
+                    "=",
+                    "0.6"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "a",
+                    "=",
+                    "255"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ResetObjectTimer"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "\"p\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ChangeOpacity"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ChangePlan"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "=",
+                    "9000"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Create"
+                  },
+                  "parameters": [
+                    "",
+                    "Particula",
+                    "Reliquia.CenterX()",
+                    "Reliquia.CenterY()",
+                    "\"\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetAnimationName"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "\"Chispa\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "AddForceXY"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "RandomInRange(-120,120)",
+                    "RandomInRange(-160,-40)",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "life",
+                    "=",
+                    "0.6"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "a",
+                    "=",
+                    "255"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ResetObjectTimer"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "\"p\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ChangeOpacity"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ChangePlan"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "=",
+                    "9000"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Create"
+                  },
+                  "parameters": [
+                    "",
+                    "Particula",
+                    "Reliquia.CenterX()",
+                    "Reliquia.CenterY()",
+                    "\"\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetAnimationName"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "\"Chispa\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "AddForceXY"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "RandomInRange(-120,120)",
+                    "RandomInRange(-160,-40)",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "life",
+                    "=",
+                    "0.6"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "a",
+                    "=",
+                    "255"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ResetObjectTimer"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "\"p\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ChangeOpacity"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ChangePlan"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "=",
+                    "9000"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Delete"
+                  },
+                  "parameters": [
+                    "Reliquia",
+                    ""
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "BitmapText::BitmapTextObject::SetText"
+              },
+              "parameters": [
+                "GUIPuntos",
+                "=",
+                "\"PUNTOS: \"+ToString(GlobalVariable(Prog.Puntos))"
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": []
+    },
+    {
+      "colorB": 228,
+      "colorG": 176,
+      "colorR": 74,
+      "creationTime": 0,
+      "folded": true,
+      "name": "Menu de pausa",
+      "source": "",
+      "type": "BuiltinCommonInstructions::Group",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "color": {
+            "b": 109,
+            "g": 230,
+            "r": 255,
+            "textB": 0,
+            "textG": 0,
+            "textR": 0
+          },
+          "comment": "P o ESC pausa el juego (escala de tiempo 0). Opciones: continuar, mapa del nivel (con tu posicion), controles y volver al menu principal."
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "DepartScene"
+              },
+              "parameters": [
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Cache"
+              },
+              "parameters": [
+                "PausaUI"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "Pausa",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "ChangeTimeScale"
+              },
+              "parameters": [
+                "",
+                "1"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": true,
+                "value": "KeyFromTextPressed"
+              },
+              "parameters": [
+                "",
+                "\"p\""
+              ]
+            },
+            {
+              "type": {
+                "value": "Gamepads::C_Button_pressed",
+                "inverted": true
+              },
+              "parameters": [
+                "",
+                "1",
+                "\"START\"",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "inverted": true,
+                "value": "KeyFromTextPressed"
+              },
+              "parameters": [
+                "",
+                "\"Escape\""
+              ]
+            },
+            {
+              "type": {
+                "value": "Gamepads::C_Button_pressed",
+                "inverted": true
+              },
+              "parameters": [
+                "",
+                "1",
+                "\"START\"",
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "PausaBloq",
+                "=",
+                "0"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "Pausa",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "PausaBloq",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::Or"
+              },
+              "parameters": [],
+              "subInstructions": [
+                {
+                  "type": {
+                    "value": "KeyFromTextPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "\"p\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "KeyFromTextPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "\"Escape\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Gamepads::C_Button_pressed"
+                  },
+                  "parameters": [
+                    "",
+                    "1",
+                    "\"START\"",
+                    ""
+                  ]
+                }
+              ]
+            },
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "Saliendo",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "VarGlobal"
+              },
+              "parameters": [
+                "GameState.GameOver",
+                "!=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::Once"
+              },
+              "parameters": []
+            },
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "Tienda",
+                "=",
+                "0"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "Pausa",
+                "=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "PausaSel",
+                "=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "PausaListo",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "PausaCut",
+                "=",
+                "GlobalVariable(Cutscene)"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarGlobal"
+              },
+              "parameters": [
+                "Cutscene",
+                "=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "ChangeTimeScale"
+              },
+              "parameters": [
+                "",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "PlaySoundCanal"
+              },
+              "parameters": [
+                "",
+                "MenuMove.wav",
+                "15",
+                "",
+                "70",
+                "0.8"
+              ]
+            },
+            {
+              "type": {
+                "value": "Montre"
+              },
+              "parameters": [
+                "PausaFondo",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "Montre"
+              },
+              "parameters": [
+                "PausaMarco",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "Montre"
+              },
+              "parameters": [
+                "PausaSel",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "Montre"
+              },
+              "parameters": [
+                "PausaTitulo",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "Montre"
+              },
+              "parameters": [
+                "PausaItem",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "Cache"
+              },
+              "parameters": [
+                "PausaControles"
+              ]
+            },
+            {
+              "type": {
+                "value": "Cache"
+              },
+              "parameters": [
+                "MapaZona"
+              ]
+            },
+            {
+              "type": {
+                "value": "Cache"
+              },
+              "parameters": [
+                "MapaMarca"
+              ]
+            },
+            {
+              "type": {
+                "value": "Cache"
+              },
+              "parameters": [
+                "MapaLeyenda"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "PausaVista",
+                "=",
+                "0"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "Pausa",
+                "=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "inverted": true,
+                "value": "KeyFromTextPressed"
+              },
+              "parameters": [
+                "",
+                "\"p\""
+              ]
+            },
+            {
+              "type": {
+                "value": "Gamepads::C_Button_pressed",
+                "inverted": true
+              },
+              "parameters": [
+                "",
+                "1",
+                "\"START\"",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "inverted": true,
+                "value": "KeyFromTextPressed"
+              },
+              "parameters": [
+                "",
+                "\"Escape\""
+              ]
+            },
+            {
+              "type": {
+                "value": "Gamepads::C_Button_pressed",
+                "inverted": true
+              },
+              "parameters": [
+                "",
+                "1",
+                "\"B\"",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "inverted": true,
+                "value": "KeyFromTextPressed"
+              },
+              "parameters": [
+                "",
+                "\"k\""
+              ]
+            },
+            {
+              "type": {
+                "value": "Gamepads::C_Button_pressed",
+                "inverted": true
+              },
+              "parameters": [
+                "",
+                "1",
+                "\"A\"",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "inverted": true,
+                "value": "KeyFromTextPressed"
+              },
+              "parameters": [
+                "",
+                "\"j\""
+              ]
+            },
+            {
+              "type": {
+                "value": "Gamepads::C_Button_pressed",
+                "inverted": true
+              },
+              "parameters": [
+                "",
+                "1",
+                "\"A\"",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "inverted": true,
+                "value": "KeyFromTextPressed"
+              },
+              "parameters": [
+                "",
+                "\"Return\""
+              ]
+            },
+            {
+              "type": {
+                "value": "Gamepads::C_Button_pressed",
+                "inverted": true
+              },
+              "parameters": [
+                "",
+                "1",
+                "\"A\"",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "inverted": true,
+                "value": "KeyFromTextPressed"
+              },
+              "parameters": [
+                "",
+                "\"w\""
+              ]
+            },
+            {
+              "type": {
+                "value": "Gamepads::C_Button_pressed",
+                "inverted": true
+              },
+              "parameters": [
+                "",
+                "1",
+                "\"UP\"",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "Gamepads::C_Axis_pushed",
+                "inverted": true
+              },
+              "parameters": [
+                "",
+                "1",
+                "\"LEFT\"",
+                "\"UP\"",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "inverted": true,
+                "value": "KeyFromTextPressed"
+              },
+              "parameters": [
+                "",
+                "\"s\""
+              ]
+            },
+            {
+              "type": {
+                "value": "Gamepads::C_Button_pressed",
+                "inverted": true
+              },
+              "parameters": [
+                "",
+                "1",
+                "\"DOWN\"",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "Gamepads::C_Axis_pushed",
+                "inverted": true
+              },
+              "parameters": [
+                "",
+                "1",
+                "\"LEFT\"",
+                "\"DOWN\"",
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "PausaListo",
+                "=",
+                "1"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "Pausa",
+                "=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "PausaListo",
+                "=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "PausaVista",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::Or"
+              },
+              "parameters": [],
+              "subInstructions": [
+                {
+                  "type": {
+                    "value": "KeyFromTextPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "\"w\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "KeyFromTextPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "\"Up\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Gamepads::C_Button_pressed"
+                  },
+                  "parameters": [
+                    "",
+                    "1",
+                    "\"UP\"",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Gamepads::C_Axis_pushed"
+                  },
+                  "parameters": [
+                    "",
+                    "1",
+                    "\"LEFT\"",
+                    "\"UP\"",
+                    ""
+                  ]
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "PausaSel",
+                "=",
+                "mod(Variable(PausaSel)+2,4)+1"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "PausaListo",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "PlaySoundCanal"
+              },
+              "parameters": [
+                "",
+                "MenuMove.wav",
+                "15",
+                "",
+                "60",
+                "1"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "Pausa",
+                "=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "PausaListo",
+                "=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "PausaVista",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::Or"
+              },
+              "parameters": [],
+              "subInstructions": [
+                {
+                  "type": {
+                    "value": "KeyFromTextPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "\"s\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "KeyFromTextPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "\"Down\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Gamepads::C_Button_pressed"
+                  },
+                  "parameters": [
+                    "",
+                    "1",
+                    "\"DOWN\"",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Gamepads::C_Axis_pushed"
+                  },
+                  "parameters": [
+                    "",
+                    "1",
+                    "\"LEFT\"",
+                    "\"DOWN\"",
+                    ""
+                  ]
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "PausaSel",
+                "=",
+                "mod(Variable(PausaSel),4)+1"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "PausaListo",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "PlaySoundCanal"
+              },
+              "parameters": [
+                "",
+                "MenuMove.wav",
+                "15",
+                "",
+                "60",
+                "1"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "Pausa",
+                "=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "PausaListo",
+                "=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "PausaVista",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::Or"
+              },
+              "parameters": [],
+              "subInstructions": [
+                {
+                  "type": {
+                    "value": "KeyFromTextPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "\"p\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "KeyFromTextPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "\"Escape\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Gamepads::C_Button_pressed"
+                  },
+                  "parameters": [
+                    "",
+                    "1",
+                    "\"START\"",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Gamepads::C_Button_pressed"
+                  },
+                  "parameters": [
+                    "",
+                    "1",
+                    "\"B\"",
+                    ""
+                  ]
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "PausaBloq",
+                "=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "ChangeTimeScale"
+              },
+              "parameters": [
+                "",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarGlobal"
+              },
+              "parameters": [
+                "Cutscene",
+                "=",
+                "Variable(PausaCut)"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "Pausa",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "Cache"
+              },
+              "parameters": [
+                "PausaUI"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "Pausa",
+                "=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "PausaListo",
+                "=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "PausaVista",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::Or"
+              },
+              "parameters": [],
+              "subInstructions": [
+                {
+                  "type": {
+                    "value": "KeyFromTextPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "\"k\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "KeyFromTextPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "\"j\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "KeyFromTextPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "\"Return\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Gamepads::C_Button_pressed"
+                  },
+                  "parameters": [
+                    "",
+                    "1",
+                    "\"A\"",
+                    ""
+                  ]
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "PausaListo",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "PlaySoundCanal"
+              },
+              "parameters": [
+                "",
+                "Select.wav",
+                "15",
+                "",
+                "60",
+                "1"
+              ]
+            }
+          ],
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarScene"
+                  },
+                  "parameters": [
+                    "PausaSel",
+                    "=",
+                    "1"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "PausaBloq",
+                    "=",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ChangeTimeScale"
+                  },
+                  "parameters": [
+                    "",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarGlobal"
+                  },
+                  "parameters": [
+                    "Cutscene",
+                    "=",
+                    "Variable(PausaCut)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "Pausa",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Cache"
+                  },
+                  "parameters": [
+                    "PausaUI"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarScene"
+                  },
+                  "parameters": [
+                    "PausaSel",
+                    "=",
+                    "2"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "PausaVista",
+                    "=",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Cache"
+                  },
+                  "parameters": [
+                    "PausaMarco"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Cache"
+                  },
+                  "parameters": [
+                    "PausaSel"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Cache"
+                  },
+                  "parameters": [
+                    "PausaItem"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Montre"
+                  },
+                  "parameters": [
+                    "MapaZona",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Montre"
+                  },
+                  "parameters": [
+                    "MapaMarca",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Montre"
+                  },
+                  "parameters": [
+                    "MapaLeyenda",
+                    ""
+                  ]
+                }
+              ],
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "VarSceneTxt"
+                      },
+                      "parameters": [
+                        "Zona",
+                        "=",
+                        "\"Iglesia\""
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "SetAnimationName"
+                      },
+                      "parameters": [
+                        "MapaZona",
+                        "\"Iglesia\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "BitmapText::BitmapTextObject::SetText"
+                      },
+                      "parameters": [
+                        "PausaTitulo",
+                        "=",
+                        "\"MAPA: IGLESIA\""
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "VarSceneTxt"
+                      },
+                      "parameters": [
+                        "Zona",
+                        "=",
+                        "\"Pueblo\""
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "SetAnimationName"
+                      },
+                      "parameters": [
+                        "MapaZona",
+                        "\"Pueblo\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "BitmapText::BitmapTextObject::SetText"
+                      },
+                      "parameters": [
+                        "PausaTitulo",
+                        "=",
+                        "\"MAPA: PUEBLO\""
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "VarSceneTxt"
+                      },
+                      "parameters": [
+                        "Zona",
+                        "=",
+                        "\"Bosque\""
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "SetAnimationName"
+                      },
+                      "parameters": [
+                        "MapaZona",
+                        "\"Bosque\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "BitmapText::BitmapTextObject::SetText"
+                      },
+                      "parameters": [
+                        "PausaTitulo",
+                        "=",
+                        "\"MAPA: BOSQUE\""
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "VarSceneTxt"
+                      },
+                      "parameters": [
+                        "Zona",
+                        "=",
+                        "\"Secreto\""
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "SetAnimationName"
+                      },
+                      "parameters": [
+                        "MapaZona",
+                        "\"Secreto\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "BitmapText::BitmapTextObject::SetText"
+                      },
+                      "parameters": [
+                        "PausaTitulo",
+                        "=",
+                        "\"MAPA: SECRETO\""
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarScene"
+                  },
+                  "parameters": [
+                    "PausaSel",
+                    "=",
+                    "3"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "PausaVista",
+                    "=",
+                    "2"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Cache"
+                  },
+                  "parameters": [
+                    "PausaMarco"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Cache"
+                  },
+                  "parameters": [
+                    "PausaSel"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Cache"
+                  },
+                  "parameters": [
+                    "PausaItem"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Cache"
+                  },
+                  "parameters": [
+                    "PausaTitulo"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Montre"
+                  },
+                  "parameters": [
+                    "PausaControles",
+                    ""
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarScene"
+                  },
+                  "parameters": [
+                    "PausaSel",
+                    "=",
+                    "4"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ChangeTimeScale"
+                  },
+                  "parameters": [
+                    "",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarGlobal"
+                  },
+                  "parameters": [
+                    "Cutscene",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Scene"
+                  },
+                  "parameters": [
+                    "",
+                    "\"Title\"",
+                    "yes"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "Pausa",
+                "=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "PausaListo",
+                "=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "PausaVista",
+                ">",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::Or"
+              },
+              "parameters": [],
+              "subInstructions": [
+                {
+                  "type": {
+                    "value": "KeyFromTextPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "\"k\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "KeyFromTextPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "\"j\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "KeyFromTextPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "\"Escape\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "KeyFromTextPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "\"p\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "KeyFromTextPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "\"Return\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Gamepads::C_Button_pressed"
+                  },
+                  "parameters": [
+                    "",
+                    "1",
+                    "\"A\"",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Gamepads::C_Button_pressed"
+                  },
+                  "parameters": [
+                    "",
+                    "1",
+                    "\"B\"",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Gamepads::C_Button_pressed"
+                  },
+                  "parameters": [
+                    "",
+                    "1",
+                    "\"START\"",
+                    ""
+                  ]
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "PausaListo",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "BitmapText::BitmapTextObject::SetText"
+              },
+              "parameters": [
+                "PausaTitulo",
+                "=",
+                "\"PAUSA\""
+              ]
+            },
+            {
+              "type": {
+                "value": "Montre"
+              },
+              "parameters": [
+                "PausaFondo",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "Montre"
+              },
+              "parameters": [
+                "PausaMarco",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "Montre"
+              },
+              "parameters": [
+                "PausaSel",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "Montre"
+              },
+              "parameters": [
+                "PausaTitulo",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "Montre"
+              },
+              "parameters": [
+                "PausaItem",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "Cache"
+              },
+              "parameters": [
+                "PausaControles"
+              ]
+            },
+            {
+              "type": {
+                "value": "Cache"
+              },
+              "parameters": [
+                "MapaZona"
+              ]
+            },
+            {
+              "type": {
+                "value": "Cache"
+              },
+              "parameters": [
+                "MapaMarca"
+              ]
+            },
+            {
+              "type": {
+                "value": "Cache"
+              },
+              "parameters": [
+                "MapaLeyenda"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "PausaVista",
+                "=",
+                "0"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "Pausa",
+                "=",
+                "1"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "MettreXY"
+              },
+              "parameters": [
+                "PausaFondo",
+                "=",
+                "CameraX(\"GUI\",0)-640",
+                "=",
+                "CameraY(\"GUI\",0)-360"
+              ]
+            },
+            {
+              "type": {
+                "value": "ChangeWidth"
+              },
+              "parameters": [
+                "PausaFondo",
+                "=",
+                "1280"
+              ]
+            },
+            {
+              "type": {
+                "value": "ChangeHeight"
+              },
+              "parameters": [
+                "PausaFondo",
+                "=",
+                "720"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreXY"
+              },
+              "parameters": [
+                "PausaMarco",
+                "=",
+                "CameraX(\"GUI\",0)-230",
+                "=",
+                "CameraY(\"GUI\",0)-200"
+              ]
+            },
+            {
+              "type": {
+                "value": "SetCenterX"
+              },
+              "parameters": [
+                "PausaItem",
+                "=",
+                "CameraX(\"GUI\",0)"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreXY"
+              },
+              "parameters": [
+                "MapaZona",
+                "=",
+                "CameraX(\"GUI\",0)-(MapaZona.Width()/2)",
+                "=",
+                "CameraY(\"GUI\",0)-(MapaZona.Height()/2)+10"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreXY"
+              },
+              "parameters": [
+                "PausaControles",
+                "=",
+                "CameraX(\"GUI\",0)-(PausaControles.Width()/2)",
+                "=",
+                "CameraY(\"GUI\",0)-(PausaControles.Height()/2)"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreXY"
+              },
+              "parameters": [
+                "MapaLeyenda",
+                "=",
+                "CameraX(\"GUI\",0)-(MapaLeyenda.Width()/2)",
+                "=",
+                "CameraY(\"GUI\",0)+318"
+              ]
+            }
+          ],
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarScene"
+                  },
+                  "parameters": [
+                    "PausaVista",
+                    "=",
+                    "0"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "MettreXY"
+                  },
+                  "parameters": [
+                    "PausaTitulo",
+                    "=",
+                    "CameraX(\"GUI\",0)-(PausaTitulo.Width()/2)",
+                    "=",
+                    "CameraY(\"GUI\",0)-185"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarScene"
+                  },
+                  "parameters": [
+                    "PausaVista",
+                    ">",
+                    "0"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "MettreXY"
+                  },
+                  "parameters": [
+                    "PausaTitulo",
+                    "=",
+                    "CameraX(\"GUI\",0)-(PausaTitulo.Width()/2)",
+                    "=",
+                    "CameraY(\"GUI\",0)-350"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarObjet"
+                  },
+                  "parameters": [
+                    "PausaItem",
+                    "N",
+                    "=",
+                    "Variable(PausaSel)"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "MettreXY"
+                  },
+                  "parameters": [
+                    "PausaSel",
+                    "=",
+                    "PausaItem.CenterX()-(PausaSel.Width()/2)",
+                    "=",
+                    "PausaItem.CenterY()-(PausaSel.Height()/2)"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "Zona",
+                    "=",
+                    "\"Iglesia\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "MettreXY"
+                  },
+                  "parameters": [
+                    "MapaMarca",
+                    "=",
+                    "MapaZona.X()+14+(HeroHitbox.CenterX()-0)*0.140625",
+                    "=",
+                    "MapaZona.Y()+14+(HeroHitbox.CenterY()-0)*0.140625"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "Zona",
+                    "=",
+                    "\"Pueblo\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "MettreXY"
+                  },
+                  "parameters": [
+                    "MapaMarca",
+                    "=",
+                    "MapaZona.X()+14+(HeroHitbox.CenterX()-5760)*0.109375",
+                    "=",
+                    "MapaZona.Y()+14+(HeroHitbox.CenterY()-0)*0.109375"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "Zona",
+                    "=",
+                    "\"Bosque\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "MettreXY"
+                  },
+                  "parameters": [
+                    "MapaMarca",
+                    "=",
+                    "MapaZona.X()+14+(HeroHitbox.CenterX()-13440)*0.109375",
+                    "=",
+                    "MapaZona.Y()+14+(HeroHitbox.CenterY()-0)*0.109375"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "Zona",
+                    "=",
+                    "\"Secreto\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "MettreXY"
+                  },
+                  "parameters": [
+                    "MapaMarca",
+                    "=",
+                    "MapaZona.CenterX()",
+                    "=",
+                    "MapaZona.CenterY()+40"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "FlippedX"
+                  },
+                  "parameters": [
+                    "Hero"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "FlipX"
+                  },
+                  "parameters": [
+                    "MapaMarca",
+                    "yes"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": true,
+                    "value": "FlippedX"
+                  },
+                  "parameters": [
+                    "Hero"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "FlipX"
+                  },
+                  "parameters": [
+                    "MapaMarca",
+                    "no"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": []
+    },
+    {
+      "colorB": 228,
+      "colorG": 176,
+      "colorR": 74,
+      "creationTime": 0,
+      "folded": true,
+      "name": "Luces",
+      "source": "",
+      "type": "BuiltinCommonInstructions::Group",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "color": {
+            "b": 109,
+            "g": 230,
+            "r": 255,
+            "textB": 0,
+            "textG": 0,
+            "textR": 0
+          },
+          "comment": "Iluminacion 2D: luz artificial (velas, faroles, altares, hongos) que parpadea y luz natural (rayos de luna/sol y resplandor lunar). Vineta oscura alrededor de la pantalla."
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "ChangeOpacity"
+              },
+              "parameters": [
+                "Luz",
+                "=",
+                "clamp(Luz.Variable(base)+28*sin(TimeFromStart()*9+Luz.X()*0.37)+12*sin(TimeFromStart()*23+Luz.Y()), 0, 255)"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "ChangeOpacity"
+              },
+              "parameters": [
+                "LuzVerde",
+                "=",
+                "clamp(LuzVerde.Variable(base)+40*sin(TimeFromStart()*2+LuzVerde.X()*0.1), 0, 255)"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "ChangeOpacity"
+              },
+              "parameters": [
+                "LuzFria",
+                "=",
+                "clamp(LuzFria.Variable(base)+20*sin(TimeFromStart()*0.8+LuzFria.X()*0.01), 0, 255)"
+              ]
+            },
+            {
+              "type": {
+                "value": "ChangeOpacity"
+              },
+              "parameters": [
+                "Rayo",
+                "=",
+                "150+50*sin(TimeFromStart()*0.7+Rayo.X()*0.01)"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "MettreXY"
+              },
+              "parameters": [
+                "Vineta",
+                "=",
+                "CameraX(\"GUI\",0)-640",
+                "=",
+                "CameraY(\"GUI\",0)-360"
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": []
+    },
+    {
+      "colorB": 228,
+      "colorG": 176,
+      "colorR": 74,
+      "creationTime": 0,
+      "folded": true,
+      "name": "Particulas",
+      "source": "",
+      "type": "BuiltinCommonInstructions::Group",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "color": {
+            "b": 109,
+            "g": 230,
+            "r": 255,
+            "textB": 0,
+            "textG": 0,
+            "textR": 0
+          },
+          "comment": "Sistemas de particulas: polvo (Iglesia), ascuas y ceniza (Pueblo), luciernagas y hojas (Bosque), chispas de explosion, chispas doradas del altar y del coleccionable."
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "ObjectTimer"
+              },
+              "parameters": [
+                "Vineta",
+                "\"sp\"",
+                "0.14"
+              ]
+            },
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "Pausa",
+                "=",
+                "0"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ResetObjectTimer"
+              },
+              "parameters": [
+                "Vineta",
+                "\"sp\""
+              ]
+            }
+          ],
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "Zona",
+                    "=",
+                    "\"Iglesia\""
+                  ]
+                }
+              ],
+              "actions": [],
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "Create"
+                      },
+                      "parameters": [
+                        "",
+                        "Particula",
+                        "CameraX(\"\",0)-640+Random(1280)",
+                        "CameraY(\"\",0)-360+Random(720)",
+                        "\"\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "SetAnimationName"
+                      },
+                      "parameters": [
+                        "Particula",
+                        "\"Polvo\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "AddForceXY"
+                      },
+                      "parameters": [
+                        "Particula",
+                        "RandomInRange(-15,15)",
+                        "RandomInRange(-14,6)",
+                        "1"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ModVarObjet"
+                      },
+                      "parameters": [
+                        "Particula",
+                        "life",
+                        "=",
+                        "3.5"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ModVarObjet"
+                      },
+                      "parameters": [
+                        "Particula",
+                        "a",
+                        "=",
+                        "170"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ResetObjectTimer"
+                      },
+                      "parameters": [
+                        "Particula",
+                        "\"p\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ChangeOpacity"
+                      },
+                      "parameters": [
+                        "Particula",
+                        "=",
+                        "0"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ChangePlan"
+                      },
+                      "parameters": [
+                        "Particula",
+                        "=",
+                        "9000"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "Zona",
+                    "=",
+                    "\"Pueblo\""
+                  ]
+                }
+              ],
+              "actions": [],
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "Create"
+                      },
+                      "parameters": [
+                        "",
+                        "Particula",
+                        "CameraX(\"\",0)-640+Random(1280)",
+                        "CameraY(\"\",0)+300+Random(80)",
+                        "\"\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "SetAnimationName"
+                      },
+                      "parameters": [
+                        "Particula",
+                        "\"Ascua\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "AddForceXY"
+                      },
+                      "parameters": [
+                        "Particula",
+                        "RandomInRange(-25,25)",
+                        "RandomInRange(-110,-60)",
+                        "1"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ModVarObjet"
+                      },
+                      "parameters": [
+                        "Particula",
+                        "life",
+                        "=",
+                        "3"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ModVarObjet"
+                      },
+                      "parameters": [
+                        "Particula",
+                        "a",
+                        "=",
+                        "255"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ResetObjectTimer"
+                      },
+                      "parameters": [
+                        "Particula",
+                        "\"p\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ChangeOpacity"
+                      },
+                      "parameters": [
+                        "Particula",
+                        "=",
+                        "0"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ChangePlan"
+                      },
+                      "parameters": [
+                        "Particula",
+                        "=",
+                        "9000"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "Create"
+                      },
+                      "parameters": [
+                        "",
+                        "Particula",
+                        "CameraX(\"\",0)-640+Random(1280)",
+                        "CameraY(\"\",0)-380",
+                        "\"\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "SetAnimationName"
+                      },
+                      "parameters": [
+                        "Particula",
+                        "\"Ceniza\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "AddForceXY"
+                      },
+                      "parameters": [
+                        "Particula",
+                        "RandomInRange(-20,20)",
+                        "RandomInRange(30,60)",
+                        "1"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ModVarObjet"
+                      },
+                      "parameters": [
+                        "Particula",
+                        "life",
+                        "=",
+                        "5"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ModVarObjet"
+                      },
+                      "parameters": [
+                        "Particula",
+                        "a",
+                        "=",
+                        "200"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ResetObjectTimer"
+                      },
+                      "parameters": [
+                        "Particula",
+                        "\"p\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ChangeOpacity"
+                      },
+                      "parameters": [
+                        "Particula",
+                        "=",
+                        "0"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ChangePlan"
+                      },
+                      "parameters": [
+                        "Particula",
+                        "=",
+                        "9000"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "Zona",
+                    "=",
+                    "\"Bosque\""
+                  ]
+                }
+              ],
+              "actions": [],
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "Create"
+                      },
+                      "parameters": [
+                        "",
+                        "Particula",
+                        "CameraX(\"\",0)-640+Random(1280)",
+                        "CameraY(\"\",0)-360+Random(720)",
+                        "\"\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "SetAnimationName"
+                      },
+                      "parameters": [
+                        "Particula",
+                        "\"Luciernaga\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "AddForceXY"
+                      },
+                      "parameters": [
+                        "Particula",
+                        "RandomInRange(-30,30)",
+                        "RandomInRange(-30,30)",
+                        "1"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ModVarObjet"
+                      },
+                      "parameters": [
+                        "Particula",
+                        "life",
+                        "=",
+                        "2.6"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ModVarObjet"
+                      },
+                      "parameters": [
+                        "Particula",
+                        "a",
+                        "=",
+                        "255"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ResetObjectTimer"
+                      },
+                      "parameters": [
+                        "Particula",
+                        "\"p\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ChangeOpacity"
+                      },
+                      "parameters": [
+                        "Particula",
+                        "=",
+                        "0"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ChangePlan"
+                      },
+                      "parameters": [
+                        "Particula",
+                        "=",
+                        "9000"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "Create"
+                      },
+                      "parameters": [
+                        "",
+                        "Particula",
+                        "CameraX(\"\",0)-640+Random(1280)",
+                        "CameraY(\"\",0)-380",
+                        "\"\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "SetAnimationName"
+                      },
+                      "parameters": [
+                        "Particula",
+                        "\"Hoja\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "AddForceXY"
+                      },
+                      "parameters": [
+                        "Particula",
+                        "RandomInRange(10,50)",
+                        "RandomInRange(45,80)",
+                        "1"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ModVarObjet"
+                      },
+                      "parameters": [
+                        "Particula",
+                        "life",
+                        "=",
+                        "6"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ModVarObjet"
+                      },
+                      "parameters": [
+                        "Particula",
+                        "a",
+                        "=",
+                        "230"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ResetObjectTimer"
+                      },
+                      "parameters": [
+                        "Particula",
+                        "\"p\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ChangeOpacity"
+                      },
+                      "parameters": [
+                        "Particula",
+                        "=",
+                        "0"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ChangePlan"
+                      },
+                      "parameters": [
+                        "Particula",
+                        "=",
+                        "9000"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "Zona",
+                    "=",
+                    "\"Secreto\""
+                  ]
+                }
+              ],
+              "actions": [],
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "Create"
+                      },
+                      "parameters": [
+                        "",
+                        "Particula",
+                        "CameraX(\"\",0)-640+Random(1280)",
+                        "CameraY(\"\",0)-360+Random(720)",
+                        "\"\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "SetAnimationName"
+                      },
+                      "parameters": [
+                        "Particula",
+                        "\"Polvo\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "AddForceXY"
+                      },
+                      "parameters": [
+                        "Particula",
+                        "RandomInRange(-10,10)",
+                        "RandomInRange(-20,-5)",
+                        "1"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ModVarObjet"
+                      },
+                      "parameters": [
+                        "Particula",
+                        "life",
+                        "=",
+                        "3"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ModVarObjet"
+                      },
+                      "parameters": [
+                        "Particula",
+                        "a",
+                        "=",
+                        "170"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ResetObjectTimer"
+                      },
+                      "parameters": [
+                        "Particula",
+                        "\"p\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ChangeOpacity"
+                      },
+                      "parameters": [
+                        "Particula",
+                        "=",
+                        "0"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ChangePlan"
+                      },
+                      "parameters": [
+                        "Particula",
+                        "=",
+                        "9000"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "VarObjet"
+              },
+              "parameters": [
+                "Particula",
+                "life",
+                ">",
+                "0"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ChangeOpacity"
+              },
+              "parameters": [
+                "Particula",
+                "=",
+                "Particula.Variable(a)*sin(clamp(Particula.ObjectTimerElapsedTime(\"p\")/Particula.Variable(life),0,1)*3.14159)"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "ObjectTimer"
+              },
+              "parameters": [
+                "Particula",
+                "\"p\"",
+                "Particula.Variable(life)"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Delete"
+              },
+              "parameters": [
+                "Particula",
+                ""
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::ForEach",
+          "object": "EnemyDeathFire",
+          "conditions": [
+            {
+              "type": {
+                "value": "VarObjet"
+              },
+              "parameters": [
+                "EnemyDeathFire",
+                "Chispas",
+                "=",
+                "0"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ModVarObjet"
+              },
+              "parameters": [
+                "EnemyDeathFire",
+                "Chispas",
+                "=",
+                "1"
+              ]
+            }
+          ],
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Create"
+                  },
+                  "parameters": [
+                    "",
+                    "Particula",
+                    "EnemyDeathFire.CenterX()",
+                    "EnemyDeathFire.CenterY()",
+                    "\"\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetAnimationName"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "\"Chispa\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "AddForceXY"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "260+RandomInRange(-40,40)",
+                    "0+RandomInRange(-40,40)",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "life",
+                    "=",
+                    "0.7"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "a",
+                    "=",
+                    "255"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ResetObjectTimer"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "\"p\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ChangeOpacity"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ChangePlan"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "=",
+                    "9000"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Create"
+                  },
+                  "parameters": [
+                    "",
+                    "Particula",
+                    "EnemyDeathFire.CenterX()",
+                    "EnemyDeathFire.CenterY()",
+                    "\"\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetAnimationName"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "\"Chispa\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "AddForceXY"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "210+RandomInRange(-40,40)",
+                    "152+RandomInRange(-40,40)",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "life",
+                    "=",
+                    "0.7"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "a",
+                    "=",
+                    "255"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ResetObjectTimer"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "\"p\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ChangeOpacity"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ChangePlan"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "=",
+                    "9000"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Create"
+                  },
+                  "parameters": [
+                    "",
+                    "Particula",
+                    "EnemyDeathFire.CenterX()",
+                    "EnemyDeathFire.CenterY()",
+                    "\"\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetAnimationName"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "\"Chispa\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "AddForceXY"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "80+RandomInRange(-40,40)",
+                    "247+RandomInRange(-40,40)",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "life",
+                    "=",
+                    "0.7"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "a",
+                    "=",
+                    "255"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ResetObjectTimer"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "\"p\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ChangeOpacity"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ChangePlan"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "=",
+                    "9000"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Create"
+                  },
+                  "parameters": [
+                    "",
+                    "Particula",
+                    "EnemyDeathFire.CenterX()",
+                    "EnemyDeathFire.CenterY()",
+                    "\"\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetAnimationName"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "\"Chispa\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "AddForceXY"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "-80+RandomInRange(-40,40)",
+                    "247+RandomInRange(-40,40)",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "life",
+                    "=",
+                    "0.7"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "a",
+                    "=",
+                    "255"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ResetObjectTimer"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "\"p\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ChangeOpacity"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ChangePlan"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "=",
+                    "9000"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Create"
+                  },
+                  "parameters": [
+                    "",
+                    "Particula",
+                    "EnemyDeathFire.CenterX()",
+                    "EnemyDeathFire.CenterY()",
+                    "\"\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetAnimationName"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "\"Chispa\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "AddForceXY"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "-210+RandomInRange(-40,40)",
+                    "152+RandomInRange(-40,40)",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "life",
+                    "=",
+                    "0.7"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "a",
+                    "=",
+                    "255"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ResetObjectTimer"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "\"p\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ChangeOpacity"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ChangePlan"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "=",
+                    "9000"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Create"
+                  },
+                  "parameters": [
+                    "",
+                    "Particula",
+                    "EnemyDeathFire.CenterX()",
+                    "EnemyDeathFire.CenterY()",
+                    "\"\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetAnimationName"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "\"Chispa\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "AddForceXY"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "-260+RandomInRange(-40,40)",
+                    "0+RandomInRange(-40,40)",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "life",
+                    "=",
+                    "0.7"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "a",
+                    "=",
+                    "255"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ResetObjectTimer"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "\"p\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ChangeOpacity"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ChangePlan"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "=",
+                    "9000"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Create"
+                  },
+                  "parameters": [
+                    "",
+                    "Particula",
+                    "EnemyDeathFire.CenterX()",
+                    "EnemyDeathFire.CenterY()",
+                    "\"\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetAnimationName"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "\"Chispa\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "AddForceXY"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "-210+RandomInRange(-40,40)",
+                    "-152+RandomInRange(-40,40)",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "life",
+                    "=",
+                    "0.7"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "a",
+                    "=",
+                    "255"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ResetObjectTimer"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "\"p\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ChangeOpacity"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ChangePlan"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "=",
+                    "9000"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Create"
+                  },
+                  "parameters": [
+                    "",
+                    "Particula",
+                    "EnemyDeathFire.CenterX()",
+                    "EnemyDeathFire.CenterY()",
+                    "\"\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetAnimationName"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "\"Chispa\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "AddForceXY"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "-80+RandomInRange(-40,40)",
+                    "-247+RandomInRange(-40,40)",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "life",
+                    "=",
+                    "0.7"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "a",
+                    "=",
+                    "255"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ResetObjectTimer"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "\"p\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ChangeOpacity"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ChangePlan"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "=",
+                    "9000"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Create"
+                  },
+                  "parameters": [
+                    "",
+                    "Particula",
+                    "EnemyDeathFire.CenterX()",
+                    "EnemyDeathFire.CenterY()",
+                    "\"\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetAnimationName"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "\"Chispa\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "AddForceXY"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "80+RandomInRange(-40,40)",
+                    "-247+RandomInRange(-40,40)",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "life",
+                    "=",
+                    "0.7"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "a",
+                    "=",
+                    "255"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ResetObjectTimer"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "\"p\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ChangeOpacity"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ChangePlan"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "=",
+                    "9000"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Create"
+                  },
+                  "parameters": [
+                    "",
+                    "Particula",
+                    "EnemyDeathFire.CenterX()",
+                    "EnemyDeathFire.CenterY()",
+                    "\"\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetAnimationName"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "\"Chispa\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "AddForceXY"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "210+RandomInRange(-40,40)",
+                    "-152+RandomInRange(-40,40)",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "life",
+                    "=",
+                    "0.7"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "a",
+                    "=",
+                    "255"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ResetObjectTimer"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "\"p\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ChangeOpacity"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ChangePlan"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "=",
+                    "9000"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "CollisionNP"
+              },
+              "parameters": [
+                "HeroHitbox",
+                "Altar",
+                "",
+                "",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "ObjectTimer"
+              },
+              "parameters": [
+                "Altar",
+                "\"ch\"",
+                "0.12"
+              ]
+            },
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "Pausa",
+                "=",
+                "0"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ResetObjectTimer"
+              },
+              "parameters": [
+                "Altar",
+                "\"ch\""
+              ]
+            }
+          ],
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Create"
+                  },
+                  "parameters": [
+                    "",
+                    "Particula",
+                    "Altar.X()+16+Random(64)",
+                    "Altar.Y()+100",
+                    "\"\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetAnimationName"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "\"Chispa\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "AddForceXY"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "RandomInRange(-10,10)",
+                    "RandomInRange(-90,-50)",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "life",
+                    "=",
+                    "1.2"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "a",
+                    "=",
+                    "255"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ResetObjectTimer"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "\"p\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ChangeOpacity"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ChangePlan"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "=",
+                    "9000"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "DepartScene"
+              },
+              "parameters": [
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ResetObjectTimer"
+              },
+              "parameters": [
+                "Vineta",
+                "\"sp\""
+              ]
+            },
+            {
+              "type": {
+                "value": "ResetObjectTimer"
+              },
+              "parameters": [
+                "Altar",
+                "\"ch\""
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": []
+    }
+  ]
+}

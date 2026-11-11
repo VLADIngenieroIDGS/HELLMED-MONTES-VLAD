@@ -1,0 +1,1930 @@
+{
+  "associatedLayout": "Stage",
+  "name": "Heridos",
+  "events": [
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "color": {
+        "b": 109,
+        "g": 230,
+        "r": 255,
+        "textB": 0,
+        "textG": 0,
+        "textR": 0
+      },
+      "comment": "HELLMED - Heridos. El Padre (sacerdote y medico) puede curar a los aldeanos heridos con W.\nCada uno da una recompensa (variable Premio): Botiquin (H para usarlo), VidaMax (+100 de vida), EstaminaMax (+25) o Fuerza (+4 de dano).\nLos heridos ya curados se guardan en Prog.NPC y los bonos en Prog.BonusHP / BonusStam / BonusDMG."
+    },
+    {
+      "colorB": 228,
+      "colorG": 176,
+      "colorR": 74,
+      "creationTime": 0,
+      "folded": true,
+      "name": "Inicio",
+      "source": "",
+      "type": "BuiltinCommonInstructions::Group",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "DepartScene"
+              },
+              "parameters": [
+                ""
+              ]
+            }
+          ],
+          "actions": [],
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarGlobal"
+                  },
+                  "parameters": [
+                    "Prog.BonusHP",
+                    ">",
+                    "0"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Hero",
+                    "heroMaxHP",
+                    "=",
+                    "Hero.Variable(heroMaxHP)+GlobalVariable(Prog.BonusHP)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Hero",
+                    "heroHP",
+                    "=",
+                    "Hero.Variable(heroMaxHP)"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarGlobal"
+                  },
+                  "parameters": [
+                    "Prog.BonusStam",
+                    ">",
+                    "0"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Hero",
+                    "heroMaxStam",
+                    "=",
+                    "Hero.Variable(heroMaxStam)+GlobalVariable(Prog.BonusStam)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Hero",
+                    "heroStam",
+                    "=",
+                    "Hero.Variable(heroMaxStam)"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::ForEach",
+              "object": "Herido",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarGlobal"
+                  },
+                  "parameters": [
+                    "Prog.NPC[ToString(Herido.Variable(Id))]",
+                    "=",
+                    "GlobalVariable(Prog.Partida)"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Herido",
+                    "Estado",
+                    "=",
+                    "2"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetAnimationName"
+                  },
+                  "parameters": [
+                    "Herido",
+                    "\"Agradeciendo\""
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": []
+    },
+    {
+      "colorB": 228,
+      "colorG": 176,
+      "colorR": 74,
+      "creationTime": 0,
+      "folded": true,
+      "name": "Curar",
+      "source": "",
+      "type": "BuiltinCommonInstructions::Group",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "CollisionNP"
+              },
+              "parameters": [
+                "HeroHitbox",
+                "Herido",
+                "",
+                "",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "VarObjet"
+              },
+              "parameters": [
+                "Herido",
+                "Estado",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "Pausa",
+                "=",
+                "0"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "BitmapText::BitmapTextObject::SetText"
+              },
+              "parameters": [
+                "MsgText",
+                "=",
+                "Herido.VariableString(Texto)"
+              ]
+            },
+            {
+              "type": {
+                "value": "ResetObjectTimer"
+              },
+              "parameters": [
+                "MsgText",
+                "\"Msg\""
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "CollisionNP"
+              },
+              "parameters": [
+                "HeroHitbox",
+                "Herido",
+                "",
+                "",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "VarObjet"
+              },
+              "parameters": [
+                "Herido",
+                "Estado",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "VarGlobal"
+              },
+              "parameters": [
+                "Cutscene",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::Or"
+              },
+              "parameters": [],
+              "subInstructions": [
+                {
+                  "type": {
+                    "value": "KeyFromTextPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "GlobalVariableString(keyboardUp)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Gamepads::C_Button_pressed"
+                  },
+                  "parameters": [
+                    "",
+                    "1",
+                    "GlobalVariableString(gamepadUp)",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Gamepads::C_Axis_pushed"
+                  },
+                  "parameters": [
+                    "",
+                    "1",
+                    "\"LEFT\"",
+                    "\"UP\"",
+                    ""
+                  ]
+                }
+              ]
+            },
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::Once"
+              },
+              "parameters": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ModVarObjet"
+              },
+              "parameters": [
+                "Herido",
+                "Estado",
+                "=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "SetAnimationName"
+              },
+              "parameters": [
+                "Herido",
+                "\"Sanando\""
+              ]
+            },
+            {
+              "type": {
+                "value": "ResetObjectTimer"
+              },
+              "parameters": [
+                "Herido",
+                "\"chis\""
+              ]
+            },
+            {
+              "type": {
+                "value": "PlaySoundCanal"
+              },
+              "parameters": [
+                "",
+                "Select.wav",
+                "16",
+                "",
+                "80",
+                "0.7"
+              ]
+            },
+            {
+              "type": {
+                "value": "BitmapText::BitmapTextObject::SetText"
+              },
+              "parameters": [
+                "MsgText",
+                "=",
+                "\"EL PADRE ATIENDE SUS HERIDAS...\""
+              ]
+            },
+            {
+              "type": {
+                "value": "ResetObjectTimer"
+              },
+              "parameters": [
+                "MsgText",
+                "\"Msg\""
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "VarObjet"
+              },
+              "parameters": [
+                "Herido",
+                "Estado",
+                "=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "ObjectTimer"
+              },
+              "parameters": [
+                "Herido",
+                "\"chis\"",
+                "0.08"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ResetObjectTimer"
+              },
+              "parameters": [
+                "Herido",
+                "\"chis\""
+              ]
+            }
+          ],
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Create"
+                  },
+                  "parameters": [
+                    "",
+                    "Particula",
+                    "Herido.X()+60+Random(80)",
+                    "Herido.Y()+80+Random(110)",
+                    "\"\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetAnimationName"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "\"Luciernaga\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "AddForceXY"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "RandomInRange(-20,20)",
+                    "RandomInRange(-90,-40)",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "life",
+                    "=",
+                    "1.0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "a",
+                    "=",
+                    "255"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ResetObjectTimer"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "\"p\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ChangeOpacity"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ChangePlan"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "=",
+                    "9000"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::ForEach",
+          "object": "Herido",
+          "conditions": [
+            {
+              "type": {
+                "value": "VarObjet"
+              },
+              "parameters": [
+                "Herido",
+                "Estado",
+                "=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "AnimationEnded"
+              },
+              "parameters": [
+                "Herido"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ModVarObjet"
+              },
+              "parameters": [
+                "Herido",
+                "Estado",
+                "=",
+                "2"
+              ]
+            },
+            {
+              "type": {
+                "value": "SetAnimationName"
+              },
+              "parameters": [
+                "Herido",
+                "\"Agradeciendo\""
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarGlobal"
+              },
+              "parameters": [
+                "Prog.NPC[ToString(Herido.Variable(Id))]",
+                "=",
+                "GlobalVariable(Prog.Partida)"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarGlobal"
+              },
+              "parameters": [
+                "Prog.Puntos",
+                "+",
+                "300"
+              ]
+            },
+            {
+              "type": {
+                "value": "BitmapText::BitmapTextObject::SetText"
+              },
+              "parameters": [
+                "MsgText",
+                "=",
+                "Herido.VariableString(Gracias)"
+              ]
+            },
+            {
+              "type": {
+                "value": "ResetObjectTimer"
+              },
+              "parameters": [
+                "MsgText",
+                "\"Msg\""
+              ]
+            },
+            {
+              "type": {
+                "value": "Create"
+              },
+              "parameters": [
+                "",
+                "DmgText",
+                "Herido.CenterX()",
+                "Herido.Y()",
+                "\"\""
+              ]
+            },
+            {
+              "type": {
+                "value": "BitmapText::BitmapTextObject::SetText"
+              },
+              "parameters": [
+                "DmgText",
+                "=",
+                "\"+300\""
+              ]
+            },
+            {
+              "type": {
+                "value": "ResetObjectTimer"
+              },
+              "parameters": [
+                "DmgText",
+                "\"t\""
+              ]
+            },
+            {
+              "type": {
+                "value": "PlaySoundCanal"
+              },
+              "parameters": [
+                "",
+                "Select.wav",
+                "16",
+                "",
+                "90",
+                "1.6"
+              ]
+            }
+          ],
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarObjetTxt"
+                  },
+                  "parameters": [
+                    "Herido",
+                    "Premio",
+                    "=",
+                    "\"Botiquin\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarGlobal"
+                  },
+                  "parameters": [
+                    "Prog.Botiquines",
+                    "+",
+                    "1"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarObjetTxt"
+                  },
+                  "parameters": [
+                    "Herido",
+                    "Premio",
+                    "=",
+                    "\"VidaMax\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarGlobal"
+                  },
+                  "parameters": [
+                    "Prog.BonusHP",
+                    "+",
+                    "100"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Hero",
+                    "heroMaxHP",
+                    "=",
+                    "Hero.Variable(heroMaxHP)+100"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Hero",
+                    "heroHP",
+                    "=",
+                    "Hero.Variable(heroMaxHP)"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarObjetTxt"
+                  },
+                  "parameters": [
+                    "Herido",
+                    "Premio",
+                    "=",
+                    "\"EstaminaMax\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarGlobal"
+                  },
+                  "parameters": [
+                    "Prog.BonusStam",
+                    "+",
+                    "25"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Hero",
+                    "heroMaxStam",
+                    "=",
+                    "Hero.Variable(heroMaxStam)+25"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Hero",
+                    "heroStam",
+                    "=",
+                    "Hero.Variable(heroMaxStam)"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarObjetTxt"
+                  },
+                  "parameters": [
+                    "Herido",
+                    "Premio",
+                    "=",
+                    "\"Fuerza\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarGlobal"
+                  },
+                  "parameters": [
+                    "Prog.BonusDMG",
+                    "+",
+                    "4"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "PosX"
+              },
+              "parameters": [
+                "Herido",
+                "<",
+                "HeroHitbox.X()-60"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "FlipX"
+              },
+              "parameters": [
+                "Herido",
+                "no"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "PosX"
+              },
+              "parameters": [
+                "Herido",
+                ">=",
+                "HeroHitbox.X()-60"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "FlipX"
+              },
+              "parameters": [
+                "Herido",
+                "yes"
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": []
+    },
+    {
+      "colorB": 228,
+      "colorG": 176,
+      "colorR": 74,
+      "creationTime": 0,
+      "folded": true,
+      "name": "Botiquin",
+      "source": "",
+      "type": "BuiltinCommonInstructions::Group",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "color": {
+            "b": 109,
+            "g": 230,
+            "r": 255,
+            "textB": 0,
+            "textG": 0,
+            "textR": 0
+          },
+          "comment": "H usa un botiquin: cura la mitad de la vida maxima."
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::Or"
+              },
+              "parameters": [],
+              "subInstructions": [
+                {
+                  "type": {
+                    "value": "KeyFromTextPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "\"h\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Gamepads::C_Button_pressed"
+                  },
+                  "parameters": [
+                    "",
+                    "1",
+                    "\"RB\"",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Gamepads::C_Button_pressed"
+                  },
+                  "parameters": [
+                    "",
+                    "1",
+                    "\"LB\"",
+                    ""
+                  ]
+                }
+              ]
+            },
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::Once"
+              },
+              "parameters": []
+            },
+            {
+              "type": {
+                "value": "VarGlobal"
+              },
+              "parameters": [
+                "Prog.Botiquines",
+                ">",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "Pausa",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "VarObjet"
+              },
+              "parameters": [
+                "Hero",
+                "heroHP",
+                "<",
+                "Hero.Variable(heroMaxHP)"
+              ]
+            },
+            {
+              "type": {
+                "value": "VarObjet"
+              },
+              "parameters": [
+                "Hero",
+                "heroHP",
+                ">",
+                "0"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ModVarObjet"
+              },
+              "parameters": [
+                "Hero",
+                "heroHP",
+                "=",
+                "min(Hero.Variable(heroMaxHP), Hero.Variable(heroHP)+Hero.Variable(heroMaxHP)/2)"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarGlobal"
+              },
+              "parameters": [
+                "Prog.Botiquines",
+                "-",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "PlaySoundCanal"
+              },
+              "parameters": [
+                "",
+                "Select.wav",
+                "16",
+                "",
+                "90",
+                "0.9"
+              ]
+            },
+            {
+              "type": {
+                "value": "BitmapText::BitmapTextObject::SetText"
+              },
+              "parameters": [
+                "MsgText",
+                "=",
+                "\"BOTIQUIN USADO: +VIDA\""
+              ]
+            },
+            {
+              "type": {
+                "value": "ResetObjectTimer"
+              },
+              "parameters": [
+                "MsgText",
+                "\"Msg\""
+              ]
+            }
+          ],
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Create"
+                  },
+                  "parameters": [
+                    "",
+                    "Particula",
+                    "HeroHitbox.X()+Random(104)",
+                    "HeroHitbox.Y()+40+Random(140)",
+                    "\"\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetAnimationName"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "\"Luciernaga\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "AddForceXY"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "RandomInRange(-20,20)",
+                    "RandomInRange(-120,-60)",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "life",
+                    "=",
+                    "0.9"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "a",
+                    "=",
+                    "255"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ResetObjectTimer"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "\"p\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ChangeOpacity"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ChangePlan"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "=",
+                    "9000"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Create"
+                  },
+                  "parameters": [
+                    "",
+                    "Particula",
+                    "HeroHitbox.X()+Random(104)",
+                    "HeroHitbox.Y()+40+Random(140)",
+                    "\"\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetAnimationName"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "\"Luciernaga\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "AddForceXY"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "RandomInRange(-20,20)",
+                    "RandomInRange(-120,-60)",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "life",
+                    "=",
+                    "0.9"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "a",
+                    "=",
+                    "255"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ResetObjectTimer"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "\"p\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ChangeOpacity"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ChangePlan"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "=",
+                    "9000"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Create"
+                  },
+                  "parameters": [
+                    "",
+                    "Particula",
+                    "HeroHitbox.X()+Random(104)",
+                    "HeroHitbox.Y()+40+Random(140)",
+                    "\"\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetAnimationName"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "\"Luciernaga\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "AddForceXY"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "RandomInRange(-20,20)",
+                    "RandomInRange(-120,-60)",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "life",
+                    "=",
+                    "0.9"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "a",
+                    "=",
+                    "255"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ResetObjectTimer"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "\"p\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ChangeOpacity"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ChangePlan"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "=",
+                    "9000"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Create"
+                  },
+                  "parameters": [
+                    "",
+                    "Particula",
+                    "HeroHitbox.X()+Random(104)",
+                    "HeroHitbox.Y()+40+Random(140)",
+                    "\"\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetAnimationName"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "\"Luciernaga\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "AddForceXY"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "RandomInRange(-20,20)",
+                    "RandomInRange(-120,-60)",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "life",
+                    "=",
+                    "0.9"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "a",
+                    "=",
+                    "255"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ResetObjectTimer"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "\"p\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ChangeOpacity"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ChangePlan"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "=",
+                    "9000"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Create"
+                  },
+                  "parameters": [
+                    "",
+                    "Particula",
+                    "HeroHitbox.X()+Random(104)",
+                    "HeroHitbox.Y()+40+Random(140)",
+                    "\"\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetAnimationName"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "\"Luciernaga\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "AddForceXY"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "RandomInRange(-20,20)",
+                    "RandomInRange(-120,-60)",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "life",
+                    "=",
+                    "0.9"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "a",
+                    "=",
+                    "255"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ResetObjectTimer"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "\"p\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ChangeOpacity"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ChangePlan"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "=",
+                    "9000"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Create"
+                  },
+                  "parameters": [
+                    "",
+                    "Particula",
+                    "HeroHitbox.X()+Random(104)",
+                    "HeroHitbox.Y()+40+Random(140)",
+                    "\"\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetAnimationName"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "\"Luciernaga\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "AddForceXY"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "RandomInRange(-20,20)",
+                    "RandomInRange(-120,-60)",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "life",
+                    "=",
+                    "0.9"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "a",
+                    "=",
+                    "255"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ResetObjectTimer"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "\"p\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ChangeOpacity"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ChangePlan"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "=",
+                    "9000"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Create"
+                  },
+                  "parameters": [
+                    "",
+                    "Particula",
+                    "HeroHitbox.X()+Random(104)",
+                    "HeroHitbox.Y()+40+Random(140)",
+                    "\"\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetAnimationName"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "\"Luciernaga\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "AddForceXY"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "RandomInRange(-20,20)",
+                    "RandomInRange(-120,-60)",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "life",
+                    "=",
+                    "0.9"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "a",
+                    "=",
+                    "255"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ResetObjectTimer"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "\"p\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ChangeOpacity"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ChangePlan"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "=",
+                    "9000"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Create"
+                  },
+                  "parameters": [
+                    "",
+                    "Particula",
+                    "HeroHitbox.X()+Random(104)",
+                    "HeroHitbox.Y()+40+Random(140)",
+                    "\"\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetAnimationName"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "\"Luciernaga\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "AddForceXY"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "RandomInRange(-20,20)",
+                    "RandomInRange(-120,-60)",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "life",
+                    "=",
+                    "0.9"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "a",
+                    "=",
+                    "255"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ResetObjectTimer"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "\"p\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ChangeOpacity"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ChangePlan"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "=",
+                    "9000"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Create"
+                  },
+                  "parameters": [
+                    "",
+                    "Particula",
+                    "HeroHitbox.X()+Random(104)",
+                    "HeroHitbox.Y()+40+Random(140)",
+                    "\"\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetAnimationName"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "\"Luciernaga\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "AddForceXY"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "RandomInRange(-20,20)",
+                    "RandomInRange(-120,-60)",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "life",
+                    "=",
+                    "0.9"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "a",
+                    "=",
+                    "255"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ResetObjectTimer"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "\"p\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ChangeOpacity"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ChangePlan"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "=",
+                    "9000"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Create"
+                  },
+                  "parameters": [
+                    "",
+                    "Particula",
+                    "HeroHitbox.X()+Random(104)",
+                    "HeroHitbox.Y()+40+Random(140)",
+                    "\"\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetAnimationName"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "\"Luciernaga\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "AddForceXY"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "RandomInRange(-20,20)",
+                    "RandomInRange(-120,-60)",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "life",
+                    "=",
+                    "0.9"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "a",
+                    "=",
+                    "255"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ResetObjectTimer"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "\"p\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ChangeOpacity"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ChangePlan"
+                  },
+                  "parameters": [
+                    "Particula",
+                    "=",
+                    "9000"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "BitmapText::BitmapTextObject::SetText"
+              },
+              "parameters": [
+                "GUIBotiquines",
+                "=",
+                "\"BOTIQUINES: \"+ToString(GlobalVariable(Prog.Botiquines))+\"  (H)\""
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": []
+    }
+  ]
+}

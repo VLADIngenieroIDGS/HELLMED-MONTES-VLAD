@@ -1,0 +1,2787 @@
+{
+  "associatedLayout": "Stage",
+  "name": "Detalles",
+  "events": [
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "color": {
+        "b": 109,
+        "g": 230,
+        "r": 255,
+        "textB": 0,
+        "textG": 0,
+        "textR": 0
+      },
+      "comment": "HELLMED - Detalles: retrato y llaves en pantalla, globo de dialogo de Phantom, minimapa, sombra a los pies,\nofrendas en los altares (W en un altar), Renacer de Phantom (una vez por zona) y habilidades de movimiento siempre activas."
+    },
+    {
+      "colorB": 228,
+      "colorG": 176,
+      "colorR": 74,
+      "creationTime": 0,
+      "folded": true,
+      "name": "Inicio",
+      "source": "",
+      "type": "BuiltinCommonInstructions::Group",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "DepartScene"
+              },
+              "parameters": [
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ModVarGlobal"
+              },
+              "parameters": [
+                "Prog.HasDash",
+                "=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarGlobal"
+              },
+              "parameters": [
+                "Prog.HasDJ",
+                "=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "Cache"
+              },
+              "parameters": [
+                "OfrendaUI"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "Tienda",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarObjet"
+              },
+              "parameters": [
+                "PhantomTexto",
+                "on",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "ResetObjectTimer"
+              },
+              "parameters": [
+                "Phantom",
+                "\"habla\""
+              ]
+            },
+            {
+              "type": {
+                "value": "Cache"
+              },
+              "parameters": [
+                "PhantomGlobo"
+              ]
+            },
+            {
+              "type": {
+                "value": "Cache"
+              },
+              "parameters": [
+                "PhantomTexto"
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": []
+    },
+    {
+      "colorB": 228,
+      "colorG": 176,
+      "colorR": 74,
+      "creationTime": 0,
+      "folded": true,
+      "name": "HUD",
+      "source": "",
+      "type": "BuiltinCommonInstructions::Group",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "BitmapText::BitmapTextObject::SetText"
+              },
+              "parameters": [
+                "GUILlaves",
+                "=",
+                "\"LLAVES: \"+ToString(GlobalVariable(Prog.Keys))"
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": []
+    },
+    {
+      "colorB": 228,
+      "colorG": 176,
+      "colorR": 74,
+      "creationTime": 0,
+      "folded": true,
+      "name": "Globo de Phantom",
+      "source": "",
+      "type": "BuiltinCommonInstructions::Group",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "color": {
+            "b": 109,
+            "g": 230,
+            "r": 255,
+            "textB": 0,
+            "textG": 0,
+            "textR": 0
+          },
+          "comment": "Los consejos de Phantom salen en un globo sobre el. Al ver un enemigo cerca da un aviso (cada 12 s como maximo)."
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "VarObjet"
+              },
+              "parameters": [
+                "PhantomTexto",
+                "on",
+                "=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "ObjectTimer"
+              },
+              "parameters": [
+                "PhantomTexto",
+                "\"t\"",
+                "4.5"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ModVarObjet"
+              },
+              "parameters": [
+                "PhantomTexto",
+                "on",
+                "=",
+                "0"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "VarObjet"
+              },
+              "parameters": [
+                "PhantomTexto",
+                "on",
+                "=",
+                "0"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Cache"
+              },
+              "parameters": [
+                "PhantomGlobo"
+              ]
+            },
+            {
+              "type": {
+                "value": "Cache"
+              },
+              "parameters": [
+                "PhantomTexto"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "VarObjet"
+              },
+              "parameters": [
+                "PhantomTexto",
+                "on",
+                "=",
+                "1"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Montre"
+              },
+              "parameters": [
+                "PhantomGlobo",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "Montre"
+              },
+              "parameters": [
+                "PhantomTexto",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "PanelSpriteObject::Width"
+              },
+              "parameters": [
+                "PhantomGlobo",
+                "=",
+                "PhantomTexto.Width()+26"
+              ]
+            },
+            {
+              "type": {
+                "value": "PanelSpriteObject::Height"
+              },
+              "parameters": [
+                "PhantomGlobo",
+                "=",
+                "PhantomTexto.Height()+18"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreXY"
+              },
+              "parameters": [
+                "PhantomGlobo",
+                "=",
+                "clamp(Phantom.CenterX()-PhantomGlobo.Width()/2, CameraX(\"\",0)-630, CameraX(\"\",0)+630-PhantomGlobo.Width())",
+                "=",
+                "max(CameraY(\"\",0)-350, Phantom.Y()-72-PhantomGlobo.Height())"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreXY"
+              },
+              "parameters": [
+                "PhantomTexto",
+                "=",
+                "PhantomGlobo.X()+13",
+                "=",
+                "PhantomGlobo.Y()+9"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "AnimationName"
+              },
+              "parameters": [
+                "Phantom",
+                "\"Aviso\""
+              ]
+            },
+            {
+              "type": {
+                "value": "VarObjet"
+              },
+              "parameters": [
+                "PhantomTexto",
+                "on",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "ObjectTimer"
+              },
+              "parameters": [
+                "Phantom",
+                "\"habla\"",
+                "12"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ResetObjectTimer"
+              },
+              "parameters": [
+                "Phantom",
+                "\"habla\""
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "AvisoN",
+                "=",
+                "Random(3)"
+              ]
+            }
+          ],
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarScene"
+                  },
+                  "parameters": [
+                    "AvisoN",
+                    "=",
+                    "0"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "BitmapText::BitmapTextObject::SetText"
+                  },
+                  "parameters": [
+                    "PhantomTexto",
+                    "=",
+                    "\"CUIDADO, PADRE!\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "PhantomTexto",
+                    "on",
+                    "=",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ResetObjectTimer"
+                  },
+                  "parameters": [
+                    "PhantomTexto",
+                    "\"t\""
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarScene"
+                  },
+                  "parameters": [
+                    "AvisoN",
+                    "=",
+                    "1"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "BitmapText::BitmapTextObject::SetText"
+                  },
+                  "parameters": [
+                    "PhantomTexto",
+                    "=",
+                    "\"UN DEMONIO SE ACERCA...\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "PhantomTexto",
+                    "on",
+                    "=",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ResetObjectTimer"
+                  },
+                  "parameters": [
+                    "PhantomTexto",
+                    "\"t\""
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarScene"
+                  },
+                  "parameters": [
+                    "AvisoN",
+                    "=",
+                    "2"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "BitmapText::BitmapTextObject::SetText"
+                  },
+                  "parameters": [
+                    "PhantomTexto",
+                    "=",
+                    "\"LO SIENTO... ESTA CERCA!\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "PhantomTexto",
+                    "on",
+                    "=",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ResetObjectTimer"
+                  },
+                  "parameters": [
+                    "PhantomTexto",
+                    "\"t\""
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarScene"
+                  },
+                  "parameters": [
+                    "AvisoN",
+                    "=",
+                    "3"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "BitmapText::BitmapTextObject::SetText"
+                  },
+                  "parameters": [
+                    "PhantomTexto",
+                    "=",
+                    "\"NO BAJES LA GUARDIA\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "PhantomTexto",
+                    "on",
+                    "=",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ResetObjectTimer"
+                  },
+                  "parameters": [
+                    "PhantomTexto",
+                    "\"t\""
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": []
+    },
+    {
+      "colorB": 228,
+      "colorG": 176,
+      "colorR": 74,
+      "creationTime": 0,
+      "folded": true,
+      "name": "Minimapa",
+      "source": "",
+      "type": "BuiltinCommonInstructions::Group",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "color": {
+            "b": 109,
+            "g": 230,
+            "r": 255,
+            "textB": 0,
+            "textG": 0,
+            "textR": 0
+          },
+          "comment": "Minimapa abajo a la derecha con el punto del Padre."
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "Pausa",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "Tienda",
+                "=",
+                "0"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Montre"
+              },
+              "parameters": [
+                "MiniMapa",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "Montre"
+              },
+              "parameters": [
+                "MiniMarca",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreXY"
+              },
+              "parameters": [
+                "MiniMapa",
+                "=",
+                "CameraX(\"GUI\",0)+640-MiniMapa.Width()-16",
+                "=",
+                "CameraY(\"GUI\",0)+360-MiniMapa.Height()-16"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreXY"
+              },
+              "parameters": [
+                "GUIPausaHint",
+                "=",
+                "CameraX(\"GUI\",0)+640-MiniMapa.Width()-16",
+                "=",
+                "MiniMapa.Y()-32"
+              ]
+            }
+          ],
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "Zona",
+                    "=",
+                    "\"Iglesia\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "SetAnimationName"
+                  },
+                  "parameters": [
+                    "MiniMapa",
+                    "\"Iglesia\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "MettreXY"
+                  },
+                  "parameters": [
+                    "MiniMarca",
+                    "=",
+                    "MiniMapa.X()+(14+(HeroHitbox.CenterX()-0)*0.140625)*0.3074866310160428",
+                    "=",
+                    "MiniMapa.Y()+(14+(HeroHitbox.CenterY()-0)*0.140625)*0.3074866310160428"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "Zona",
+                    "=",
+                    "\"Pueblo\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "SetAnimationName"
+                  },
+                  "parameters": [
+                    "MiniMapa",
+                    "\"Pueblo\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "MettreXY"
+                  },
+                  "parameters": [
+                    "MiniMarca",
+                    "=",
+                    "MiniMapa.X()+(14+(HeroHitbox.CenterX()-5760)*0.109375)*0.2882205513784461",
+                    "=",
+                    "MiniMapa.Y()+(14+(HeroHitbox.CenterY()-0)*0.109375)*0.2882205513784461"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "Zona",
+                    "=",
+                    "\"Bosque\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "SetAnimationName"
+                  },
+                  "parameters": [
+                    "MiniMapa",
+                    "\"Bosque\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "MettreXY"
+                  },
+                  "parameters": [
+                    "MiniMarca",
+                    "=",
+                    "MiniMapa.X()+(14+(HeroHitbox.CenterX()-13440)*0.109375)*0.2882205513784461",
+                    "=",
+                    "MiniMapa.Y()+(14+(HeroHitbox.CenterY()-0)*0.109375)*0.2882205513784461"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "Zona",
+                    "=",
+                    "\"Secreto\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "SetAnimationName"
+                  },
+                  "parameters": [
+                    "MiniMapa",
+                    "\"Secreto\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "MettreXY"
+                  },
+                  "parameters": [
+                    "MiniMarca",
+                    "=",
+                    "MiniMapa.CenterX()",
+                    "=",
+                    "MiniMapa.CenterY()+20"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::Or"
+              },
+              "parameters": [],
+              "subInstructions": [
+                {
+                  "type": {
+                    "value": "VarScene"
+                  },
+                  "parameters": [
+                    "Pausa",
+                    "=",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "VarScene"
+                  },
+                  "parameters": [
+                    "Tienda",
+                    "=",
+                    "1"
+                  ]
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Cache"
+              },
+              "parameters": [
+                "MiniMapa"
+              ]
+            },
+            {
+              "type": {
+                "value": "Cache"
+              },
+              "parameters": [
+                "MiniMarca"
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": []
+    },
+    {
+      "colorB": 228,
+      "colorG": 176,
+      "colorR": 74,
+      "creationTime": 0,
+      "folded": true,
+      "name": "Sombra a los pies",
+      "source": "",
+      "type": "BuiltinCommonInstructions::Group",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "PlatformBehavior::IsOnFloor"
+              },
+              "parameters": [
+                "HeroHitbox",
+                "PlatformerObject"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Montre"
+              },
+              "parameters": [
+                "SombraPies",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreXY"
+              },
+              "parameters": [
+                "SombraPies",
+                "=",
+                "HeroHitbox.CenterX()-60",
+                "=",
+                "HeroHitbox.Y()+HeroHitbox.Height()-14"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "PlatformBehavior::IsOnFloor",
+                "inverted": true
+              },
+              "parameters": [
+                "HeroHitbox",
+                "PlatformerObject"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Cache"
+              },
+              "parameters": [
+                "SombraPies"
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": []
+    },
+    {
+      "colorB": 228,
+      "colorG": 176,
+      "colorR": 74,
+      "creationTime": 0,
+      "folded": true,
+      "name": "Ofrendas en los altares",
+      "source": "",
+      "type": "BuiltinCommonInstructions::Group",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "color": {
+            "b": 109,
+            "g": 230,
+            "r": 255,
+            "textB": 0,
+            "textG": 0,
+            "textR": 0
+          },
+          "comment": "En un altar, W abre las ofrendas: se cambian puntos por mejoras para el Padre (botiquin, estamina, vida, dano de la cruz y del cantico)."
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "Tienda",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "Pausa",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "VarGlobal"
+              },
+              "parameters": [
+                "Cutscene",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "CollisionNP"
+              },
+              "parameters": [
+                "HeroHitbox",
+                "Altar",
+                "",
+                "",
+                ""
+              ]
+            }
+          ],
+          "actions": [],
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "BitmapText::BitmapTextObject::SetText"
+                  },
+                  "parameters": [
+                    "MsgText",
+                    "=",
+                    "\"W: HACER OFRENDAS EN EL ALTAR\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ResetObjectTimer"
+                  },
+                  "parameters": [
+                    "MsgText",
+                    "\"Msg\""
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "CollisionNP",
+                    "inverted": true
+                  },
+                  "parameters": [
+                    "HeroHitbox",
+                    "Herido",
+                    "",
+                    "",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "BuiltinCommonInstructions::Or"
+                  },
+                  "parameters": [],
+                  "subInstructions": [
+                    {
+                      "type": {
+                        "value": "KeyFromTextPressed"
+                      },
+                      "parameters": [
+                        "",
+                        "GlobalVariableString(keyboardUp)"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "Gamepads::C_Button_pressed"
+                      },
+                      "parameters": [
+                        "",
+                        "1",
+                        "GlobalVariableString(gamepadUp)",
+                        ""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "Gamepads::C_Axis_pushed"
+                      },
+                      "parameters": [
+                        "",
+                        "1",
+                        "\"LEFT\"",
+                        "\"UP\"",
+                        ""
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "BuiltinCommonInstructions::Once"
+                  },
+                  "parameters": []
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "Tienda",
+                    "=",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "TiendaSel",
+                    "=",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "TiendaListo",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarGlobal"
+                  },
+                  "parameters": [
+                    "Cutscene",
+                    "=",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ChangeTimeScale"
+                  },
+                  "parameters": [
+                    "",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Montre"
+                  },
+                  "parameters": [
+                    "OfrendaUI",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "BitmapText::BitmapTextObject::SetText"
+                  },
+                  "parameters": [
+                    "OfrendaInfo",
+                    "=",
+                    "\"ELIGE UNA OFRENDA (W/S Y K)\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "PlaySoundCanal"
+                  },
+                  "parameters": [
+                    "",
+                    "Select.wav",
+                    "15",
+                    "",
+                    "70",
+                    "0.8"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "Tienda",
+                "=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "KeyFromTextPressed",
+                "inverted": true
+              },
+              "parameters": [
+                "",
+                "\"w\""
+              ]
+            },
+            {
+              "type": {
+                "value": "Gamepads::C_Button_pressed",
+                "inverted": true
+              },
+              "parameters": [
+                "",
+                "1",
+                "\"UP\"",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "Gamepads::C_Axis_pushed",
+                "inverted": true
+              },
+              "parameters": [
+                "",
+                "1",
+                "\"LEFT\"",
+                "\"UP\"",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "KeyFromTextPressed",
+                "inverted": true
+              },
+              "parameters": [
+                "",
+                "\"s\""
+              ]
+            },
+            {
+              "type": {
+                "value": "Gamepads::C_Button_pressed",
+                "inverted": true
+              },
+              "parameters": [
+                "",
+                "1",
+                "\"DOWN\"",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "Gamepads::C_Axis_pushed",
+                "inverted": true
+              },
+              "parameters": [
+                "",
+                "1",
+                "\"LEFT\"",
+                "\"DOWN\"",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "KeyFromTextPressed",
+                "inverted": true
+              },
+              "parameters": [
+                "",
+                "\"k\""
+              ]
+            },
+            {
+              "type": {
+                "value": "Gamepads::C_Button_pressed",
+                "inverted": true
+              },
+              "parameters": [
+                "",
+                "1",
+                "\"A\"",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "KeyFromTextPressed",
+                "inverted": true
+              },
+              "parameters": [
+                "",
+                "\"j\""
+              ]
+            },
+            {
+              "type": {
+                "value": "Gamepads::C_Button_pressed",
+                "inverted": true
+              },
+              "parameters": [
+                "",
+                "1",
+                "\"A\"",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "KeyFromTextPressed",
+                "inverted": true
+              },
+              "parameters": [
+                "",
+                "\"Return\""
+              ]
+            },
+            {
+              "type": {
+                "value": "Gamepads::C_Button_pressed",
+                "inverted": true
+              },
+              "parameters": [
+                "",
+                "1",
+                "\"A\"",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "KeyFromTextPressed",
+                "inverted": true
+              },
+              "parameters": [
+                "",
+                "\"Escape\""
+              ]
+            },
+            {
+              "type": {
+                "value": "Gamepads::C_Button_pressed",
+                "inverted": true
+              },
+              "parameters": [
+                "",
+                "1",
+                "\"B\"",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "KeyFromTextPressed",
+                "inverted": true
+              },
+              "parameters": [
+                "",
+                "\"p\""
+              ]
+            },
+            {
+              "type": {
+                "value": "Gamepads::C_Button_pressed",
+                "inverted": true
+              },
+              "parameters": [
+                "",
+                "1",
+                "\"START\"",
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "TiendaListo",
+                "=",
+                "1"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "Tienda",
+                "=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "TiendaListo",
+                "=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::Or"
+              },
+              "parameters": [],
+              "subInstructions": [
+                {
+                  "type": {
+                    "value": "KeyFromTextPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "\"w\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "KeyFromTextPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "\"Up\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Gamepads::C_Button_pressed"
+                  },
+                  "parameters": [
+                    "",
+                    "1",
+                    "\"UP\"",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Gamepads::C_Axis_pushed"
+                  },
+                  "parameters": [
+                    "",
+                    "1",
+                    "\"LEFT\"",
+                    "\"UP\"",
+                    ""
+                  ]
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "TiendaSel",
+                "=",
+                "mod(Variable(TiendaSel)+4,6)+1"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "TiendaListo",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "PlaySoundCanal"
+              },
+              "parameters": [
+                "",
+                "MenuMove.wav",
+                "15",
+                "",
+                "60",
+                "1"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "Tienda",
+                "=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "TiendaListo",
+                "=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::Or"
+              },
+              "parameters": [],
+              "subInstructions": [
+                {
+                  "type": {
+                    "value": "KeyFromTextPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "\"s\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "KeyFromTextPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "\"Down\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Gamepads::C_Button_pressed"
+                  },
+                  "parameters": [
+                    "",
+                    "1",
+                    "\"DOWN\"",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Gamepads::C_Axis_pushed"
+                  },
+                  "parameters": [
+                    "",
+                    "1",
+                    "\"LEFT\"",
+                    "\"DOWN\"",
+                    ""
+                  ]
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "TiendaSel",
+                "=",
+                "mod(Variable(TiendaSel),6)+1"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "TiendaListo",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "PlaySoundCanal"
+              },
+              "parameters": [
+                "",
+                "MenuMove.wav",
+                "15",
+                "",
+                "60",
+                "1"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "Tienda",
+                "=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "TiendaListo",
+                "=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::Or"
+              },
+              "parameters": [],
+              "subInstructions": [
+                {
+                  "type": {
+                    "value": "KeyFromTextPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "\"Escape\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "KeyFromTextPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "\"p\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Gamepads::C_Button_pressed"
+                  },
+                  "parameters": [
+                    "",
+                    "1",
+                    "\"B\"",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Gamepads::C_Button_pressed"
+                  },
+                  "parameters": [
+                    "",
+                    "1",
+                    "\"START\"",
+                    ""
+                  ]
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "Tienda",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarGlobal"
+              },
+              "parameters": [
+                "Cutscene",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "ChangeTimeScale"
+              },
+              "parameters": [
+                "",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "Cache"
+              },
+              "parameters": [
+                "OfrendaUI"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "PausaBloq",
+                "=",
+                "1"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "Tienda",
+                "=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "TiendaListo",
+                "=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::Or"
+              },
+              "parameters": [],
+              "subInstructions": [
+                {
+                  "type": {
+                    "value": "KeyFromTextPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "\"k\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "KeyFromTextPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "\"j\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "KeyFromTextPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "\"Return\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Gamepads::C_Button_pressed"
+                  },
+                  "parameters": [
+                    "",
+                    "1",
+                    "\"A\"",
+                    ""
+                  ]
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "TiendaListo",
+                "=",
+                "0"
+              ]
+            }
+          ],
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarScene"
+                  },
+                  "parameters": [
+                    "TiendaSel",
+                    "=",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "VarGlobal"
+                  },
+                  "parameters": [
+                    "Prog.Puntos",
+                    "<",
+                    "500"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "BitmapText::BitmapTextObject::SetText"
+                  },
+                  "parameters": [
+                    "OfrendaInfo",
+                    "=",
+                    "\"NO TIENES SUFICIENTES PUNTOS\""
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarScene"
+                  },
+                  "parameters": [
+                    "TiendaSel",
+                    "=",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "VarGlobal"
+                  },
+                  "parameters": [
+                    "Prog.Puntos",
+                    ">=",
+                    "500"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarGlobal"
+                  },
+                  "parameters": [
+                    "Prog.Puntos",
+                    "-",
+                    "500"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarGlobal"
+                  },
+                  "parameters": [
+                    "Prog.Botiquines",
+                    "+",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "BitmapText::BitmapTextObject::SetText"
+                  },
+                  "parameters": [
+                    "OfrendaInfo",
+                    "=",
+                    "\"OFRENDA ACEPTADA: UN BOTIQUIN MAS (H PARA USARLO)\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "PlaySoundCanal"
+                  },
+                  "parameters": [
+                    "",
+                    "Select.wav",
+                    "15",
+                    "",
+                    "90",
+                    "1.5"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarScene"
+                  },
+                  "parameters": [
+                    "TiendaSel",
+                    "=",
+                    "2"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "VarGlobal"
+                  },
+                  "parameters": [
+                    "Prog.Puntos",
+                    "<",
+                    "800"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "BitmapText::BitmapTextObject::SetText"
+                  },
+                  "parameters": [
+                    "OfrendaInfo",
+                    "=",
+                    "\"NO TIENES SUFICIENTES PUNTOS\""
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarScene"
+                  },
+                  "parameters": [
+                    "TiendaSel",
+                    "=",
+                    "2"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "VarGlobal"
+                  },
+                  "parameters": [
+                    "Prog.Puntos",
+                    ">=",
+                    "800"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarGlobal"
+                  },
+                  "parameters": [
+                    "Prog.Puntos",
+                    "-",
+                    "800"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarGlobal"
+                  },
+                  "parameters": [
+                    "Prog.BonusStam",
+                    "+",
+                    "25"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Hero",
+                    "heroMaxStam",
+                    "=",
+                    "Hero.Variable(heroMaxStam)+25"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Hero",
+                    "heroStam",
+                    "=",
+                    "Hero.Variable(heroMaxStam)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "BitmapText::BitmapTextObject::SetText"
+                  },
+                  "parameters": [
+                    "OfrendaInfo",
+                    "=",
+                    "\"OFRENDA ACEPTADA: +25 DE ESTAMINA MAXIMA\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "PlaySoundCanal"
+                  },
+                  "parameters": [
+                    "",
+                    "Select.wav",
+                    "15",
+                    "",
+                    "90",
+                    "1.5"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarScene"
+                  },
+                  "parameters": [
+                    "TiendaSel",
+                    "=",
+                    "3"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "VarGlobal"
+                  },
+                  "parameters": [
+                    "Prog.Puntos",
+                    "<",
+                    "1500"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "BitmapText::BitmapTextObject::SetText"
+                  },
+                  "parameters": [
+                    "OfrendaInfo",
+                    "=",
+                    "\"NO TIENES SUFICIENTES PUNTOS\""
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarScene"
+                  },
+                  "parameters": [
+                    "TiendaSel",
+                    "=",
+                    "3"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "VarGlobal"
+                  },
+                  "parameters": [
+                    "Prog.Puntos",
+                    ">=",
+                    "1500"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarGlobal"
+                  },
+                  "parameters": [
+                    "Prog.Puntos",
+                    "-",
+                    "1500"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarGlobal"
+                  },
+                  "parameters": [
+                    "Prog.BonusHP",
+                    "+",
+                    "100"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Hero",
+                    "heroMaxHP",
+                    "=",
+                    "Hero.Variable(heroMaxHP)+100"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "Hero",
+                    "heroHP",
+                    "=",
+                    "Hero.Variable(heroMaxHP)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "BitmapText::BitmapTextObject::SetText"
+                  },
+                  "parameters": [
+                    "OfrendaInfo",
+                    "=",
+                    "\"OFRENDA ACEPTADA: +100 DE VIDA MAXIMA\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "PlaySoundCanal"
+                  },
+                  "parameters": [
+                    "",
+                    "Select.wav",
+                    "15",
+                    "",
+                    "90",
+                    "1.5"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarScene"
+                  },
+                  "parameters": [
+                    "TiendaSel",
+                    "=",
+                    "4"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "VarGlobal"
+                  },
+                  "parameters": [
+                    "Prog.Puntos",
+                    "<",
+                    "1500"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "BitmapText::BitmapTextObject::SetText"
+                  },
+                  "parameters": [
+                    "OfrendaInfo",
+                    "=",
+                    "\"NO TIENES SUFICIENTES PUNTOS\""
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarScene"
+                  },
+                  "parameters": [
+                    "TiendaSel",
+                    "=",
+                    "4"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "VarGlobal"
+                  },
+                  "parameters": [
+                    "Prog.Puntos",
+                    ">=",
+                    "1500"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarGlobal"
+                  },
+                  "parameters": [
+                    "Prog.Puntos",
+                    "-",
+                    "1500"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarGlobal"
+                  },
+                  "parameters": [
+                    "Prog.BonusDMG",
+                    "+",
+                    "4"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "BitmapText::BitmapTextObject::SetText"
+                  },
+                  "parameters": [
+                    "OfrendaInfo",
+                    "=",
+                    "\"OFRENDA ACEPTADA: +4 DE DANO A LA CRUZ\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "PlaySoundCanal"
+                  },
+                  "parameters": [
+                    "",
+                    "Select.wav",
+                    "15",
+                    "",
+                    "90",
+                    "1.5"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarScene"
+                  },
+                  "parameters": [
+                    "TiendaSel",
+                    "=",
+                    "5"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "VarGlobal"
+                  },
+                  "parameters": [
+                    "Prog.Puntos",
+                    "<",
+                    "1500"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "BitmapText::BitmapTextObject::SetText"
+                  },
+                  "parameters": [
+                    "OfrendaInfo",
+                    "=",
+                    "\"NO TIENES SUFICIENTES PUNTOS\""
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarScene"
+                  },
+                  "parameters": [
+                    "TiendaSel",
+                    "=",
+                    "5"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "VarGlobal"
+                  },
+                  "parameters": [
+                    "Prog.Puntos",
+                    ">=",
+                    "1500"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarGlobal"
+                  },
+                  "parameters": [
+                    "Prog.Puntos",
+                    "-",
+                    "1500"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarGlobal"
+                  },
+                  "parameters": [
+                    "Prog.BonusChant",
+                    "+",
+                    "6"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "BitmapText::BitmapTextObject::SetText"
+                  },
+                  "parameters": [
+                    "OfrendaInfo",
+                    "=",
+                    "\"OFRENDA ACEPTADA: +6 DE DANO AL CANTICO\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "PlaySoundCanal"
+                  },
+                  "parameters": [
+                    "",
+                    "Select.wav",
+                    "15",
+                    "",
+                    "90",
+                    "1.5"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarScene"
+                  },
+                  "parameters": [
+                    "TiendaSel",
+                    "=",
+                    "6"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "Tienda",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarGlobal"
+                  },
+                  "parameters": [
+                    "Cutscene",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ChangeTimeScale"
+                  },
+                  "parameters": [
+                    "",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Cache"
+                  },
+                  "parameters": [
+                    "OfrendaUI"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "PausaBloq",
+                    "=",
+                    "1"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "Tienda",
+                "=",
+                "1"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "MettreXY"
+              },
+              "parameters": [
+                "OfrendaFondo",
+                "=",
+                "CameraX(\"GUI\",0)-640",
+                "=",
+                "CameraY(\"GUI\",0)-360"
+              ]
+            },
+            {
+              "type": {
+                "value": "ChangeWidth"
+              },
+              "parameters": [
+                "OfrendaFondo",
+                "=",
+                "1280"
+              ]
+            },
+            {
+              "type": {
+                "value": "ChangeHeight"
+              },
+              "parameters": [
+                "OfrendaFondo",
+                "=",
+                "720"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreXY"
+              },
+              "parameters": [
+                "OfrendaMarco",
+                "=",
+                "CameraX(\"GUI\",0)-350",
+                "=",
+                "CameraY(\"GUI\",0)-250"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreXY"
+              },
+              "parameters": [
+                "OfrendaTitulo",
+                "=",
+                "CameraX(\"GUI\",0)-OfrendaTitulo.Width()/2",
+                "=",
+                "CameraY(\"GUI\",0)-232"
+              ]
+            },
+            {
+              "type": {
+                "value": "BitmapText::BitmapTextObject::SetText"
+              },
+              "parameters": [
+                "OfrendaPuntos",
+                "=",
+                "\"TUS PUNTOS: \"+ToString(GlobalVariable(Prog.Puntos))"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreXY"
+              },
+              "parameters": [
+                "OfrendaPuntos",
+                "=",
+                "CameraX(\"GUI\",0)-OfrendaPuntos.Width()/2",
+                "=",
+                "CameraY(\"GUI\",0)-175"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreXY"
+              },
+              "parameters": [
+                "OfrendaInfo",
+                "=",
+                "CameraX(\"GUI\",0)-OfrendaInfo.Width()/2",
+                "=",
+                "CameraY(\"GUI\",0)+200"
+              ]
+            },
+            {
+              "type": {
+                "value": "SetCenterX"
+              },
+              "parameters": [
+                "OfrendaItem",
+                "=",
+                "CameraX(\"GUI\",0)"
+              ]
+            }
+          ],
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarObjet"
+                  },
+                  "parameters": [
+                    "OfrendaItem",
+                    "N",
+                    "=",
+                    "Variable(TiendaSel)"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "MettreXY"
+                  },
+                  "parameters": [
+                    "OfrendaSel",
+                    "=",
+                    "CameraX(\"GUI\",0)-310",
+                    "=",
+                    "OfrendaItem.CenterY()-24"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "MettreY"
+                  },
+                  "parameters": [
+                    "OfrendaItem1",
+                    "=",
+                    "CameraY(\"GUI\",0)-130+0"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "MettreY"
+                  },
+                  "parameters": [
+                    "OfrendaItem2",
+                    "=",
+                    "CameraY(\"GUI\",0)-130+50"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "MettreY"
+                  },
+                  "parameters": [
+                    "OfrendaItem3",
+                    "=",
+                    "CameraY(\"GUI\",0)-130+100"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "MettreY"
+                  },
+                  "parameters": [
+                    "OfrendaItem4",
+                    "=",
+                    "CameraY(\"GUI\",0)-130+150"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "MettreY"
+                  },
+                  "parameters": [
+                    "OfrendaItem5",
+                    "=",
+                    "CameraY(\"GUI\",0)-130+200"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "MettreY"
+                  },
+                  "parameters": [
+                    "OfrendaItem6",
+                    "=",
+                    "CameraY(\"GUI\",0)-130+250"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": []
+    },
+    {
+      "colorB": 228,
+      "colorG": 176,
+      "colorR": 74,
+      "creationTime": 0,
+      "folded": true,
+      "name": "Candados",
+      "source": "",
+      "type": "BuiltinCommonInstructions::Group",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "color": {
+            "b": 109,
+            "g": 230,
+            "r": 255,
+            "textB": 0,
+            "textG": 0,
+            "textR": 0
+          },
+          "comment": "Las puertas que necesitan llave muestran una reja con candado. Al abrirla con una llave, la reja desaparece."
+        },
+        {
+          "type": "BuiltinCommonInstructions::ForEach",
+          "object": "PuertaLlave",
+          "disabled": false,
+          "folded": false,
+          "conditions": [],
+          "actions": [],
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarObjet"
+                  },
+                  "parameters": [
+                    "Puerta",
+                    "Id",
+                    "=",
+                    "PuertaLlave.Variable(Id)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "VarObjet"
+                  },
+                  "parameters": [
+                    "Puerta",
+                    "NeedKey",
+                    "=",
+                    "0"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Delete"
+                  },
+                  "parameters": [
+                    "PuertaLlave",
+                    ""
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": []
+    }
+  ]
+}

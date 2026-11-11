@@ -1,0 +1,17 @@
+# Copias automaticas de GDevelop
+*.autosave
+
+# Respaldos hechos durante el desarrollo
+respaldo_antes_*/
+
+# Mapas viejos que el juego ya no usa
+Level1.json
+MapCatacumbas.json
+MapIglesia.json
+MapPantano.json
+MapPurgatorio.json
+
+# Juego exportado (subirlo como Release)
+export/
+*.exe
+*.zip

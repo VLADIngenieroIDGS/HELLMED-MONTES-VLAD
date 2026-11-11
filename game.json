@@ -1,0 +1,4264 @@
+{
+  "firstLayout": "",
+  "gdVersion": {
+    "build": 287,
+    "major": 5,
+    "minor": 6,
+    "revision": 0
+  },
+  "properties": {
+    "adaptGameResolutionAtRuntime": false,
+    "antialiasingMode": "MSAA",
+    "antialisingEnabledOnMobile": false,
+    "folderProject": true,
+    "orientation": "landscape",
+    "packageName": "com.example.silverstreak.notavania",
+    "pixelsRounding": false,
+    "projectUuid": "c8389601-2960-4197-baa7-f92e3a976c00",
+    "scaleMode": "nearest",
+    "sizeOnStartupMode": "",
+    "templateSlug": "",
+    "useDeprecatedZeroAsDefaultStringVariable": true,
+    "version": "2.0.0",
+    "name": "HELLMED: Pulse of the Damned",
+    "description": "",
+    "author": "Equipo HELLMED (basado en Not-A-Vania de Silver-Streak)",
+    "windowWidth": 1280,
+    "windowHeight": 720,
+    "latestCompilationDirectory": "D:\\Temp\\My Documents\\GDevelop projects\\Builds\\html",
+    "maxFPS": 0,
+    "minFPS": 60,
+    "verticalSync": false,
+    "platformSpecificAssets": {
+      "android-icon-144": "android-icon-144.png",
+      "android-icon-192": "android-icon-192.png",
+      "android-icon-36": "android-icon-36.png",
+      "android-icon-48": "android-icon-48.png",
+      "android-icon-72": "android-icon-72.png",
+      "android-icon-96": "android-icon-96.png",
+      "desktop-icon-512": "desktop-icon-512.png",
+      "ios-icon-100": "ios-icon-100.png",
+      "ios-icon-1024": "ios-icon-1024.png",
+      "ios-icon-114": "ios-icon-114.png",
+      "ios-icon-120": "ios-icon-120.png",
+      "ios-icon-144": "ios-icon-144.png",
+      "ios-icon-152": "ios-icon-152.png",
+      "ios-icon-167": "ios-icon-167.png",
+      "ios-icon-180": "ios-icon-180.png",
+      "ios-icon-20": "ios-icon-20.png",
+      "ios-icon-29": "ios-icon-29.png",
+      "ios-icon-40": "ios-icon-40.png",
+      "ios-icon-50": "ios-icon-50.png",
+      "ios-icon-57": "ios-icon-57.png",
+      "ios-icon-58": "ios-icon-58.png",
+      "ios-icon-60": "ios-icon-60.png",
+      "ios-icon-72": "ios-icon-72.png",
+      "ios-icon-76": "ios-icon-76.png",
+      "ios-icon-80": "ios-icon-80.png",
+      "ios-icon-87": "ios-icon-87.png"
+    },
+    "loadingScreen": {
+      "backgroundColor": 0,
+      "backgroundFadeInDuration": 0.2,
+      "backgroundImageResourceName": "",
+      "gdevelopLogoStyle": "light",
+      "logoAndProgressFadeInDuration": 0.2,
+      "logoAndProgressLogoFadeInDelay": 0.2,
+      "minDuration": 1.5,
+      "progressBarColor": 16777215,
+      "progressBarHeight": 20,
+      "progressBarMaxWidth": 200,
+      "progressBarMinWidth": 40,
+      "progressBarWidthPercent": 30,
+      "showGDevelopSplash": true,
+      "showProgressBar": true
+    },
+    "watermark": {
+      "placement": "bottom-left",
+      "showWatermark": true
+    },
+    "authorIds": [],
+    "authorUsernames": [],
+    "categories": [],
+    "playableDevices": [],
+    "extensionProperties": [],
+    "platforms": [
+      {
+        "name": "GDevelop JS platform"
+      }
+    ],
+    "currentPlatform": "GDevelop JS platform"
+  },
+  "resources": {
+    "resources": [
+      {
+        "file": "Platform-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Platform-1.png",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "Idle-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Idle-1.png",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "Idle-2.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Idle-2.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "Idle-3.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Idle-3.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "Idle-4.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Idle-4.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "NewObject-1-0.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "NewObject-1-0.png",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "Run-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Run-1.png",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "Run-2.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Run-2.png",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "Run-3.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Run-3.png",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "Run-4.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Run-4.png",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "Run-5.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Run-5.png",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "Run-6.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Run-6.png",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "Attack-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Attack-1.png",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "Attack-2.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Attack-2.png",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "Attack-3.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Attack-3.png",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "Attack-4.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Attack-4.png",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "Attack-5.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Attack-5.png",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "Attack-6.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Attack-6.png",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "Jump-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Jump-1.png",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "Jump-2.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Jump-2.png",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "Jump-3.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Jump-3.png",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "Jump-4.png",
+        "kind": "image",
+        "metadata": "{\"localFilePath\":\"Jump-4.png\",\"extension\":\".png\"}",
+        "name": "Jump-4.png",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "Hit-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Hit-1.png",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "TestEnemy-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "TestEnemy-1.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "Jonathan_So-MissionOver.ogg",
+        "kind": "audio",
+        "metadata": "",
+        "name": "Jonathan_So-MissionOver.ogg",
+        "preloadAsMusic": false,
+        "preloadAsSound": true,
+        "preloadInCache": false,
+        "userAdded": true
+      },
+      {
+        "file": "Jonathan_So-FallenInBattle.ogg",
+        "kind": "audio",
+        "metadata": "",
+        "name": "Jonathan_So-FallenInBattle.ogg",
+        "preloadAsMusic": false,
+        "preloadAsSound": true,
+        "preloadInCache": false,
+        "userAdded": true
+      },
+      {
+        "file": "Fade-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Fade-1.png",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "Sanguis.ttf",
+        "kind": "font",
+        "metadata": "",
+        "name": "Sanguis.ttf",
+        "userAdded": true
+      },
+      {
+        "file": "CameraRoom-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "CameraRoom-1.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "GUIMain-1-0.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "GUIMain-1-0.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "HealthPanel-1-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "HealthPanel-1-1.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "HealthBar-1-1-1-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "HealthBar-1-1-1-1.png",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "StaminaBar-1-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "StaminaBar-1-1.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "StaminaPanel-1-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "StaminaPanel-1-1.png",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "dogicapixel.ttf",
+        "kind": "font",
+        "metadata": "",
+        "name": "dogicapixel.ttf",
+        "userAdded": true
+      },
+      {
+        "file": "HeroAttackHitbox-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "HeroAttackHitbox-1.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "tiles.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "tiles.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "town-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "town-1.png",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "clouds-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "clouds-1.png",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "disablePreload": false,
+        "file": "Level1.json",
+        "kind": "json",
+        "metadata": "",
+        "name": "Level1.json",
+        "userAdded": true
+      },
+      {
+        "file": "BossRoomIndicator-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "BossRoomIndicator-1.png",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "dogicapixel24.fnt",
+        "kind": "bitmapFont",
+        "metadata": "",
+        "name": "dogicapixel24.fnt",
+        "userAdded": false
+      },
+      {
+        "file": "dogicapixel24_0.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "dogicapixel24_0.png",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "sanguis48.fnt",
+        "kind": "bitmapFont",
+        "metadata": "",
+        "name": "sanguis48.fnt",
+        "userAdded": false
+      },
+      {
+        "file": "sanguis48_0.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "sanguis48_0.png",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "sanguis80.fnt",
+        "kind": "bitmapFont",
+        "metadata": "",
+        "name": "sanguis80.fnt",
+        "userAdded": false
+      },
+      {
+        "file": "sanguis80_0.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "sanguis80_0.png",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "NewFile-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "NewFile-1.png",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "Selector-1-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Selector-1-1.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "BG1-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "BG1-1.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "CutsceneCamera-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "CutsceneCamera-1.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "Barrier-1-0.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Barrier-1-0.png",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "DogicaTake4.fnt",
+        "kind": "bitmapFont",
+        "metadata": "",
+        "name": "DogicaTake4.fnt",
+        "userAdded": false
+      },
+      {
+        "file": "DogicaTake4_0.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "DogicaTake4_0.png",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "Jonathan_So-ForMe-truncade.ogg",
+        "kind": "audio",
+        "metadata": "",
+        "name": "Jonathan_So-ForMe-truncade.ogg",
+        "preloadAsMusic": false,
+        "preloadAsSound": true,
+        "preloadInCache": false,
+        "userAdded": true
+      },
+      {
+        "file": "MenuMove.wav",
+        "kind": "audio",
+        "metadata": "{\"jfxr\":{\"data\":\"{\\\"_version\\\":1,\\\"_name\\\":\\\"Blip/select 31\\\",\\\"_locked\\\":[],\\\"sampleRate\\\":44100,\\\"attack\\\":0,\\\"sustain\\\":0.04,\\\"sustainPunch\\\":0,\\\"decay\\\":0.01,\\\"tremoloDepth\\\":0,\\\"tremoloFrequency\\\":10,\\\"frequency\\\":300,\\\"frequencySweep\\\":0,\\\"frequencyDeltaSweep\\\":0,\\\"repeatFrequency\\\":0,\\\"frequencyJump1Onset\\\":33,\\\"frequencyJump1Amount\\\":0,\\\"frequencyJump2Onset\\\":66,\\\"frequencyJump2Amount\\\":0,\\\"harmonics\\\":0,\\\"harmonicsFalloff\\\":0.3,\\\"waveform\\\":\\\"whistle\\\",\\\"interpolateNoise\\\":true,\\\"vibratoDepth\\\":0,\\\"vibratoFrequency\\\":10,\\\"squareDuty\\\":65,\\\"squareDutySweep\\\":0,\\\"flangerOffset\\\":0,\\\"flangerOffsetSweep\\\":0,\\\"bitCrush\\\":16,\\\"bitCrushSweep\\\":0,\\\"lowPassCutoff\\\":22050,\\\"lowPassCutoffSweep\\\":0,\\\"highPassCutoff\\\":0,\\\"highPassCutoffSweep\\\":0,\\\"compression\\\":1,\\\"normalization\\\":true,\\\"amplification\\\":30}\",\"name\":\"MenuMove\"}}",
+        "name": "MenuMove.wav",
+        "preloadAsMusic": false,
+        "preloadAsSound": true,
+        "preloadInCache": false,
+        "userAdded": true
+      },
+      {
+        "file": "Select.wav",
+        "kind": "audio",
+        "metadata": "{\"jfxr\":{\"data\":\"{\\\"_version\\\":1,\\\"_name\\\":\\\"Blip/select 49\\\",\\\"_locked\\\":[],\\\"sampleRate\\\":44100,\\\"attack\\\":0,\\\"sustain\\\":0.04092945208729559,\\\"sustainPunch\\\":0,\\\"decay\\\":0.5340063743631778,\\\"tremoloDepth\\\":0,\\\"tremoloFrequency\\\":10,\\\"frequency\\\":198.49096204322166,\\\"frequencySweep\\\":0,\\\"frequencyDeltaSweep\\\":0,\\\"repeatFrequency\\\":0,\\\"frequencyJump1Onset\\\":33,\\\"frequencyJump1Amount\\\":0,\\\"frequencyJump2Onset\\\":66,\\\"frequencyJump2Amount\\\":0,\\\"harmonics\\\":0,\\\"harmonicsFalloff\\\":0.5,\\\"waveform\\\":\\\"whistle\\\",\\\"interpolateNoise\\\":true,\\\"vibratoDepth\\\":0.10861971659449754,\\\"vibratoFrequency\\\":10,\\\"squareDuty\\\":60,\\\"squareDutySweep\\\":0,\\\"flangerOffset\\\":0,\\\"flangerOffsetSweep\\\":0,\\\"bitCrush\\\":16,\\\"bitCrushSweep\\\":0,\\\"lowPassCutoff\\\":22050,\\\"lowPassCutoffSweep\\\":0,\\\"highPassCutoff\\\":0,\\\"highPassCutoffSweep\\\":0,\\\"compression\\\":1,\\\"normalization\\\":true,\\\"amplification\\\":50}\",\"name\":\"Select\"}}",
+        "name": "Select.wav",
+        "preloadAsMusic": false,
+        "preloadAsSound": false,
+        "preloadInCache": false,
+        "userAdded": true
+      },
+      {
+        "file": "Walking-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Walking-1.png",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "Walking-2.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Walking-2.png",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "Walking-3.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Walking-3.png",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "Walking-4.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Walking-4.png",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "Walking-5.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Walking-5.png",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "Walking-6.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Walking-6.png",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "Walking-7.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Walking-7.png",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "Walking-8.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Walking-8.png",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "Right-1-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Right-1-1.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "Right-1-0.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Right-1-0.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "EnemyDeathFire-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "EnemyDeathFire-1.png",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "EnemyDeathFire-2.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "EnemyDeathFire-2.png",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "EnemyDeathFire-3.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "EnemyDeathFire-3.png",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "EnemyDeathFire-4.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "EnemyDeathFire-4.png",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "EnemyDeathFire-5.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "EnemyDeathFire-5.png",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "GhostIdle-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "GhostIdle-1.png",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "GhostIdle-2.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "GhostIdle-2.png",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "GhostIdle-3.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "GhostIdle-3.png",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "GhostIdle-4.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "GhostIdle-4.png",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "GhostIdle-5.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "GhostIdle-5.png",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "GhostIdle-6.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "GhostIdle-6.png",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "GhostIdle-7.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "GhostIdle-7.png",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "GhostAttack-1-0.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "GhostAttack-1-0.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "GhostAttack-2-0.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "GhostAttack-2-0.png",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "GhostAttack-3-0.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "GhostAttack-3-0.png",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "GhostAttack-4-0.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "GhostAttack-4-0.png",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "GhostAttack-5-0.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "GhostAttack-5-0.png",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "GhostAttack-6-0.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "GhostAttack-6-0.png",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "GhostAttack-7-0.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "GhostAttack-7-0.png",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "Appear-1-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Appear-1-1.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "Appear-2-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Appear-2-1.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "Appear-3-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Appear-3-1.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "Appear-4-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Appear-4-1.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "Appear-5-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Appear-5-1.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "Appear-6-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Appear-6-1.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "Jonathan_So-Sunstrider-truncated.ogg",
+        "kind": "audio",
+        "metadata": "",
+        "name": "Jonathan_So-Sunstrider-truncated.ogg",
+        "preloadAsMusic": false,
+        "preloadAsSound": true,
+        "preloadInCache": false,
+        "userAdded": true
+      },
+      {
+        "file": "Dasher-4-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Dasher-4-1.png",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "Dasher-3-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Dasher-3-1.png",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "Dasher-2-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Dasher-2-1.png",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "Dasher-1-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Dasher-1-1.png",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "SkullNoFire-1-0.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "SkullNoFire-1-0.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "SkullNoFire-2-0.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "SkullNoFire-2-0.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "SkullNoFire-3-0.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "SkullNoFire-3-0.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "SkullNoFire-4-0.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "SkullNoFire-4-0.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "BossLocation-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "BossLocation-1.png",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "Checkpoint-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Checkpoint-1.png",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "SkullFire-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "SkullFire-1.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "SkullFire-2.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "SkullFire-2.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "SkullFire-3.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "SkullFire-3.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "SkullFire-4.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "SkullFire-4.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "SkullFire-5.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "SkullFire-5.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "SkullFire-6.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "SkullFire-6.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "SkullFire-7.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "SkullFire-7.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "SkullFire-8.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "SkullFire-8.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "Johnathan_So-MechaCollection.ogg",
+        "kind": "audio",
+        "metadata": "",
+        "name": "Johnathan_So-MechaCollection.ogg",
+        "preloadAsMusic": false,
+        "preloadAsSound": true,
+        "preloadInCache": false,
+        "userAdded": true
+      },
+      {
+        "file": "Pit-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Pit-1.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "sword sound.wav",
+        "kind": "audio",
+        "metadata": "",
+        "name": "sword sound.wav",
+        "preloadAsMusic": false,
+        "preloadAsSound": true,
+        "preloadInCache": false,
+        "userAdded": true
+      },
+      {
+        "file": "skeletonsfx_exp_short_hard2.wav",
+        "kind": "audio",
+        "metadata": "",
+        "name": "skeletonsfx_exp_short_hard2.wav",
+        "preloadAsMusic": false,
+        "preloadAsSound": true,
+        "preloadInCache": false,
+        "userAdded": true
+      },
+      {
+        "file": "bossdeathsfx_exp_cluster1.wav",
+        "kind": "audio",
+        "metadata": "",
+        "name": "bossdeathsfx_exp_cluster1.wav",
+        "preloadAsMusic": false,
+        "preloadAsSound": true,
+        "preloadInCache": false,
+        "userAdded": true
+      },
+      {
+        "file": "Johnathan_So-Victory.ogg",
+        "kind": "audio",
+        "metadata": "",
+        "name": "Johnathan_So-Victory.ogg",
+        "preloadAsMusic": false,
+        "preloadAsSound": true,
+        "preloadInCache": false,
+        "userAdded": true
+      },
+      {
+        "file": "Pit.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Pit.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "PItBase-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "PItBase-1.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "desktop-icon-512.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "desktop-icon-512.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "android-icon-192.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "android-icon-192.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "android-icon-144.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "android-icon-144.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "android-icon-96.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "android-icon-96.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "android-icon-72.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "android-icon-72.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "android-icon-48.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "android-icon-48.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "android-icon-36.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "android-icon-36.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "ios-icon-1024.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "ios-icon-1024.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "ios-icon-180.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "ios-icon-180.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "ios-icon-167.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "ios-icon-167.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "ios-icon-152.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "ios-icon-152.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "ios-icon-144.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "ios-icon-144.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "ios-icon-120.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "ios-icon-120.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "ios-icon-114.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "ios-icon-114.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "ios-icon-100.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "ios-icon-100.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "ios-icon-87.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "ios-icon-87.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "ios-icon-80.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "ios-icon-80.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "ios-icon-76.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "ios-icon-76.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "ios-icon-72.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "ios-icon-72.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "ios-icon-60.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "ios-icon-60.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "ios-icon-58.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "ios-icon-58.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "ios-icon-57.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "ios-icon-57.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "ios-icon-50.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "ios-icon-50.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "ios-icon-40.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "ios-icon-40.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "ios-icon-29.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "ios-icon-29.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "ios-icon-20.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "ios-icon-20.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "PlayerHurt.wav",
+        "kind": "audio",
+        "metadata": "{\"jfxr\":{\"data\":\"{\\\"_version\\\":1,\\\"_name\\\":\\\"Hit/hurt 79\\\",\\\"_locked\\\":[],\\\"sampleRate\\\":44100,\\\"attack\\\":0,\\\"sustain\\\":0.09,\\\"sustainPunch\\\":70,\\\"decay\\\":0.06,\\\"tremoloDepth\\\":0,\\\"tremoloFrequency\\\":10,\\\"frequency\\\":700,\\\"frequencySweep\\\":-400,\\\"frequencyDeltaSweep\\\":-500,\\\"repeatFrequency\\\":0,\\\"frequencyJump1Onset\\\":33,\\\"frequencyJump1Amount\\\":0,\\\"frequencyJump2Onset\\\":66,\\\"frequencyJump2Amount\\\":0,\\\"harmonics\\\":0,\\\"harmonicsFalloff\\\":0.5,\\\"waveform\\\":\\\"whitenoise\\\",\\\"interpolateNoise\\\":true,\\\"vibratoDepth\\\":0,\\\"vibratoFrequency\\\":10,\\\"squareDuty\\\":50,\\\"squareDutySweep\\\":0,\\\"flangerOffset\\\":7,\\\"flangerOffsetSweep\\\":9,\\\"bitCrush\\\":16,\\\"bitCrushSweep\\\":0,\\\"lowPassCutoff\\\":22050,\\\"lowPassCutoffSweep\\\":-17000,\\\"highPassCutoff\\\":0,\\\"highPassCutoffSweep\\\":0,\\\"compression\\\":1,\\\"normalization\\\":true,\\\"amplification\\\":100}\",\"name\":\"PlayerHurt\"}}",
+        "name": "PlayerHurt.wav",
+        "preloadAsMusic": false,
+        "preloadAsSound": true,
+        "preloadInCache": false,
+        "userAdded": true
+      },
+      {
+        "file": "Run-7.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Run-7.png",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "Run-8.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Run-8.png",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "disablePreload": false,
+        "file": "MapIglesia.json",
+        "kind": "json",
+        "metadata": "",
+        "name": "MapIglesia.json",
+        "userAdded": true
+      },
+      {
+        "file": "hm_iglesia.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "hm_iglesia.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "disablePreload": false,
+        "file": "MapCatacumbas.json",
+        "kind": "json",
+        "metadata": "",
+        "name": "MapCatacumbas.json",
+        "userAdded": true
+      },
+      {
+        "file": "hm_catacumbas.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "hm_catacumbas.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "disablePreload": false,
+        "file": "MapPurgatorio.json",
+        "kind": "json",
+        "metadata": "",
+        "name": "MapPurgatorio.json",
+        "userAdded": true
+      },
+      {
+        "file": "hm_purgatorio.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "hm_purgatorio.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "disablePreload": false,
+        "file": "MapPantano.json",
+        "kind": "json",
+        "metadata": "",
+        "name": "MapPantano.json",
+        "userAdded": true
+      },
+      {
+        "file": "hm_pantano.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "hm_pantano.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "Altar.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Altar.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "PickDash.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "PickDash.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "PickDJ.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "PickDJ.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "PickKey.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "PickKey.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "PickLife.png",
+        "kind": "image",
+        "metadata": "{\"localFilePath\":\"PickLife.png\",\"extension\":\".png\"}",
+        "name": "PickLife.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "PuertaLlave.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "PuertaLlave.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "ParedRota.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "ParedRota.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "disablePreload": false,
+        "file": "TM_Iglesia.json",
+        "kind": "json",
+        "metadata": "",
+        "name": "TM_Iglesia.json",
+        "userAdded": true
+      },
+      {
+        "file": "hm_iglesia_64.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "hm_iglesia_64.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "disablePreload": false,
+        "file": "TM_Pueblo.json",
+        "kind": "json",
+        "metadata": "",
+        "name": "TM_Pueblo.json",
+        "userAdded": true
+      },
+      {
+        "file": "hm_pueblo_64.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "hm_pueblo_64.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "disablePreload": false,
+        "file": "TM_Bosque.json",
+        "kind": "json",
+        "metadata": "",
+        "name": "TM_Bosque.json",
+        "userAdded": true
+      },
+      {
+        "file": "hm_bosque_64.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "hm_bosque_64.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "disablePreload": false,
+        "file": "TM_Secreto1.json",
+        "kind": "json",
+        "metadata": "",
+        "name": "TM_Secreto1.json",
+        "userAdded": true
+      },
+      {
+        "disablePreload": false,
+        "file": "TM_Secreto2.json",
+        "kind": "json",
+        "metadata": "",
+        "name": "TM_Secreto2.json",
+        "userAdded": true
+      },
+      {
+        "disablePreload": false,
+        "file": "TM_Secreto3.json",
+        "kind": "json",
+        "metadata": "",
+        "name": "TM_Secreto3.json",
+        "userAdded": true
+      },
+      {
+        "file": "Puerta_Cerrada.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Puerta_Cerrada.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Puerta_Abierta.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Puerta_Abierta.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Deco_Velas.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Deco_Velas.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Deco_Estandarte.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Deco_Estandarte.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Deco_Banca.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Deco_Banca.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Deco_Cadena.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Deco_Cadena.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Deco_Farol.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Deco_Farol.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Deco_Barril.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Deco_Barril.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Deco_Escombros.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Deco_Escombros.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Deco_CruzRota.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Deco_CruzRota.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Deco_Lapida.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Deco_Lapida.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Deco_Craneos.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Deco_Craneos.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Deco_Hongo.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Deco_Hongo.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Deco_Letrero.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Deco_Letrero.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Bg_Iglesia.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Bg_Iglesia.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Bg_Pueblo.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Bg_Pueblo.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Bg_Bosque.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Bg_Bosque.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "MuerteWalk-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "MuerteWalk-1.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "MuerteWalk-2.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "MuerteWalk-2.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "MuerteWalk-3.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "MuerteWalk-3.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "MuerteWalk-4.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "MuerteWalk-4.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "MuerteAtk-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "MuerteAtk-1.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "MuerteAtk-2.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "MuerteAtk-2.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "MuerteAtk-3.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "MuerteAtk-3.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "MuerteAtk-4.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "MuerteAtk-4.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "MinoCharge-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "MinoCharge-1.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "MinoCharge-2.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "MinoCharge-2.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "MinoCharge-3.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "MinoCharge-3.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "MinoCharge-4.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "MinoCharge-4.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "GargFly-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "GargFly-1.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "GargFly-2.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "GargFly-2.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "GargFly-3.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "GargFly-3.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "GargFly-4.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "GargFly-4.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "GargFly-5.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "GargFly-5.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "GargFly-6.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "GargFly-6.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "GargAppear-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "GargAppear-1.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "GargAppear-2.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "GargAppear-2.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "GargAppear-3.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "GargAppear-3.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "GargAppear-4.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "GargAppear-4.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "GargAppear-5.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "GargAppear-5.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "GargAppear-6.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "GargAppear-6.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "GargAppear-7.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "GargAppear-7.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "GargDive-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "GargDive-1.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "GargDive-2.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "GargDive-2.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "GargDive-3.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "GargDive-3.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "GargDive-4.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "GargDive-4.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "GargDive-5.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "GargDive-5.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "GargDive-6.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "GargDive-6.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "GargStatue-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "GargStatue-1.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Chant-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Chant-1.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Chant-2.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Chant-2.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Chant-3.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Chant-3.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Chant-4.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Chant-4.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Onda-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Onda-1.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Onda-2.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Onda-2.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Onda-3.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Onda-3.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Onda-4.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Onda-4.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Impacto-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Impacto-1.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Impacto-2.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Impacto-2.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Impacto-3.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Impacto-3.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Impacto-4.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Impacto-4.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "ImpactoCruz-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "ImpactoCruz-1.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "ImpactoCruz-2.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "ImpactoCruz-2.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "ImpactoCruz-3.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "ImpactoCruz-3.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "PhantomFloat-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "PhantomFloat-1.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "PhantomFloat-2.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "PhantomFloat-2.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "PhantomFloat-3.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "PhantomFloat-3.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "PhantomFloat-4.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "PhantomFloat-4.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "PhantomMove-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "PhantomMove-1.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "PhantomMove-2.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "PhantomMove-2.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "PhantomMove-3.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "PhantomMove-3.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "PhantomMove-4.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "PhantomMove-4.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "PhantomAlert-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "PhantomAlert-1.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "PhantomAlert-2.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "PhantomAlert-2.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "PhantomAlert-3.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "PhantomAlert-3.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Portal-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Portal-1.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Portal-2.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Portal-2.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Portal-3.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Portal-3.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Portal-4.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Portal-4.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Portal-5.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Portal-5.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Portal-6.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Portal-6.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Fuego-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Fuego-1.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Fuego-2.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Fuego-2.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Fuego-3.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Fuego-3.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Fuego-4.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Fuego-4.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Fuego-5.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Fuego-5.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Pared-3.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Pared-3.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Pared-4.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Pared-4.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Pared-5.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Pared-5.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Pared-2.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Pared-2.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "JefeMarco.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "JefeMarco.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "JefeVida.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "JefeVida.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "TituloFondo.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "TituloFondo.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Reliquia-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Reliquia-1.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Reliquia-2.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Reliquia-2.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Reliquia-3.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Reliquia-3.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Reliquia-4.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Reliquia-4.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Alma-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Alma-1.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Alma-2.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Alma-2.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Alma-3.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Alma-3.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Alma-4.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Alma-4.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Ascua.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Ascua.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Polvo.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Polvo.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Luciernaga.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Luciernaga.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Chispa.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Chispa.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Hoja.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Hoja.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Ceniza.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Ceniza.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Luz.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Luz.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "LuzFria.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "LuzFria.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "LuzVerde.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "LuzVerde.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Rayo.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Rayo.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Vineta.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Vineta.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "PausaFondo.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "PausaFondo.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Mapa_Iglesia.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Mapa_Iglesia.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Mapa_Pueblo.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Mapa_Pueblo.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Mapa_Bosque.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Mapa_Bosque.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Mapa_Secreto.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Mapa_Secreto.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "MapaMarca.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "MapaMarca.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Herido-3.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Herido-3.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Herido-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Herido-1.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Agradeciendo-4.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Agradeciendo-4.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Agradeciendo-3.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Agradeciendo-3.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Sanando-2.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Sanando-2.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Sanando-4.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Sanando-4.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Herido-4.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Herido-4.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Herido-2.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Herido-2.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Sanando-3.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Sanando-3.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Agradeciendo-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Agradeciendo-1.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Agradeciendo-2.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Agradeciendo-2.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Sanando-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Sanando-1.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "MiniMarca.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "MiniMarca.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "GUIMain_Padre.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "GUIMain_Padre.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Mini_Pueblo.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Mini_Pueblo.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Mini_Iglesia.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Mini_Iglesia.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Mini_Secreto.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Mini_Secreto.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Globo.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Globo.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Mini_Bosque.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Mini_Bosque.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "SombraPies.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "SombraPies.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "JMinoIdle-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "JMinoIdle-1.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "JMinoIdle-2.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "JMinoIdle-2.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "JMinoIdle-3.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "JMinoIdle-3.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "JMinoIdle-4.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "JMinoIdle-4.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "JMinoWalk-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "JMinoWalk-1.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "JMinoWalk-2.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "JMinoWalk-2.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "JMinoWalk-3.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "JMinoWalk-3.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "JMinoWalk-4.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "JMinoWalk-4.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "JMinoWalk-5.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "JMinoWalk-5.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "JMinoWalk-6.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "JMinoWalk-6.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "JMinoHacha-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "JMinoHacha-1.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "JMinoHacha-2.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "JMinoHacha-2.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "JMinoHacha-3.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "JMinoHacha-3.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "JMinoHacha-4.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "JMinoHacha-4.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "JMinoHacha-5.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "JMinoHacha-5.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "JMinoHacha-6.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "JMinoHacha-6.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "JMinoPrep-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "JMinoPrep-1.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "JMinoPrep-2.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "JMinoPrep-2.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "JMinoPrep-3.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "JMinoPrep-3.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "JMinoEmbestida-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "JMinoEmbestida-1.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "JMinoEmbestida-2.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "JMinoEmbestida-2.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "JMinoEmbestida-3.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "JMinoEmbestida-3.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "JMinoEmbestida-4.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "JMinoEmbestida-4.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "JMinoGolpe-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "JMinoGolpe-1.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "JMinoGolpe-2.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "JMinoGolpe-2.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "JMinoMuere-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "JMinoMuere-1.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "JMinoMuere-2.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "JMinoMuere-2.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "JMinoMuere-3.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "JMinoMuere-3.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "JMinoMuere-4.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "JMinoMuere-4.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "JMinoMuere-5.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "JMinoMuere-5.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "JMuerteIdle-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "JMuerteIdle-1.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "JMuerteIdle-2.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "JMuerteIdle-2.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "JMuerteIdle-3.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "JMuerteIdle-3.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "JMuerteIdle-4.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "JMuerteIdle-4.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "JMuerteGuadana-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "JMuerteGuadana-1.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "JMuerteGuadana-2.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "JMuerteGuadana-2.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "JMuerteGuadana-3.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "JMuerteGuadana-3.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "JMuerteGuadana-4.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "JMuerteGuadana-4.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "JMuerteGuadana-5.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "JMuerteGuadana-5.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "JMuerteGuadana-6.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "JMuerteGuadana-6.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "JMuerteGuadana-7.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "JMuerteGuadana-7.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "JMuerteConjuro-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "JMuerteConjuro-1.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "JMuerteConjuro-2.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "JMuerteConjuro-2.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "JMuerteConjuro-3.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "JMuerteConjuro-3.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "JMuerteConjuro-4.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "JMuerteConjuro-4.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "JMuerteConjuro-5.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "JMuerteConjuro-5.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "JMuerteConjuro-6.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "JMuerteConjuro-6.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "JMuerteGolpe-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "JMuerteGolpe-1.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "JMuerteMuere-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "JMuerteMuere-1.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "JMuerteMuere-2.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "JMuerteMuere-2.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "JMuerteMuere-3.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "JMuerteMuere-3.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "JMuerteMuere-4.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "JMuerteMuere-4.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "JMuerteMuere-5.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "JMuerteMuere-5.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "JMuerteMuere-6.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "JMuerteMuere-6.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "JMuerteMuere-7.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "JMuerteMuere-7.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "JOrbe-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "JOrbe-1.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "JOrbe-2.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "JOrbe-2.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "JOrbe-3.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "JOrbe-3.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Cofre-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Cofre-1.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Cofre-2.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Cofre-2.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Cofre-3.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Cofre-3.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Cofre-4.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Cofre-4.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Cofre-5.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Cofre-5.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Cofre-6.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Cofre-6.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "CruzOro.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "CruzOro.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "CruzPlata.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "CruzPlata.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "CruzSangre.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "CruzSangre.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "PocionRoja.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "PocionRoja.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "PocionAzul.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "PocionAzul.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "PocionDorada.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "PocionDorada.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "PadreCae-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "PadreCae-1.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "PadreCae-2.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "PadreCae-2.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "PadreCae-3.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "PadreCae-3.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "PadreCae-4.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "PadreCae-4.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "PadreRevive-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "PadreRevive-1.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "PadreRevive-2.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "PadreRevive-2.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "PadreRevive-3.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "PadreRevive-3.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "PadreRevive-4.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "PadreRevive-4.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "PadreRevive-5.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "PadreRevive-5.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "PadreRevive-6.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "PadreRevive-6.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "PadreRevive-7.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "PadreRevive-7.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "PhantomAyuda-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "PhantomAyuda-1.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "PhantomAyuda-2.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "PhantomAyuda-2.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "PhantomAyuda-3.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "PhantomAyuda-3.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "PhantomAyuda-4.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "PhantomAyuda-4.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "PhantomAyuda-5.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "PhantomAyuda-5.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "PhantomAyuda-6.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "PhantomAyuda-6.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "Letrero.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Letrero.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "TablaLetrero.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "TablaLetrero.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "file": "IntroEscena01.jpg",
+        "kind": "image",
+        "metadata": "",
+        "name": "IntroEscena01.jpg",
+        "userAdded": true,
+        "smoothed": true
+      },
+      {
+        "file": "A1.mp3",
+        "kind": "audio",
+        "metadata": "",
+        "name": "A1.mp3",
+        "userAdded": true,
+        "preloadAsMusic": false,
+        "preloadAsSound": true,
+        "preloadInCache": false
+      },
+      {
+        "file": "IntroEscena02.jpg",
+        "kind": "image",
+        "metadata": "",
+        "name": "IntroEscena02.jpg",
+        "userAdded": true,
+        "smoothed": true
+      },
+      {
+        "file": "A2.mp3",
+        "kind": "audio",
+        "metadata": "",
+        "name": "A2.mp3",
+        "userAdded": true,
+        "preloadAsMusic": false,
+        "preloadAsSound": true,
+        "preloadInCache": false
+      },
+      {
+        "file": "IntroEscena03.jpg",
+        "kind": "image",
+        "metadata": "",
+        "name": "IntroEscena03.jpg",
+        "userAdded": true,
+        "smoothed": true
+      },
+      {
+        "file": "A3.mp3",
+        "kind": "audio",
+        "metadata": "",
+        "name": "A3.mp3",
+        "userAdded": true,
+        "preloadAsMusic": false,
+        "preloadAsSound": true,
+        "preloadInCache": false
+      },
+      {
+        "file": "IntroEscena04.jpg",
+        "kind": "image",
+        "metadata": "",
+        "name": "IntroEscena04.jpg",
+        "userAdded": true,
+        "smoothed": true
+      },
+      {
+        "file": "A4.mp3",
+        "kind": "audio",
+        "metadata": "",
+        "name": "A4.mp3",
+        "userAdded": true,
+        "preloadAsMusic": false,
+        "preloadAsSound": true,
+        "preloadInCache": false
+      },
+      {
+        "file": "IntroEscena05.jpg",
+        "kind": "image",
+        "metadata": "",
+        "name": "IntroEscena05.jpg",
+        "userAdded": true,
+        "smoothed": true
+      },
+      {
+        "file": "A5.mp3",
+        "kind": "audio",
+        "metadata": "",
+        "name": "A5.mp3",
+        "userAdded": true,
+        "preloadAsMusic": false,
+        "preloadAsSound": true,
+        "preloadInCache": false
+      },
+      {
+        "file": "IntroEscena06.jpg",
+        "kind": "image",
+        "metadata": "",
+        "name": "IntroEscena06.jpg",
+        "userAdded": true,
+        "smoothed": true
+      },
+      {
+        "file": "A6.mp3",
+        "kind": "audio",
+        "metadata": "",
+        "name": "A6.mp3",
+        "userAdded": true,
+        "preloadAsMusic": false,
+        "preloadAsSound": true,
+        "preloadInCache": false
+      },
+      {
+        "file": "IntroEscena07.jpg",
+        "kind": "image",
+        "metadata": "",
+        "name": "IntroEscena07.jpg",
+        "userAdded": true,
+        "smoothed": true
+      },
+      {
+        "file": "A7.mp3",
+        "kind": "audio",
+        "metadata": "",
+        "name": "A7.mp3",
+        "userAdded": true,
+        "preloadAsMusic": false,
+        "preloadAsSound": true,
+        "preloadInCache": false
+      },
+      {
+        "file": "IntroEscena08.jpg",
+        "kind": "image",
+        "metadata": "",
+        "name": "IntroEscena08.jpg",
+        "userAdded": true,
+        "smoothed": true
+      },
+      {
+        "file": "A8.mp3",
+        "kind": "audio",
+        "metadata": "",
+        "name": "A8.mp3",
+        "userAdded": true,
+        "preloadAsMusic": false,
+        "preloadAsSound": true,
+        "preloadInCache": false
+      },
+      {
+        "file": "IntroEscena09.jpg",
+        "kind": "image",
+        "metadata": "",
+        "name": "IntroEscena09.jpg",
+        "userAdded": true,
+        "smoothed": true
+      },
+      {
+        "file": "A9.mp3",
+        "kind": "audio",
+        "metadata": "",
+        "name": "A9.mp3",
+        "userAdded": true,
+        "preloadAsMusic": false,
+        "preloadAsSound": true,
+        "preloadInCache": false
+      },
+      {
+        "file": "IntroEscena10.jpg",
+        "kind": "image",
+        "metadata": "",
+        "name": "IntroEscena10.jpg",
+        "userAdded": true,
+        "smoothed": true
+      },
+      {
+        "file": "A10.mp3",
+        "kind": "audio",
+        "metadata": "",
+        "name": "A10.mp3",
+        "userAdded": true,
+        "preloadAsMusic": false,
+        "preloadAsSound": true,
+        "preloadInCache": false
+      },
+      {
+        "file": "MusicaIntro.mp3",
+        "kind": "audio",
+        "metadata": "",
+        "name": "MusicaIntro.mp3",
+        "userAdded": true,
+        "preloadAsMusic": false,
+        "preloadAsSound": true,
+        "preloadInCache": false
+      },
+      {
+        "file": "MusicaJuego.mp3",
+        "kind": "audio",
+        "metadata": "",
+        "name": "MusicaJuego.mp3",
+        "userAdded": true,
+        "preloadAsMusic": false,
+        "preloadAsSound": true,
+        "preloadInCache": false
+      },
+      {
+        "file": "FuegoFoso-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "FuegoFoso-1.png",
+        "userAdded": true,
+        "smoothed": true
+      },
+      {
+        "file": "FuegoFoso-2.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "FuegoFoso-2.png",
+        "userAdded": true,
+        "smoothed": true
+      },
+      {
+        "file": "FuegoFoso-3.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "FuegoFoso-3.png",
+        "userAdded": true,
+        "smoothed": true
+      },
+      {
+        "file": "FuegoFoso-4.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "FuegoFoso-4.png",
+        "userAdded": true,
+        "smoothed": true
+      },
+      {
+        "file": "FuegoFoso-5.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "FuegoFoso-5.png",
+        "userAdded": true,
+        "smoothed": true
+      },
+      {
+        "file": "FuegoFoso-6.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "FuegoFoso-6.png",
+        "userAdded": true,
+        "smoothed": true
+      }
+    ]
+  },
+  "objects": [],
+  "objectsFolderStructure": {
+    "folderName": "__ROOT"
+  },
+  "objectsGroups": [
+    {
+      "name": "DamageToHero",
+      "objects": [
+        {
+          "name": "Skeleton"
+        },
+        {
+          "name": "Ghost"
+        },
+        {
+          "name": "Wolf"
+        },
+        {
+          "name": "BossSkull"
+        },
+        {
+          "name": "DeathPit"
+        },
+        {
+          "name": "JefeFuego"
+        },
+        {
+          "name": "JefeOrbe"
+        }
+      ]
+    }
+  ],
+  "variables": [
+    {
+      "name": "gamepadLeft",
+      "type": "string",
+      "value": "LEFT"
+    },
+    {
+      "name": "gamepadRight",
+      "type": "string",
+      "value": "RIGHT"
+    },
+    {
+      "name": "gamepadUp",
+      "type": "string",
+      "value": "UP"
+    },
+    {
+      "name": "gamepadDown",
+      "type": "string",
+      "value": "DOWN"
+    },
+    {
+      "name": "gamepadJump",
+      "type": "string",
+      "value": "A"
+    },
+    {
+      "name": "gamepadAttack",
+      "type": "string",
+      "value": "X"
+    },
+    {
+      "name": "gamepadDash",
+      "type": "string",
+      "value": "B"
+    },
+    {
+      "name": "keyboardLeft",
+      "type": "string",
+      "value": "a"
+    },
+    {
+      "name": "keyboardRight",
+      "type": "string",
+      "value": "d"
+    },
+    {
+      "name": "keyboardUp",
+      "type": "string",
+      "value": "w"
+    },
+    {
+      "name": "keyboardDown",
+      "type": "string",
+      "value": "s"
+    },
+    {
+      "name": "keyboardJump",
+      "type": "string",
+      "value": "j"
+    },
+    {
+      "name": "keyboardAttack",
+      "type": "string",
+      "value": "k"
+    },
+    {
+      "name": "keyboardDash",
+      "type": "string",
+      "value": "o"
+    },
+    {
+      "name": "DashCost",
+      "type": "string",
+      "value": "25"
+    },
+    {
+      "name": "Cutscene",
+      "type": "string",
+      "value": "0"
+    },
+    {
+      "name": "GameState",
+      "type": "structure",
+      "children": [
+        {
+          "name": "Checkpoint",
+          "type": "string",
+          "value": "0"
+        },
+        {
+          "name": "GameOver",
+          "type": "string",
+          "value": "0"
+        },
+        {
+          "name": "Lives",
+          "type": "string",
+          "value": "3"
+        },
+        {
+          "name": "NivelInicio",
+          "type": "number",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "name": "CoyoteTime",
+      "type": "string",
+      "value": "0.0833"
+    },
+    {
+      "name": "Prog",
+      "type": "structure",
+      "children": [
+        {
+          "name": "BonusChant",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "BonusDMG",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "BonusHP",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "BonusStam",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "BossDead",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "Botiquines",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "CPSet",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "CPX",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "CPY",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "D1Open",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "D3Open",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "GotKey1",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "GotKey2",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "HasDJ",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "HasDash",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "Jefe1",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "Jefe2",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "Jefe3",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "Keys",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "Life1",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "Life2",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "NPC",
+          "type": "structure",
+          "children": []
+        },
+        {
+          "name": "Partida",
+          "type": "number",
+          "value": 1
+        },
+        {
+          "name": "Puntos",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "Rel",
+          "type": "structure",
+          "children": []
+        },
+        {
+          "name": "RenacerZona",
+          "type": "string",
+          "value": ""
+        },
+        {
+          "name": "Kills",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "KillsIni",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "PuntosIni",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "Ultima",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "Vamp",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "Armadura",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "ChantDesc",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "Cofre",
+          "type": "structure",
+          "children": []
+        },
+        {
+          "name": "Obj",
+          "type": "structure",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Balance",
+      "type": "structure",
+      "children": [
+        {
+          "name": "AirCrossDMG",
+          "type": "number",
+          "value": 12
+        },
+        {
+          "name": "ChantCost",
+          "type": "number",
+          "value": 30
+        },
+        {
+          "name": "ChantDMG",
+          "type": "number",
+          "value": 18
+        },
+        {
+          "name": "ChantSpeed",
+          "type": "number",
+          "value": 1100
+        },
+        {
+          "name": "ComboFinisherBonus",
+          "type": "number",
+          "value": 1.5
+        },
+        {
+          "name": "ComboTime",
+          "type": "number",
+          "value": 1.6
+        },
+        {
+          "name": "CrossDMG",
+          "type": "number",
+          "value": 10
+        },
+        {
+          "name": "GargolaDMG",
+          "type": "number",
+          "value": 13
+        },
+        {
+          "name": "GargolaHP",
+          "type": "number",
+          "value": 60
+        },
+        {
+          "name": "GargolaWake",
+          "type": "number",
+          "value": 480
+        },
+        {
+          "name": "Jefe1HP",
+          "type": "number",
+          "value": 300
+        },
+        {
+          "name": "Jefe2HP",
+          "type": "number",
+          "value": 520
+        },
+        {
+          "name": "Jefe3HP",
+          "type": "number",
+          "value": 650
+        },
+        {
+          "name": "JefeDMG",
+          "type": "number",
+          "value": 30
+        },
+        {
+          "name": "JefeFuegoDMG",
+          "type": "number",
+          "value": 18
+        },
+        {
+          "name": "JefeHP",
+          "type": "number",
+          "value": 300
+        },
+        {
+          "name": "MinotauroDMG",
+          "type": "number",
+          "value": 19
+        },
+        {
+          "name": "MinotauroHP",
+          "type": "number",
+          "value": 110
+        },
+        {
+          "name": "MinotauroSight",
+          "type": "number",
+          "value": 700
+        },
+        {
+          "name": "MuerteDMG",
+          "type": "number",
+          "value": 13
+        },
+        {
+          "name": "MuerteHP",
+          "type": "number",
+          "value": 75
+        },
+        {
+          "name": "MuerteRange",
+          "type": "number",
+          "value": 260
+        }
+      ]
+    },
+    {
+      "name": "keyboardChant",
+      "type": "string",
+      "value": "l"
+    },
+    {
+      "name": "gamepadChant",
+      "type": "string",
+      "value": "Y"
+    }
+  ],
+  "layouts": [
+    {
+      "__REFERENCE_TO_SPLIT_OBJECT": true,
+      "referenceTo": "/layouts/title"
+    },
+    {
+      "__REFERENCE_TO_SPLIT_OBJECT": true,
+      "referenceTo": "/layouts/intro"
+    },
+    {
+      "__REFERENCE_TO_SPLIT_OBJECT": true,
+      "referenceTo": "/layouts/stage"
+    },
+    {
+      "__REFERENCE_TO_SPLIT_OBJECT": true,
+      "referenceTo": "/layouts/credits"
+    },
+    {
+      "__REFERENCE_TO_SPLIT_OBJECT": true,
+      "referenceTo": "/layouts/winscreen"
+    }
+  ],
+  "layoutsFolderStructure": {
+    "folderName": "__ROOT",
+    "children": [
+      {
+        "itemName": "Title"
+      },
+      {
+        "itemName": "Intro"
+      },
+      {
+        "itemName": "Stage"
+      },
+      {
+        "itemName": "Credits"
+      },
+      {
+        "itemName": "WinScreen"
+      }
+    ]
+  },
+  "externalEvents": [
+    {
+      "__REFERENCE_TO_SPLIT_OBJECT": true,
+      "referenceTo": "/externalEvents/herofsm"
+    },
+    {
+      "__REFERENCE_TO_SPLIT_OBJECT": true,
+      "referenceTo": "/externalEvents/herofsminit"
+    },
+    {
+      "__REFERENCE_TO_SPLIT_OBJECT": true,
+      "referenceTo": "/externalEvents/herofsmfall"
+    },
+    {
+      "__REFERENCE_TO_SPLIT_OBJECT": true,
+      "referenceTo": "/externalEvents/herofsmrun"
+    },
+    {
+      "__REFERENCE_TO_SPLIT_OBJECT": true,
+      "referenceTo": "/externalEvents/herofsmidle"
+    },
+    {
+      "__REFERENCE_TO_SPLIT_OBJECT": true,
+      "referenceTo": "/externalEvents/herofsmattack"
+    },
+    {
+      "__REFERENCE_TO_SPLIT_OBJECT": true,
+      "referenceTo": "/externalEvents/herofsmdash"
+    },
+    {
+      "__REFERENCE_TO_SPLIT_OBJECT": true,
+      "referenceTo": "/externalEvents/herofsmjump"
+    },
+    {
+      "__REFERENCE_TO_SPLIT_OBJECT": true,
+      "referenceTo": "/externalEvents/herofsmhit"
+    },
+    {
+      "__REFERENCE_TO_SPLIT_OBJECT": true,
+      "referenceTo": "/externalEvents/herofsmcutscene"
+    },
+    {
+      "__REFERENCE_TO_SPLIT_OBJECT": true,
+      "referenceTo": "/externalEvents/herofsmdeath"
+    },
+    {
+      "__REFERENCE_TO_SPLIT_OBJECT": true,
+      "referenceTo": "/externalEvents/staminamanagement"
+    },
+    {
+      "__REFERENCE_TO_SPLIT_OBJECT": true,
+      "referenceTo": "/externalEvents/cameramanagement"
+    },
+    {
+      "__REFERENCE_TO_SPLIT_OBJECT": true,
+      "referenceTo": "/externalEvents/guimanagement"
+    },
+    {
+      "__REFERENCE_TO_SPLIT_OBJECT": true,
+      "referenceTo": "/externalEvents/heroobjectmanagement"
+    },
+    {
+      "__REFERENCE_TO_SPLIT_OBJECT": true,
+      "referenceTo": "/externalEvents/debugmanagement"
+    },
+    {
+      "__REFERENCE_TO_SPLIT_OBJECT": true,
+      "referenceTo": "/externalEvents/patrollerenemy"
+    },
+    {
+      "__REFERENCE_TO_SPLIT_OBJECT": true,
+      "referenceTo": "/externalEvents/delayedchaseenemy"
+    },
+    {
+      "__REFERENCE_TO_SPLIT_OBJECT": true,
+      "referenceTo": "/externalEvents/enemycombatmanagement"
+    },
+    {
+      "__REFERENCE_TO_SPLIT_OBJECT": true,
+      "referenceTo": "/externalEvents/dasherenemy"
+    },
+    {
+      "__REFERENCE_TO_SPLIT_OBJECT": true,
+      "referenceTo": "/externalEvents/progression"
+    },
+    {
+      "__REFERENCE_TO_SPLIT_OBJECT": true,
+      "referenceTo": "/externalEvents/herofsmchant"
+    },
+    {
+      "__REFERENCE_TO_SPLIT_OBJECT": true,
+      "referenceTo": "/externalEvents/combat"
+    },
+    {
+      "__REFERENCE_TO_SPLIT_OBJECT": true,
+      "referenceTo": "/externalEvents/jefes"
+    },
+    {
+      "__REFERENCE_TO_SPLIT_OBJECT": true,
+      "referenceTo": "/externalEvents/extras"
+    },
+    {
+      "__REFERENCE_TO_SPLIT_OBJECT": true,
+      "referenceTo": "/externalEvents/heridos"
+    },
+    {
+      "__REFERENCE_TO_SPLIT_OBJECT": true,
+      "referenceTo": "/externalEvents/detalles"
+    },
+    {
+      "__REFERENCE_TO_SPLIT_OBJECT": true,
+      "referenceTo": "/externalEvents/pantallas"
+    }
+  ],
+  "externalEventsFolderStructure": {
+    "folderName": "__ROOT",
+    "children": [
+      {
+        "itemName": "HeroFSM"
+      },
+      {
+        "itemName": "HeroFSMInit"
+      },
+      {
+        "itemName": "HeroFSMFall"
+      },
+      {
+        "itemName": "HeroFSMRun"
+      },
+      {
+        "itemName": "HeroFSMIdle"
+      },
+      {
+        "itemName": "HeroFSMAttack"
+      },
+      {
+        "itemName": "HeroFSMDash"
+      },
+      {
+        "itemName": "HeroFSMJump"
+      },
+      {
+        "itemName": "HeroFSMHit"
+      },
+      {
+        "itemName": "HeroFSMCutscene"
+      },
+      {
+        "itemName": "HeroFSMDeath"
+      },
+      {
+        "itemName": "StaminaManagement"
+      },
+      {
+        "itemName": "CameraManagement"
+      },
+      {
+        "itemName": "GUIManagement"
+      },
+      {
+        "itemName": "HeroObjectManagement"
+      },
+      {
+        "itemName": "DebugManagement"
+      },
+      {
+        "itemName": "PatrollerEnemy"
+      },
+      {
+        "itemName": "DelayedChaseEnemy"
+      },
+      {
+        "itemName": "EnemyCombatManagement"
+      },
+      {
+        "itemName": "DasherEnemy"
+      },
+      {
+        "itemName": "Progression"
+      },
+      {
+        "itemName": "HeroFSMChant"
+      },
+      {
+        "itemName": "Combat"
+      },
+      {
+        "itemName": "Jefes"
+      },
+      {
+        "itemName": "Extras"
+      },
+      {
+        "itemName": "Heridos"
+      },
+      {
+        "itemName": "Detalles"
+      },
+      {
+        "itemName": "Pantallas"
+      }
+    ]
+  },
+  "testsFolderStructure": {
+    "folderName": "__ROOT"
+  },
+  "eventsFunctionsExtensions": [
+    {
+      "__REFERENCE_TO_SPLIT_OBJECT": true,
+      "referenceTo": "/eventsFunctionsExtensions/gamepads"
+    }
+  ],
+  "externalLayouts": [],
+  "externalLayoutsFolderStructure": {
+    "folderName": "__ROOT"
+  }
+}

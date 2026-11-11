@@ -1,0 +1,2488 @@
+{
+  "b": 0,
+  "disableInputWhenNotFocused": true,
+  "mangledName": "Intro",
+  "name": "Intro",
+  "r": 0,
+  "renderer3DWorldScale": 100,
+  "standardSortMethod": true,
+  "stopSoundsOnStartup": true,
+  "title": "",
+  "v": 0,
+  "uiSettings": {
+    "grid": false,
+    "gridType": "rectangular",
+    "gridWidth": 32,
+    "gridHeight": 32,
+    "gridDepth": 32,
+    "gridOffsetX": 0,
+    "gridOffsetY": 0,
+    "gridOffsetZ": 0,
+    "gridColor": 10401023,
+    "gridAlpha": 0.8,
+    "snap": true,
+    "zoomFactor": 0.6199999999999997,
+    "windowMask": false,
+    "selectedLayer": "",
+    "gameEditorMode": "instances-editor"
+  },
+  "objectsGroups": [],
+  "variables": [
+    {
+      "name": "Esc",
+      "type": "number",
+      "value": 1
+    },
+    {
+      "name": "Inicia",
+      "type": "number",
+      "value": 1
+    },
+    {
+      "name": "Sale",
+      "type": "number",
+      "value": 0
+    },
+    {
+      "name": "Listo",
+      "type": "number",
+      "value": 0
+    },
+    {
+      "name": "Fin",
+      "type": "number",
+      "value": 0
+    },
+    {
+      "name": "Dur",
+      "type": "number",
+      "value": 9
+    },
+    {
+      "name": "Texto",
+      "type": "string",
+      "value": ""
+    }
+  ],
+  "instances": [
+    {
+      "angle": 0,
+      "customSize": false,
+      "height": 0,
+      "layer": "",
+      "name": "IntroImg",
+      "persistentUuid": "8d28fd1a-edb9-41ce-8c62-cd4baa7ab024",
+      "width": 0,
+      "x": 0,
+      "y": 0,
+      "zOrder": 1,
+      "numberProperties": [],
+      "stringProperties": [],
+      "initialVariables": []
+    },
+    {
+      "angle": 0,
+      "customSize": true,
+      "height": 160,
+      "layer": "Texto",
+      "name": "IntroBarra",
+      "persistentUuid": "2de53a38-cc8f-45c3-836a-466a3bc67fe4",
+      "width": 1280,
+      "x": 0,
+      "y": 560,
+      "zOrder": 1,
+      "numberProperties": [],
+      "stringProperties": [],
+      "initialVariables": []
+    },
+    {
+      "angle": 0,
+      "customSize": false,
+      "height": 0,
+      "layer": "Texto",
+      "name": "IntroTexto",
+      "persistentUuid": "1227ac2d-9a6a-41a8-8de1-fb7a54039f2f",
+      "width": 0,
+      "x": 640,
+      "y": 590,
+      "zOrder": 3,
+      "numberProperties": [],
+      "stringProperties": [],
+      "initialVariables": []
+    },
+    {
+      "angle": 0,
+      "customSize": false,
+      "height": 0,
+      "layer": "Texto",
+      "name": "IntroAyuda",
+      "persistentUuid": "d014aa1b-e912-4c88-9e97-2516079e7857",
+      "width": 0,
+      "x": 1260,
+      "y": 14,
+      "zOrder": 3,
+      "numberProperties": [],
+      "stringProperties": [],
+      "initialVariables": []
+    },
+    {
+      "angle": 0,
+      "customSize": false,
+      "height": 0,
+      "layer": "Texto",
+      "name": "IntroNum",
+      "persistentUuid": "6f2a36e4-b93b-48fb-91c5-b82a3ee444f2",
+      "width": 0,
+      "x": 20,
+      "y": 14,
+      "zOrder": 3,
+      "numberProperties": [],
+      "stringProperties": [],
+      "initialVariables": []
+    },
+    {
+      "angle": 0,
+      "customSize": true,
+      "height": 720,
+      "layer": "Texto",
+      "name": "IntroNegro",
+      "persistentUuid": "7a2ac91d-bcd7-40c0-be6f-db09b312e1f3",
+      "width": 1280,
+      "x": 0,
+      "y": 0,
+      "zOrder": 10,
+      "numberProperties": [],
+      "stringProperties": [],
+      "initialVariables": []
+    }
+  ],
+  "objects": [
+    {
+      "adaptCollisionMaskAutomatically": false,
+      "assetStoreId": "",
+      "name": "IntroImg",
+      "type": "Sprite",
+      "updateIfNotVisible": false,
+      "variables": [],
+      "effects": [],
+      "behaviors": [],
+      "animations": [
+        {
+          "name": "E1",
+          "useMultipleDirections": false,
+          "directions": [
+            {
+              "looping": false,
+              "timeBetweenFrames": 1,
+              "sprites": [
+                {
+                  "hasCustomCollisionMask": true,
+                  "image": "IntroEscena01.jpg",
+                  "points": [],
+                  "originPoint": {
+                    "name": "origine",
+                    "x": 0,
+                    "y": 0
+                  },
+                  "centerPoint": {
+                    "automatic": true,
+                    "name": "centre",
+                    "x": 0,
+                    "y": 0
+                  },
+                  "customCollisionMask": [
+                    [
+                      {
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "x": 1,
+                        "y": 1
+                      },
+                      {
+                        "x": 0,
+                        "y": 1
+                      }
+                    ]
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "E2",
+          "useMultipleDirections": false,
+          "directions": [
+            {
+              "looping": false,
+              "timeBetweenFrames": 1,
+              "sprites": [
+                {
+                  "hasCustomCollisionMask": true,
+                  "image": "IntroEscena02.jpg",
+                  "points": [],
+                  "originPoint": {
+                    "name": "origine",
+                    "x": 0,
+                    "y": 0
+                  },
+                  "centerPoint": {
+                    "automatic": true,
+                    "name": "centre",
+                    "x": 0,
+                    "y": 0
+                  },
+                  "customCollisionMask": [
+                    [
+                      {
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "x": 1,
+                        "y": 1
+                      },
+                      {
+                        "x": 0,
+                        "y": 1
+                      }
+                    ]
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "E3",
+          "useMultipleDirections": false,
+          "directions": [
+            {
+              "looping": false,
+              "timeBetweenFrames": 1,
+              "sprites": [
+                {
+                  "hasCustomCollisionMask": true,
+                  "image": "IntroEscena03.jpg",
+                  "points": [],
+                  "originPoint": {
+                    "name": "origine",
+                    "x": 0,
+                    "y": 0
+                  },
+                  "centerPoint": {
+                    "automatic": true,
+                    "name": "centre",
+                    "x": 0,
+                    "y": 0
+                  },
+                  "customCollisionMask": [
+                    [
+                      {
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "x": 1,
+                        "y": 1
+                      },
+                      {
+                        "x": 0,
+                        "y": 1
+                      }
+                    ]
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "E4",
+          "useMultipleDirections": false,
+          "directions": [
+            {
+              "looping": false,
+              "timeBetweenFrames": 1,
+              "sprites": [
+                {
+                  "hasCustomCollisionMask": true,
+                  "image": "IntroEscena04.jpg",
+                  "points": [],
+                  "originPoint": {
+                    "name": "origine",
+                    "x": 0,
+                    "y": 0
+                  },
+                  "centerPoint": {
+                    "automatic": true,
+                    "name": "centre",
+                    "x": 0,
+                    "y": 0
+                  },
+                  "customCollisionMask": [
+                    [
+                      {
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "x": 1,
+                        "y": 1
+                      },
+                      {
+                        "x": 0,
+                        "y": 1
+                      }
+                    ]
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "E5",
+          "useMultipleDirections": false,
+          "directions": [
+            {
+              "looping": false,
+              "timeBetweenFrames": 1,
+              "sprites": [
+                {
+                  "hasCustomCollisionMask": true,
+                  "image": "IntroEscena05.jpg",
+                  "points": [],
+                  "originPoint": {
+                    "name": "origine",
+                    "x": 0,
+                    "y": 0
+                  },
+                  "centerPoint": {
+                    "automatic": true,
+                    "name": "centre",
+                    "x": 0,
+                    "y": 0
+                  },
+                  "customCollisionMask": [
+                    [
+                      {
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "x": 1,
+                        "y": 1
+                      },
+                      {
+                        "x": 0,
+                        "y": 1
+                      }
+                    ]
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "E6",
+          "useMultipleDirections": false,
+          "directions": [
+            {
+              "looping": false,
+              "timeBetweenFrames": 1,
+              "sprites": [
+                {
+                  "hasCustomCollisionMask": true,
+                  "image": "IntroEscena06.jpg",
+                  "points": [],
+                  "originPoint": {
+                    "name": "origine",
+                    "x": 0,
+                    "y": 0
+                  },
+                  "centerPoint": {
+                    "automatic": true,
+                    "name": "centre",
+                    "x": 0,
+                    "y": 0
+                  },
+                  "customCollisionMask": [
+                    [
+                      {
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "x": 1,
+                        "y": 1
+                      },
+                      {
+                        "x": 0,
+                        "y": 1
+                      }
+                    ]
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "E7",
+          "useMultipleDirections": false,
+          "directions": [
+            {
+              "looping": false,
+              "timeBetweenFrames": 1,
+              "sprites": [
+                {
+                  "hasCustomCollisionMask": true,
+                  "image": "IntroEscena07.jpg",
+                  "points": [],
+                  "originPoint": {
+                    "name": "origine",
+                    "x": 0,
+                    "y": 0
+                  },
+                  "centerPoint": {
+                    "automatic": true,
+                    "name": "centre",
+                    "x": 0,
+                    "y": 0
+                  },
+                  "customCollisionMask": [
+                    [
+                      {
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "x": 1,
+                        "y": 1
+                      },
+                      {
+                        "x": 0,
+                        "y": 1
+                      }
+                    ]
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "E8",
+          "useMultipleDirections": false,
+          "directions": [
+            {
+              "looping": false,
+              "timeBetweenFrames": 1,
+              "sprites": [
+                {
+                  "hasCustomCollisionMask": true,
+                  "image": "IntroEscena08.jpg",
+                  "points": [],
+                  "originPoint": {
+                    "name": "origine",
+                    "x": 0,
+                    "y": 0
+                  },
+                  "centerPoint": {
+                    "automatic": true,
+                    "name": "centre",
+                    "x": 0,
+                    "y": 0
+                  },
+                  "customCollisionMask": [
+                    [
+                      {
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "x": 1,
+                        "y": 1
+                      },
+                      {
+                        "x": 0,
+                        "y": 1
+                      }
+                    ]
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "E9",
+          "useMultipleDirections": false,
+          "directions": [
+            {
+              "looping": false,
+              "timeBetweenFrames": 1,
+              "sprites": [
+                {
+                  "hasCustomCollisionMask": true,
+                  "image": "IntroEscena09.jpg",
+                  "points": [],
+                  "originPoint": {
+                    "name": "origine",
+                    "x": 0,
+                    "y": 0
+                  },
+                  "centerPoint": {
+                    "automatic": true,
+                    "name": "centre",
+                    "x": 0,
+                    "y": 0
+                  },
+                  "customCollisionMask": [
+                    [
+                      {
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "x": 1,
+                        "y": 1
+                      },
+                      {
+                        "x": 0,
+                        "y": 1
+                      }
+                    ]
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "E10",
+          "useMultipleDirections": false,
+          "directions": [
+            {
+              "looping": false,
+              "timeBetweenFrames": 1,
+              "sprites": [
+                {
+                  "hasCustomCollisionMask": true,
+                  "image": "IntroEscena10.jpg",
+                  "points": [],
+                  "originPoint": {
+                    "name": "origine",
+                    "x": 0,
+                    "y": 0
+                  },
+                  "centerPoint": {
+                    "automatic": true,
+                    "name": "centre",
+                    "x": 0,
+                    "y": 0
+                  },
+                  "customCollisionMask": [
+                    [
+                      {
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "x": 1,
+                        "y": 1
+                      },
+                      {
+                        "x": 0,
+                        "y": 1
+                      }
+                    ]
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "adaptCollisionMaskAutomatically": false,
+      "assetStoreId": "",
+      "name": "IntroNegro",
+      "type": "Sprite",
+      "updateIfNotVisible": false,
+      "variables": [],
+      "effects": [],
+      "behaviors": [],
+      "animations": [
+        {
+          "name": "Fade",
+          "useMultipleDirections": false,
+          "directions": [
+            {
+              "looping": false,
+              "timeBetweenFrames": 0.07999999821186066,
+              "sprites": [
+                {
+                  "hasCustomCollisionMask": false,
+                  "image": "Fade-1.png",
+                  "points": [],
+                  "originPoint": {
+                    "name": "origine",
+                    "x": 0,
+                    "y": 0
+                  },
+                  "centerPoint": {
+                    "automatic": true,
+                    "name": "centre",
+                    "x": 0,
+                    "y": 0
+                  },
+                  "customCollisionMask": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "adaptCollisionMaskAutomatically": false,
+      "assetStoreId": "",
+      "name": "IntroBarra",
+      "type": "Sprite",
+      "updateIfNotVisible": false,
+      "variables": [],
+      "effects": [],
+      "behaviors": [],
+      "animations": [
+        {
+          "name": "Fade",
+          "useMultipleDirections": false,
+          "directions": [
+            {
+              "looping": false,
+              "timeBetweenFrames": 0.07999999821186066,
+              "sprites": [
+                {
+                  "hasCustomCollisionMask": false,
+                  "image": "Fade-1.png",
+                  "points": [],
+                  "originPoint": {
+                    "name": "origine",
+                    "x": 0,
+                    "y": 0
+                  },
+                  "centerPoint": {
+                    "automatic": true,
+                    "name": "centre",
+                    "x": 0,
+                    "y": 0
+                  },
+                  "customCollisionMask": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "assetStoreId": "",
+      "name": "IntroTexto",
+      "type": "BitmapText::BitmapTextObject",
+      "variables": [],
+      "effects": [],
+      "behaviors": [],
+      "content": {
+        "text": "",
+        "opacity": 255,
+        "scale": 0.8,
+        "fontSize": 20,
+        "tint": "#f2e6d0",
+        "bitmapFontResourceName": "dogicapixel24.fnt",
+        "textureAtlasResourceName": "dogicapixel24_0.png",
+        "align": "center",
+        "wordWrap": false,
+        "verticalTextAlignment": "top"
+      }
+    },
+    {
+      "assetStoreId": "",
+      "name": "IntroAyuda",
+      "type": "BitmapText::BitmapTextObject",
+      "variables": [],
+      "effects": [],
+      "behaviors": [],
+      "content": {
+        "text": "K / A: SIGUIENTE     START / ESC: SALTAR",
+        "opacity": 255,
+        "scale": 0.5,
+        "fontSize": 20,
+        "tint": "#9a8f80",
+        "bitmapFontResourceName": "dogicapixel24.fnt",
+        "textureAtlasResourceName": "dogicapixel24_0.png",
+        "align": "right",
+        "wordWrap": false,
+        "verticalTextAlignment": "top"
+      }
+    },
+    {
+      "assetStoreId": "",
+      "name": "IntroNum",
+      "type": "BitmapText::BitmapTextObject",
+      "variables": [],
+      "effects": [],
+      "behaviors": [],
+      "content": {
+        "text": "",
+        "opacity": 255,
+        "scale": 0.5,
+        "fontSize": 20,
+        "tint": "#9a8f80",
+        "bitmapFontResourceName": "dogicapixel24.fnt",
+        "textureAtlasResourceName": "dogicapixel24_0.png",
+        "align": "left",
+        "wordWrap": false,
+        "verticalTextAlignment": "top"
+      }
+    }
+  ],
+  "objectsFolderStructure": {
+    "folderName": "__ROOT",
+    "children": [
+      {
+        "objectName": "IntroImg"
+      },
+      {
+        "objectName": "IntroNegro"
+      },
+      {
+        "objectName": "IntroBarra"
+      },
+      {
+        "objectName": "IntroTexto"
+      },
+      {
+        "objectName": "IntroAyuda"
+      },
+      {
+        "objectName": "IntroNum"
+      }
+    ]
+  },
+  "events": [
+    {
+      "type": "BuiltinCommonInstructions::Comment",
+      "color": {
+        "b": 109,
+        "g": 230,
+        "r": 255,
+        "textB": 0,
+        "textG": 0,
+        "textR": 0
+      },
+      "comment": "HELLMED - Cinematica de introduccion: 10 escenas con narracion (A1-A10), musica de fondo y texto que se escribe letra por letra.\nK / A adelanta a la siguiente escena; START / ESC salta la introduccion. Al terminar empieza el tutorial (escena Stage)."
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": {
+            "value": "DepartScene"
+          },
+          "parameters": [
+            ""
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "type": {
+            "value": "StopSoundCanal"
+          },
+          "parameters": [
+            "",
+            "100"
+          ]
+        },
+        {
+          "type": {
+            "value": "StopSoundCanal"
+          },
+          "parameters": [
+            "",
+            "0"
+          ]
+        },
+        {
+          "type": {
+            "value": "PlaySoundCanal"
+          },
+          "parameters": [
+            "",
+            "MusicaIntro.mp3",
+            "0",
+            "yes",
+            "0",
+            "1"
+          ]
+        },
+        {
+          "type": {
+            "value": "ModVarScene"
+          },
+          "parameters": [
+            "Esc",
+            "=",
+            "1"
+          ]
+        },
+        {
+          "type": {
+            "value": "ModVarScene"
+          },
+          "parameters": [
+            "Inicia",
+            "=",
+            "1"
+          ]
+        },
+        {
+          "type": {
+            "value": "ChangeColor"
+          },
+          "parameters": [
+            "IntroBarra",
+            "\"0;0;0\""
+          ]
+        },
+        {
+          "type": {
+            "value": "Opacity"
+          },
+          "parameters": [
+            "IntroBarra",
+            "=",
+            "170"
+          ]
+        },
+        {
+          "type": {
+            "value": "ChangeColor"
+          },
+          "parameters": [
+            "IntroNegro",
+            "\"0;0;0\""
+          ]
+        },
+        {
+          "type": {
+            "value": "Opacity"
+          },
+          "parameters": [
+            "IntroNegro",
+            "=",
+            "255"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": {
+            "value": "SoundCanalVolume"
+          },
+          "parameters": [
+            "",
+            "0",
+            "<",
+            "16"
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "type": {
+            "value": "ModVolumeSoundCanal"
+          },
+          "parameters": [
+            "",
+            "0",
+            "+",
+            "TimeDelta()*25"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": {
+            "value": "VarScene"
+          },
+          "parameters": [
+            "Inicia",
+            "=",
+            "1"
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "type": {
+            "value": "ModVarScene"
+          },
+          "parameters": [
+            "Inicia",
+            "=",
+            "0"
+          ]
+        },
+        {
+          "type": {
+            "value": "ModVarScene"
+          },
+          "parameters": [
+            "Sale",
+            "=",
+            "0"
+          ]
+        },
+        {
+          "type": {
+            "value": "ResetTimer"
+          },
+          "parameters": [
+            "",
+            "\"esc\""
+          ]
+        },
+        {
+          "type": {
+            "value": "ChangeScale"
+          },
+          "parameters": [
+            "IntroImg",
+            "=",
+            "1"
+          ]
+        },
+        {
+          "type": {
+            "value": "MettreXY"
+          },
+          "parameters": [
+            "IntroImg",
+            "=",
+            "0",
+            "=",
+            "0"
+          ]
+        },
+        {
+          "type": {
+            "value": "BitmapText::BitmapTextObject::SetText"
+          },
+          "parameters": [
+            "IntroNum",
+            "=",
+            "ToString(Variable(Esc))+\" / 10\""
+          ]
+        }
+      ],
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "Esc",
+                "=",
+                "1"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetAnimationName"
+              },
+              "parameters": [
+                "IntroImg",
+                "\"E1\""
+              ]
+            },
+            {
+              "type": {
+                "value": "PlaySoundCanal"
+              },
+              "parameters": [
+                "",
+                "A1.mp3",
+                "1",
+                "",
+                "100",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarSceneTxt"
+              },
+              "parameters": [
+                "Texto",
+                "=",
+                "\"Antes de la oscuridad, el mundo aun conocia la\"+NewLine()+\"paz. Un sacerdote vivia junto a su esposa y\"+NewLine()+\"dedicaba su vida a ayudar a los demas.\""
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "Dur",
+                "=",
+                "11.27"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "Esc",
+                "=",
+                "2"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetAnimationName"
+              },
+              "parameters": [
+                "IntroImg",
+                "\"E2\""
+              ]
+            },
+            {
+              "type": {
+                "value": "PlaySoundCanal"
+              },
+              "parameters": [
+                "",
+                "A2.mp3",
+                "1",
+                "",
+                "100",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarSceneTxt"
+              },
+              "parameters": [
+                "Texto",
+                "=",
+                "\"Ademas de su fe, habia aprendido primeros\"+NewLine()+\"auxilios. Creia que salvar una vida tambien era\"+NewLine()+\"una forma de servir al projimo.\""
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "Dur",
+                "=",
+                "9.68"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "Esc",
+                "=",
+                "3"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetAnimationName"
+              },
+              "parameters": [
+                "IntroImg",
+                "\"E3\""
+              ]
+            },
+            {
+              "type": {
+                "value": "PlaySoundCanal"
+              },
+              "parameters": [
+                "",
+                "A3.mp3",
+                "1",
+                "",
+                "100",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarSceneTxt"
+              },
+              "parameters": [
+                "Texto",
+                "=",
+                "\"Entonces, el cielo se oscurecio. La tierra se\"+NewLine()+\"estremecio y las puertas del inframundo se\"+NewLine()+\"abrieron, desatando criaturas sobre el mundo.\""
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "Dur",
+                "=",
+                "12.32"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "Esc",
+                "=",
+                "4"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetAnimationName"
+              },
+              "parameters": [
+                "IntroImg",
+                "\"E4\""
+              ]
+            },
+            {
+              "type": {
+                "value": "PlaySoundCanal"
+              },
+              "parameters": [
+                "",
+                "A4.mp3",
+                "1",
+                "",
+                "100",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarSceneTxt"
+              },
+              "parameters": [
+                "Texto",
+                "=",
+                "\"En medio del caos, el sacerdote fue separado de su\"+NewLine()+\"esposa. Cuando todo termino, ella habia\"+NewLine()+\"desaparecido sin dejar rastro.\""
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "Dur",
+                "=",
+                "11.04"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "Esc",
+                "=",
+                "5"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetAnimationName"
+              },
+              "parameters": [
+                "IntroImg",
+                "\"E5\""
+              ]
+            },
+            {
+              "type": {
+                "value": "PlaySoundCanal"
+              },
+              "parameters": [
+                "",
+                "A5.mp3",
+                "1",
+                "",
+                "100",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarSceneTxt"
+              },
+              "parameters": [
+                "Texto",
+                "=",
+                "\"En otra ciudad, un medico atendia a los heridos\"+NewLine()+\"sin descanso. Aunque todos huian, el decidio\"+NewLine()+\"quedarse con sus pacientes.\""
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "Dur",
+                "=",
+                "9.45"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "Esc",
+                "=",
+                "6"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetAnimationName"
+              },
+              "parameters": [
+                "IntroImg",
+                "\"E6\""
+              ]
+            },
+            {
+              "type": {
+                "value": "PlaySoundCanal"
+              },
+              "parameters": [
+                "",
+                "A6.mp3",
+                "1",
+                "",
+                "100",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarSceneTxt"
+              },
+              "parameters": [
+                "Texto",
+                "=",
+                "\"El hospital fue destruido y el medico murio\"+NewLine()+\"intentando salvarlos. Pero su espiritu no encontro\"+NewLine()+\"descanso: se convirtio en Phantom.\""
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "Dur",
+                "=",
+                "12.08"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "Esc",
+                "=",
+                "7"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetAnimationName"
+              },
+              "parameters": [
+                "IntroImg",
+                "\"E7\""
+              ]
+            },
+            {
+              "type": {
+                "value": "PlaySoundCanal"
+              },
+              "parameters": [
+                "",
+                "A7.mp3",
+                "1",
+                "",
+                "100",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarSceneTxt"
+              },
+              "parameters": [
+                "Texto",
+                "=",
+                "\"Las almas de sus pacientes fueron arrastradas al\"+NewLine()+\"inframundo. Phantom quedo atrapado en el hospital,\"+NewLine()+\"esperando una oportunidad para liberarlas.\""
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "Dur",
+                "=",
+                "11.35"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "Esc",
+                "=",
+                "8"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetAnimationName"
+              },
+              "parameters": [
+                "IntroImg",
+                "\"E8\""
+              ]
+            },
+            {
+              "type": {
+                "value": "PlaySoundCanal"
+              },
+              "parameters": [
+                "",
+                "A8.mp3",
+                "1",
+                "",
+                "100",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarSceneTxt"
+              },
+              "parameters": [
+                "Texto",
+                "=",
+                "\"Buscando respuestas sobre su esposa, el sacerdote\"+NewLine()+\"llego al hospital. Alli encontro a Phantom, un\"+NewLine()+\"espiritu que aun deseaba salvar a otros.\""
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "Dur",
+                "=",
+                "11.35"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "Esc",
+                "=",
+                "9"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetAnimationName"
+              },
+              "parameters": [
+                "IntroImg",
+                "\"E9\""
+              ]
+            },
+            {
+              "type": {
+                "value": "PlaySoundCanal"
+              },
+              "parameters": [
+                "",
+                "A9.mp3",
+                "1",
+                "",
+                "100",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarSceneTxt"
+              },
+              "parameters": [
+                "Texto",
+                "=",
+                "\"Phantom le hablo de las almas perdidas. El\"+NewLine()+\"sacerdote vio una esperanza para encontrar a su\"+NewLine()+\"esposa, y ambos decidieron continuar juntos.\""
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "Dur",
+                "=",
+                "10.07"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "VarScene"
+              },
+              "parameters": [
+                "Esc",
+                "=",
+                "10"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetAnimationName"
+              },
+              "parameters": [
+                "IntroImg",
+                "\"E10\""
+              ]
+            },
+            {
+              "type": {
+                "value": "PlaySoundCanal"
+              },
+              "parameters": [
+                "",
+                "A10.mp3",
+                "1",
+                "",
+                "100",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarSceneTxt"
+              },
+              "parameters": [
+                "Texto",
+                "=",
+                "\"Guiados por una misma esperanza, llegaron a la\"+NewLine()+\"Catedral en Ruinas. Frente a sus puertas, comenzo\"+NewLine()+\"su descenso al infierno.\""
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "Dur",
+                "=",
+                "11.91"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [],
+      "actions": [
+        {
+          "type": {
+            "value": "MettreX"
+          },
+          "parameters": [
+            "IntroImg",
+            "=",
+            "-min(1,TimerElapsedTime(\"esc\")/Variable(Dur))*417"
+          ]
+        },
+        {
+          "type": {
+            "value": "ChangeScale"
+          },
+          "parameters": [
+            "IntroImg",
+            "=",
+            "1+TimerElapsedTime(\"esc\")/Variable(Dur)*0.04"
+          ]
+        },
+        {
+          "type": {
+            "value": "BitmapText::BitmapTextObject::SetText"
+          },
+          "parameters": [
+            "IntroTexto",
+            "=",
+            "SubStr(VariableString(Texto),0,floor(TimerElapsedTime(\"esc\")*38))"
+          ]
+        },
+        {
+          "type": {
+            "value": "MettreXY"
+          },
+          "parameters": [
+            "IntroTexto",
+            "=",
+            "640-IntroTexto.Width()/2",
+            "=",
+            "598"
+          ]
+        },
+        {
+          "type": {
+            "value": "MettreX"
+          },
+          "parameters": [
+            "IntroAyuda",
+            "=",
+            "1260-IntroAyuda.Width()"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": {
+            "value": "VarScene"
+          },
+          "parameters": [
+            "Sale",
+            "=",
+            "0"
+          ]
+        },
+        {
+          "type": {
+            "value": "BuiltinCommonInstructions::CompareNumbers"
+          },
+          "parameters": [
+            "TimerElapsedTime(\"esc\")",
+            "<",
+            "0.8"
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "type": {
+            "value": "Opacity"
+          },
+          "parameters": [
+            "IntroNegro",
+            "=",
+            "max(0,255-TimerElapsedTime(\"esc\")*320)"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": {
+            "value": "VarScene"
+          },
+          "parameters": [
+            "Sale",
+            "=",
+            "0"
+          ]
+        },
+        {
+          "type": {
+            "value": "BuiltinCommonInstructions::CompareNumbers"
+          },
+          "parameters": [
+            "TimerElapsedTime(\"esc\")",
+            ">=",
+            "0.8"
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "type": {
+            "value": "Opacity"
+          },
+          "parameters": [
+            "IntroNegro",
+            "=",
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": {
+            "value": "VarScene"
+          },
+          "parameters": [
+            "Sale",
+            "=",
+            "0"
+          ]
+        },
+        {
+          "type": {
+            "value": "BuiltinCommonInstructions::CompareNumbers"
+          },
+          "parameters": [
+            "TimerElapsedTime(\"esc\")",
+            ">=",
+            "Variable(Dur)"
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "type": {
+            "value": "ModVarScene"
+          },
+          "parameters": [
+            "Sale",
+            "=",
+            "1"
+          ]
+        },
+        {
+          "type": {
+            "value": "ResetTimer"
+          },
+          "parameters": [
+            "",
+            "\"sale\""
+          ]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": {
+            "value": "VarScene"
+          },
+          "parameters": [
+            "Listo",
+            "=",
+            "1"
+          ]
+        },
+        {
+          "type": {
+            "value": "VarScene"
+          },
+          "parameters": [
+            "Sale",
+            "=",
+            "0"
+          ]
+        },
+        {
+          "type": {
+            "value": "BuiltinCommonInstructions::CompareNumbers"
+          },
+          "parameters": [
+            "TimerElapsedTime(\"esc\")",
+            ">",
+            "0.5"
+          ]
+        },
+        {
+          "type": {
+            "value": "BuiltinCommonInstructions::Or"
+          },
+          "parameters": [],
+          "subInstructions": [
+            {
+              "type": {
+                "value": "KeyFromTextPressed"
+              },
+              "parameters": [
+                "",
+                "\"k\""
+              ]
+            },
+            {
+              "type": {
+                "value": "KeyFromTextPressed"
+              },
+              "parameters": [
+                "",
+                "\"j\""
+              ]
+            },
+            {
+              "type": {
+                "value": "KeyFromTextPressed"
+              },
+              "parameters": [
+                "",
+                "\"Return\""
+              ]
+            },
+            {
+              "type": {
+                "value": "KeyFromTextPressed"
+              },
+              "parameters": [
+                "",
+                "\"Space\""
+              ]
+            },
+            {
+              "type": {
+                "value": "Gamepads::C_Button_pressed"
+              },
+              "parameters": [
+                "",
+                "1",
+                "\"A\"",
+                ""
+              ]
+            }
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "type": {
+            "value": "ModVarScene"
+          },
+          "parameters": [
+            "Sale",
+            "=",
+            "1"
+          ]
+        },
+        {
+          "type": {
+            "value": "ModVarScene"
+          },
+          "parameters": [
+            "Listo",
+            "=",
+            "0"
+          ]
+        },
+        {
+          "type": {
+            "value": "ResetTimer"
+          },
+          "parameters": [
+            "",
+            "\"sale\""
+          ]
+        },
+        {
+          "type": {
+            "value": "StopSoundCanal"
+          },
+          "parameters": [
+            "",
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": {
+            "value": "VarScene"
+          },
+          "parameters": [
+            "Sale",
+            "=",
+            "1"
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "type": {
+            "value": "Opacity"
+          },
+          "parameters": [
+            "IntroNegro",
+            "=",
+            "min(255,TimerElapsedTime(\"sale\")*560)"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": {
+            "value": "VarScene"
+          },
+          "parameters": [
+            "Sale",
+            "=",
+            "1"
+          ]
+        },
+        {
+          "type": {
+            "value": "BuiltinCommonInstructions::CompareNumbers"
+          },
+          "parameters": [
+            "TimerElapsedTime(\"sale\")",
+            ">=",
+            "0.5"
+          ]
+        },
+        {
+          "type": {
+            "value": "VarScene"
+          },
+          "parameters": [
+            "Esc",
+            "<",
+            "10"
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "type": {
+            "value": "ModVarScene"
+          },
+          "parameters": [
+            "Esc",
+            "+",
+            "1"
+          ]
+        },
+        {
+          "type": {
+            "value": "ModVarScene"
+          },
+          "parameters": [
+            "Inicia",
+            "=",
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": {
+            "value": "VarScene"
+          },
+          "parameters": [
+            "Sale",
+            "=",
+            "1"
+          ]
+        },
+        {
+          "type": {
+            "value": "BuiltinCommonInstructions::CompareNumbers"
+          },
+          "parameters": [
+            "TimerElapsedTime(\"sale\")",
+            ">=",
+            "0.5"
+          ]
+        },
+        {
+          "type": {
+            "value": "VarScene"
+          },
+          "parameters": [
+            "Esc",
+            "=",
+            "10"
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "type": {
+            "value": "ModVarScene"
+          },
+          "parameters": [
+            "Fin",
+            "=",
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": {
+            "value": "KeyFromTextPressed",
+            "inverted": true
+          },
+          "parameters": [
+            "",
+            "\"k\""
+          ]
+        },
+        {
+          "type": {
+            "value": "KeyFromTextPressed",
+            "inverted": true
+          },
+          "parameters": [
+            "",
+            "\"j\""
+          ]
+        },
+        {
+          "type": {
+            "value": "KeyFromTextPressed",
+            "inverted": true
+          },
+          "parameters": [
+            "",
+            "\"Return\""
+          ]
+        },
+        {
+          "type": {
+            "value": "KeyFromTextPressed",
+            "inverted": true
+          },
+          "parameters": [
+            "",
+            "\"Space\""
+          ]
+        },
+        {
+          "type": {
+            "value": "Gamepads::C_Button_pressed",
+            "inverted": true
+          },
+          "parameters": [
+            "",
+            "1",
+            "\"A\"",
+            ""
+          ]
+        },
+        {
+          "type": {
+            "value": "KeyFromTextPressed",
+            "inverted": true
+          },
+          "parameters": [
+            "",
+            "\"Escape\""
+          ]
+        },
+        {
+          "type": {
+            "value": "KeyFromTextPressed",
+            "inverted": true
+          },
+          "parameters": [
+            "",
+            "\"p\""
+          ]
+        },
+        {
+          "type": {
+            "value": "Gamepads::C_Button_pressed",
+            "inverted": true
+          },
+          "parameters": [
+            "",
+            "1",
+            "\"START\"",
+            ""
+          ]
+        },
+        {
+          "type": {
+            "value": "Gamepads::C_Button_pressed",
+            "inverted": true
+          },
+          "parameters": [
+            "",
+            "1",
+            "\"B\"",
+            ""
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "type": {
+            "value": "ModVarScene"
+          },
+          "parameters": [
+            "Listo",
+            "=",
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": {
+            "value": "VarScene"
+          },
+          "parameters": [
+            "Listo",
+            "=",
+            "1"
+          ]
+        },
+        {
+          "type": {
+            "value": "BuiltinCommonInstructions::Or"
+          },
+          "parameters": [],
+          "subInstructions": [
+            {
+              "type": {
+                "value": "KeyFromTextPressed"
+              },
+              "parameters": [
+                "",
+                "\"Escape\""
+              ]
+            },
+            {
+              "type": {
+                "value": "KeyFromTextPressed"
+              },
+              "parameters": [
+                "",
+                "\"p\""
+              ]
+            },
+            {
+              "type": {
+                "value": "Gamepads::C_Button_pressed"
+              },
+              "parameters": [
+                "",
+                "1",
+                "\"START\"",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "Gamepads::C_Button_pressed"
+              },
+              "parameters": [
+                "",
+                "1",
+                "\"B\"",
+                ""
+              ]
+            }
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "type": {
+            "value": "ModVarScene"
+          },
+          "parameters": [
+            "Fin",
+            "=",
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": {
+            "value": "VarScene"
+          },
+          "parameters": [
+            "Fin",
+            "=",
+            "1"
+          ]
+        },
+        {
+          "type": {
+            "value": "KeyFromTextPressed",
+            "inverted": true
+          },
+          "parameters": [
+            "",
+            "\"k\""
+          ]
+        },
+        {
+          "type": {
+            "value": "KeyFromTextPressed",
+            "inverted": true
+          },
+          "parameters": [
+            "",
+            "\"j\""
+          ]
+        },
+        {
+          "type": {
+            "value": "KeyFromTextPressed",
+            "inverted": true
+          },
+          "parameters": [
+            "",
+            "\"Return\""
+          ]
+        },
+        {
+          "type": {
+            "value": "KeyFromTextPressed",
+            "inverted": true
+          },
+          "parameters": [
+            "",
+            "\"Space\""
+          ]
+        },
+        {
+          "type": {
+            "value": "Gamepads::C_Button_pressed",
+            "inverted": true
+          },
+          "parameters": [
+            "",
+            "1",
+            "\"A\"",
+            ""
+          ]
+        },
+        {
+          "type": {
+            "value": "KeyFromTextPressed",
+            "inverted": true
+          },
+          "parameters": [
+            "",
+            "\"Escape\""
+          ]
+        },
+        {
+          "type": {
+            "value": "KeyFromTextPressed",
+            "inverted": true
+          },
+          "parameters": [
+            "",
+            "\"p\""
+          ]
+        },
+        {
+          "type": {
+            "value": "Gamepads::C_Button_pressed",
+            "inverted": true
+          },
+          "parameters": [
+            "",
+            "1",
+            "\"START\"",
+            ""
+          ]
+        },
+        {
+          "type": {
+            "value": "Gamepads::C_Button_pressed",
+            "inverted": true
+          },
+          "parameters": [
+            "",
+            "1",
+            "\"B\"",
+            ""
+          ]
+        },
+        {
+          "type": {
+            "value": "BuiltinCommonInstructions::Once"
+          },
+          "parameters": []
+        }
+      ],
+      "actions": [
+        {
+          "type": {
+            "value": "StopSoundCanal"
+          },
+          "parameters": [
+            "",
+            "1"
+          ]
+        },
+        {
+          "type": {
+            "value": "StopSoundCanal"
+          },
+          "parameters": [
+            "",
+            "0"
+          ]
+        },
+        {
+          "type": {
+            "value": "Scene"
+          },
+          "parameters": [
+            "",
+            "\"Stage\"",
+            "yes"
+          ]
+        }
+      ]
+    }
+  ],
+  "layers": [
+    {
+      "ambientLightColorB": 0,
+      "ambientLightColorG": 7346456,
+      "ambientLightColorR": 0,
+      "camera2DPlaneMaxDrawingDistance": 5000,
+      "camera3DFarPlaneDistance": 10000,
+      "camera3DFieldOfView": 45,
+      "camera3DNearPlaneDistance": 0.1,
+      "cameraType": "perspective",
+      "followBaseLayerCamera": false,
+      "isLightingLayer": false,
+      "isLocked": false,
+      "name": "",
+      "renderingType": "",
+      "visibility": true,
+      "cameras": [
+        {
+          "defaultSize": true,
+          "defaultViewport": true,
+          "height": 0,
+          "viewportBottom": 1,
+          "viewportLeft": 0,
+          "viewportRight": 1,
+          "viewportTop": 0,
+          "width": 0
+        }
+      ],
+      "effects": []
+    },
+    {
+      "ambientLightColorB": 0,
+      "ambientLightColorG": 7346456,
+      "ambientLightColorR": 0,
+      "camera2DPlaneMaxDrawingDistance": 5000,
+      "camera3DFarPlaneDistance": 10000,
+      "camera3DFieldOfView": 45,
+      "camera3DNearPlaneDistance": 0.1,
+      "cameraType": "perspective",
+      "followBaseLayerCamera": false,
+      "isLightingLayer": false,
+      "isLocked": false,
+      "name": "Texto",
+      "renderingType": "",
+      "visibility": true,
+      "cameras": [
+        {
+          "defaultSize": true,
+          "defaultViewport": true,
+          "height": 0,
+          "viewportBottom": 1,
+          "viewportLeft": 0,
+          "viewportRight": 1,
+          "viewportTop": 0,
+          "width": 0
+        }
+      ],
+      "effects": []
+    }
+  ],
+  "behaviorsSharedData": [
+    {
+      "name": "Effect",
+      "type": "EffectCapability::EffectBehavior"
+    },
+    {
+      "name": "Opacity",
+      "type": "OpacityCapability::OpacityBehavior"
+    },
+    {
+      "name": "Scale",
+      "type": "ScalableCapability::ScalableBehavior"
+    },
+    {
+      "name": "Text",
+      "type": "TextContainerCapability::TextContainerBehavior"
+    }
+  ],
+  "g": 0
+}
