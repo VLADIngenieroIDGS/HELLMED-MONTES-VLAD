@@ -567,8 +567,8 @@
                 },
                 {
                   "type": {
-                    "value": "Gamepads::C_Axis_pushed",
-                    "inverted": true
+                    "inverted": true,
+                    "value": "Gamepads::C_Axis_pushed"
                   },
                   "parameters": [
                     "",
@@ -746,8 +746,8 @@
                 },
                 {
                   "type": {
-                    "value": "Gamepads::C_Axis_pushed",
-                    "inverted": true
+                    "inverted": true,
+                    "value": "Gamepads::C_Axis_pushed"
                   },
                   "parameters": [
                     "",
@@ -924,8 +924,8 @@
                 },
                 {
                   "type": {
-                    "value": "Gamepads::C_Axis_pushed",
-                    "inverted": true
+                    "inverted": true,
+                    "value": "Gamepads::C_Axis_pushed"
                   },
                   "parameters": [
                     "",
@@ -949,8 +949,8 @@
                 },
                 {
                   "type": {
-                    "value": "Gamepads::C_Axis_pushed",
-                    "inverted": true
+                    "inverted": true,
+                    "value": "Gamepads::C_Axis_pushed"
                   },
                   "parameters": [
                     "",

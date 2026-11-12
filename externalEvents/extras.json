@@ -848,8 +848,8 @@
             },
             {
               "type": {
-                "value": "Gamepads::C_Button_pressed",
-                "inverted": true
+                "inverted": true,
+                "value": "Gamepads::C_Button_pressed"
               },
               "parameters": [
                 "",
@@ -870,8 +870,8 @@
             },
             {
               "type": {
-                "value": "Gamepads::C_Button_pressed",
-                "inverted": true
+                "inverted": true,
+                "value": "Gamepads::C_Button_pressed"
               },
               "parameters": [
                 "",
@@ -1178,8 +1178,8 @@
             },
             {
               "type": {
-                "value": "Gamepads::C_Button_pressed",
-                "inverted": true
+                "inverted": true,
+                "value": "Gamepads::C_Button_pressed"
               },
               "parameters": [
                 "",
@@ -1200,8 +1200,8 @@
             },
             {
               "type": {
-                "value": "Gamepads::C_Button_pressed",
-                "inverted": true
+                "inverted": true,
+                "value": "Gamepads::C_Button_pressed"
               },
               "parameters": [
                 "",
@@ -1222,8 +1222,8 @@
             },
             {
               "type": {
-                "value": "Gamepads::C_Button_pressed",
-                "inverted": true
+                "inverted": true,
+                "value": "Gamepads::C_Button_pressed"
               },
               "parameters": [
                 "",
@@ -1244,8 +1244,8 @@
             },
             {
               "type": {
-                "value": "Gamepads::C_Button_pressed",
-                "inverted": true
+                "inverted": true,
+                "value": "Gamepads::C_Button_pressed"
               },
               "parameters": [
                 "",
@@ -1266,8 +1266,8 @@
             },
             {
               "type": {
-                "value": "Gamepads::C_Button_pressed",
-                "inverted": true
+                "inverted": true,
+                "value": "Gamepads::C_Button_pressed"
               },
               "parameters": [
                 "",
@@ -1288,8 +1288,8 @@
             },
             {
               "type": {
-                "value": "Gamepads::C_Button_pressed",
-                "inverted": true
+                "inverted": true,
+                "value": "Gamepads::C_Button_pressed"
               },
               "parameters": [
                 "",
@@ -1300,8 +1300,8 @@
             },
             {
               "type": {
-                "value": "Gamepads::C_Axis_pushed",
-                "inverted": true
+                "inverted": true,
+                "value": "Gamepads::C_Axis_pushed"
               },
               "parameters": [
                 "",
@@ -1323,8 +1323,8 @@
             },
             {
               "type": {
-                "value": "Gamepads::C_Button_pressed",
-                "inverted": true
+                "inverted": true,
+                "value": "Gamepads::C_Button_pressed"
               },
               "parameters": [
                 "",
@@ -1335,8 +1335,8 @@
             },
             {
               "type": {
-                "value": "Gamepads::C_Axis_pushed",
-                "inverted": true
+                "inverted": true,
+                "value": "Gamepads::C_Axis_pushed"
               },
               "parameters": [
                 "",

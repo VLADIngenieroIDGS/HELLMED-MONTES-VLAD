@@ -156,7 +156,7 @@
                     "=",
                     "clamp(Letrero.CenterX()-LetreroTabla.Width()/2, CameraX(\"\",0)-630, CameraX(\"\",0)+630-LetreroTabla.Width())",
                     "=",
-                    "Letrero.Y()-LetreroTabla.Height()-4"
+                    "max(min(Letrero.Y(), HeroHitbox.Y()-40)-LetreroTabla.Height()-12, CameraY(\"\",0)-350)"
                   ]
                 },
                 {
@@ -389,8 +389,8 @@
             },
             {
               "type": {
-                "value": "KeyFromTextPressed",
-                "inverted": true
+                "inverted": true,
+                "value": "KeyFromTextPressed"
               },
               "parameters": [
                 "",
@@ -399,8 +399,8 @@
             },
             {
               "type": {
-                "value": "KeyFromTextPressed",
-                "inverted": true
+                "inverted": true,
+                "value": "KeyFromTextPressed"
               },
               "parameters": [
                 "",
@@ -409,8 +409,8 @@
             },
             {
               "type": {
-                "value": "Gamepads::C_Button_pressed",
-                "inverted": true
+                "inverted": true,
+                "value": "Gamepads::C_Button_pressed"
               },
               "parameters": [
                 "",
@@ -421,8 +421,8 @@
             },
             {
               "type": {
-                "value": "Gamepads::C_Axis_pushed",
-                "inverted": true
+                "inverted": true,
+                "value": "Gamepads::C_Axis_pushed"
               },
               "parameters": [
                 "",
@@ -434,8 +434,8 @@
             },
             {
               "type": {
-                "value": "KeyFromTextPressed",
-                "inverted": true
+                "inverted": true,
+                "value": "KeyFromTextPressed"
               },
               "parameters": [
                 "",
@@ -444,8 +444,8 @@
             },
             {
               "type": {
-                "value": "KeyFromTextPressed",
-                "inverted": true
+                "inverted": true,
+                "value": "KeyFromTextPressed"
               },
               "parameters": [
                 "",
@@ -454,8 +454,8 @@
             },
             {
               "type": {
-                "value": "Gamepads::C_Button_pressed",
-                "inverted": true
+                "inverted": true,
+                "value": "Gamepads::C_Button_pressed"
               },
               "parameters": [
                 "",
@@ -466,8 +466,8 @@
             },
             {
               "type": {
-                "value": "Gamepads::C_Axis_pushed",
-                "inverted": true
+                "inverted": true,
+                "value": "Gamepads::C_Axis_pushed"
               },
               "parameters": [
                 "",
@@ -479,8 +479,8 @@
             },
             {
               "type": {
-                "value": "KeyFromTextPressed",
-                "inverted": true
+                "inverted": true,
+                "value": "KeyFromTextPressed"
               },
               "parameters": [
                 "",
@@ -489,8 +489,8 @@
             },
             {
               "type": {
-                "value": "KeyFromTextPressed",
-                "inverted": true
+                "inverted": true,
+                "value": "KeyFromTextPressed"
               },
               "parameters": [
                 "",
@@ -499,8 +499,8 @@
             },
             {
               "type": {
-                "value": "KeyFromTextPressed",
-                "inverted": true
+                "inverted": true,
+                "value": "KeyFromTextPressed"
               },
               "parameters": [
                 "",
@@ -509,8 +509,8 @@
             },
             {
               "type": {
-                "value": "Gamepads::C_Button_pressed",
-                "inverted": true
+                "inverted": true,
+                "value": "Gamepads::C_Button_pressed"
               },
               "parameters": [
                 "",
@@ -521,8 +521,8 @@
             },
             {
               "type": {
-                "value": "KeyFromTextPressed",
-                "inverted": true
+                "inverted": true,
+                "value": "KeyFromTextPressed"
               },
               "parameters": [
                 "",
@@ -531,8 +531,8 @@
             },
             {
               "type": {
-                "value": "KeyFromTextPressed",
-                "inverted": true
+                "inverted": true,
+                "value": "KeyFromTextPressed"
               },
               "parameters": [
                 "",
@@ -541,8 +541,8 @@
             },
             {
               "type": {
-                "value": "Gamepads::C_Button_pressed",
-                "inverted": true
+                "inverted": true,
+                "value": "Gamepads::C_Button_pressed"
               },
               "parameters": [
                 "",
@@ -553,8 +553,8 @@
             },
             {
               "type": {
-                "value": "Gamepads::C_Button_pressed",
-                "inverted": true
+                "inverted": true,
+                "value": "Gamepads::C_Button_pressed"
               },
               "parameters": [
                 "",
@@ -2321,8 +2321,8 @@
           "conditions": [
             {
               "type": {
-                "value": "CollisionNP",
-                "inverted": true
+                "inverted": true,
+                "value": "CollisionNP"
               },
               "parameters": [
                 "HeroHitbox",
@@ -2758,8 +2758,8 @@
               "conditions": [
                 {
                   "type": {
-                    "value": "IsFlippedX",
-                    "inverted": true
+                    "inverted": true,
+                    "value": "IsFlippedX"
                   },
                   "parameters": [
                     "Hero"
@@ -3331,8 +3331,8 @@
               "conditions": [
                 {
                   "type": {
-                    "value": "IsFlippedX",
-                    "inverted": true
+                    "inverted": true,
+                    "value": "IsFlippedX"
                   },
                   "parameters": [
                     "Hero"
@@ -4847,8 +4847,7 @@
                 "\"t\""
               ]
             }
-          ],
-          "events": []
+          ]
         },
         {
           "type": "BuiltinCommonInstructions::Standard",
@@ -5033,181 +5032,6 @@
                 "",
                 "\"Title\"",
                 ""
-              ]
-            }
-          ]
-        }
-      ],
-      "parameters": []
-    },
-    {
-      "colorB": 228,
-      "colorG": 176,
-      "colorR": 74,
-      "creationTime": 0,
-      "folded": true,
-      "name": "PRUEBAS 2 (quitar al entregar)",
-      "source": "",
-      "type": "BuiltinCommonInstructions::Group",
-      "events": [
-        {
-          "type": "BuiltinCommonInstructions::Comment",
-          "color": {
-            "b": 109,
-            "g": 230,
-            "r": 255,
-            "textB": 0,
-            "textG": 0,
-            "textR": 0
-          },
-          "comment": "F9: jefe activo con 1 de vida. F10: quedarse sin vidas y con 1 de vida. F11: ir al cofre de las catacumbas."
-        },
-        {
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [
-            {
-              "type": {
-                "value": "KeyFromTextPressed"
-              },
-              "parameters": [
-                "",
-                "\"F9\""
-              ]
-            },
-            {
-              "type": {
-                "value": "BuiltinCommonInstructions::Once"
-              },
-              "parameters": []
-            },
-            {
-              "type": {
-                "value": "VarObjet"
-              },
-              "parameters": [
-                "BossSkull",
-                "Id",
-                "=",
-                "Variable(JefeActivo)"
-              ]
-            }
-          ],
-          "actions": [
-            {
-              "type": {
-                "value": "ModVarObjet"
-              },
-              "parameters": [
-                "BossSkull",
-                "enemyHP",
-                "=",
-                "1"
-              ]
-            }
-          ]
-        },
-        {
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [
-            {
-              "type": {
-                "value": "KeyFromTextPressed"
-              },
-              "parameters": [
-                "",
-                "\"F10\""
-              ]
-            },
-            {
-              "type": {
-                "value": "BuiltinCommonInstructions::Once"
-              },
-              "parameters": []
-            }
-          ],
-          "actions": [
-            {
-              "type": {
-                "value": "ModVarGlobal"
-              },
-              "parameters": [
-                "GameState.Lives",
-                "=",
-                "0"
-              ]
-            },
-            {
-              "type": {
-                "value": "ModVarObjet"
-              },
-              "parameters": [
-                "Hero",
-                "heroHP",
-                "=",
-                "1"
-              ]
-            },
-            {
-              "type": {
-                "value": "BitmapText::BitmapTextObject::SetText"
-              },
-              "parameters": [
-                "MsgText",
-                "=",
-                "\"PRUEBA: SIN VIDAS\""
-              ]
-            },
-            {
-              "type": {
-                "value": "ResetObjectTimer"
-              },
-              "parameters": [
-                "MsgText",
-                "\"Msg\""
-              ]
-            }
-          ]
-        },
-        {
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [
-            {
-              "type": {
-                "value": "KeyFromTextPressed"
-              },
-              "parameters": [
-                "",
-                "\"F11\""
-              ]
-            },
-            {
-              "type": {
-                "value": "BuiltinCommonInstructions::Once"
-              },
-              "parameters": []
-            }
-          ],
-          "actions": [
-            {
-              "type": {
-                "value": "MettreXY"
-              },
-              "parameters": [
-                "HeroHitbox",
-                "=",
-                "2240",
-                "=",
-                "6456"
-              ]
-            },
-            {
-              "type": {
-                "value": "ModVarScene"
-              },
-              "parameters": [
-                "CamSnap",
-                "=",
-                "1"
               ]
             }
           ]

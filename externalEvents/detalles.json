@@ -920,8 +920,8 @@
           "conditions": [
             {
               "type": {
-                "value": "PlatformBehavior::IsOnFloor",
-                "inverted": true
+                "inverted": true,
+                "value": "PlatformBehavior::IsOnFloor"
               },
               "parameters": [
                 "HeroHitbox",
@@ -1043,8 +1043,8 @@
               "conditions": [
                 {
                   "type": {
-                    "value": "CollisionNP",
-                    "inverted": true
+                    "inverted": true,
+                    "value": "CollisionNP"
                   },
                   "parameters": [
                     "HeroHitbox",
@@ -1202,8 +1202,8 @@
             },
             {
               "type": {
-                "value": "KeyFromTextPressed",
-                "inverted": true
+                "inverted": true,
+                "value": "KeyFromTextPressed"
               },
               "parameters": [
                 "",
@@ -1212,8 +1212,8 @@
             },
             {
               "type": {
-                "value": "Gamepads::C_Button_pressed",
-                "inverted": true
+                "inverted": true,
+                "value": "Gamepads::C_Button_pressed"
               },
               "parameters": [
                 "",
@@ -1224,8 +1224,8 @@
             },
             {
               "type": {
-                "value": "Gamepads::C_Axis_pushed",
-                "inverted": true
+                "inverted": true,
+                "value": "Gamepads::C_Axis_pushed"
               },
               "parameters": [
                 "",
@@ -1237,8 +1237,8 @@
             },
             {
               "type": {
-                "value": "KeyFromTextPressed",
-                "inverted": true
+                "inverted": true,
+                "value": "KeyFromTextPressed"
               },
               "parameters": [
                 "",
@@ -1247,8 +1247,8 @@
             },
             {
               "type": {
-                "value": "Gamepads::C_Button_pressed",
-                "inverted": true
+                "inverted": true,
+                "value": "Gamepads::C_Button_pressed"
               },
               "parameters": [
                 "",
@@ -1259,8 +1259,8 @@
             },
             {
               "type": {
-                "value": "Gamepads::C_Axis_pushed",
-                "inverted": true
+                "inverted": true,
+                "value": "Gamepads::C_Axis_pushed"
               },
               "parameters": [
                 "",
@@ -1272,8 +1272,8 @@
             },
             {
               "type": {
-                "value": "KeyFromTextPressed",
-                "inverted": true
+                "inverted": true,
+                "value": "KeyFromTextPressed"
               },
               "parameters": [
                 "",
@@ -1282,8 +1282,8 @@
             },
             {
               "type": {
-                "value": "Gamepads::C_Button_pressed",
-                "inverted": true
+                "inverted": true,
+                "value": "Gamepads::C_Button_pressed"
               },
               "parameters": [
                 "",
@@ -1294,8 +1294,8 @@
             },
             {
               "type": {
-                "value": "KeyFromTextPressed",
-                "inverted": true
+                "inverted": true,
+                "value": "KeyFromTextPressed"
               },
               "parameters": [
                 "",
@@ -1304,8 +1304,8 @@
             },
             {
               "type": {
-                "value": "Gamepads::C_Button_pressed",
-                "inverted": true
+                "inverted": true,
+                "value": "Gamepads::C_Button_pressed"
               },
               "parameters": [
                 "",
@@ -1316,8 +1316,8 @@
             },
             {
               "type": {
-                "value": "KeyFromTextPressed",
-                "inverted": true
+                "inverted": true,
+                "value": "KeyFromTextPressed"
               },
               "parameters": [
                 "",
@@ -1326,8 +1326,8 @@
             },
             {
               "type": {
-                "value": "Gamepads::C_Button_pressed",
-                "inverted": true
+                "inverted": true,
+                "value": "Gamepads::C_Button_pressed"
               },
               "parameters": [
                 "",
@@ -1338,8 +1338,8 @@
             },
             {
               "type": {
-                "value": "KeyFromTextPressed",
-                "inverted": true
+                "inverted": true,
+                "value": "KeyFromTextPressed"
               },
               "parameters": [
                 "",
@@ -1348,8 +1348,8 @@
             },
             {
               "type": {
-                "value": "Gamepads::C_Button_pressed",
-                "inverted": true
+                "inverted": true,
+                "value": "Gamepads::C_Button_pressed"
               },
               "parameters": [
                 "",
@@ -1360,8 +1360,8 @@
             },
             {
               "type": {
-                "value": "KeyFromTextPressed",
-                "inverted": true
+                "inverted": true,
+                "value": "KeyFromTextPressed"
               },
               "parameters": [
                 "",
@@ -1370,8 +1370,8 @@
             },
             {
               "type": {
-                "value": "Gamepads::C_Button_pressed",
-                "inverted": true
+                "inverted": true,
+                "value": "Gamepads::C_Button_pressed"
               },
               "parameters": [
                 "",
@@ -2735,8 +2735,6 @@
         {
           "type": "BuiltinCommonInstructions::ForEach",
           "object": "PuertaLlave",
-          "disabled": false,
-          "folded": false,
           "conditions": [],
           "actions": [],
           "events": [

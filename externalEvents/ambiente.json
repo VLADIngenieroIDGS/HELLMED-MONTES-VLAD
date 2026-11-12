@@ -1,0 +1,591 @@
+{
+  "associatedLayout": "Stage",
+  "name": "Ambiente",
+  "events": [
+    {
+      "colorB": 228,
+      "colorG": 176,
+      "colorR": 74,
+      "creationTime": 0,
+      "folded": true,
+      "name": "Iluminacion, filtros y particulas",
+      "source": "",
+      "type": "BuiltinCommonInstructions::Group",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "color": {
+            "b": 109,
+            "g": 230,
+            "r": 255,
+            "textB": 0,
+            "textG": 0,
+            "textR": 0
+          },
+          "comment": "ILUMINACION, FILTROS Y PARTICULAS.\nCapa 'Iluminacion' (capa de luces 2D): luz ambiente distinta por zona = luz NATURAL (dia en la Iglesia, luna en el Pueblo, bosque verdoso).\nLuces ARTIFICIALES: velas y faroles (LuzVela), altares (LuzAltar), fuego de los fosos (LuzFuego) y la luz de fe del sacerdote (LuzHeroe).\nLuz natural extra: rayos de sol por las ventanas (LuzSol) y luna (LuzLuna).\nParticulas (capa 'Particulas'): brasas en los fosos, chispas doradas en altares, polvo (Iglesia), ceniza (Pueblo), luciernagas y hojas (Bosque), almas (cuartos secretos), chispas al golpear y almas al morir un enemigo."
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "MettreXY"
+              },
+              "parameters": [
+                "LuzHeroe",
+                "=",
+                "HeroHitbox.CenterX()",
+                "=",
+                "HeroHitbox.CenterY()-20"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "VarSceneTxt"
+              },
+              "parameters": [
+                "Zona",
+                "!=",
+                "VariableString(AmbZona)"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ModVarSceneTxt"
+              },
+              "parameters": [
+                "AmbZona",
+                "=",
+                "VariableString(Zona)"
+              ]
+            },
+            {
+              "type": {
+                "value": "Delete"
+              },
+              "parameters": [
+                "Polvo",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "Delete"
+              },
+              "parameters": [
+                "Ceniza",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "Delete"
+              },
+              "parameters": [
+                "Luciernagas",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "Delete"
+              },
+              "parameters": [
+                "Hojas",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "Delete"
+              },
+              "parameters": [
+                "Almas",
+                ""
+              ]
+            }
+          ],
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "Zona",
+                    "=",
+                    "\"Iglesia\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "SetLayerAmbientLightColor"
+                  },
+                  "parameters": [
+                    "",
+                    "\"Iluminacion\"",
+                    "\"185;172;160\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetLayerEffectDoubleParameter"
+                  },
+                  "parameters": [
+                    "",
+                    "\"\"",
+                    "\"Ajuste\"",
+                    "\"red\"",
+                    "1.06"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetLayerEffectDoubleParameter"
+                  },
+                  "parameters": [
+                    "",
+                    "\"\"",
+                    "\"Ajuste\"",
+                    "\"green\"",
+                    "1.0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetLayerEffectDoubleParameter"
+                  },
+                  "parameters": [
+                    "",
+                    "\"\"",
+                    "\"Ajuste\"",
+                    "\"blue\"",
+                    "0.94"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetLayerEffectDoubleParameter"
+                  },
+                  "parameters": [
+                    "",
+                    "\"\"",
+                    "\"Ajuste\"",
+                    "\"saturation\"",
+                    "1.1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Create"
+                  },
+                  "parameters": [
+                    "",
+                    "Polvo",
+                    "CameraX(\"\",0)",
+                    "CameraY(\"\",0)+0",
+                    "\"Particulas\""
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "Zona",
+                    "=",
+                    "\"Pueblo\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "SetLayerAmbientLightColor"
+                  },
+                  "parameters": [
+                    "",
+                    "\"Iluminacion\"",
+                    "\"140;145;190\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetLayerEffectDoubleParameter"
+                  },
+                  "parameters": [
+                    "",
+                    "\"\"",
+                    "\"Ajuste\"",
+                    "\"red\"",
+                    "0.97"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetLayerEffectDoubleParameter"
+                  },
+                  "parameters": [
+                    "",
+                    "\"\"",
+                    "\"Ajuste\"",
+                    "\"green\"",
+                    "0.96"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetLayerEffectDoubleParameter"
+                  },
+                  "parameters": [
+                    "",
+                    "\"\"",
+                    "\"Ajuste\"",
+                    "\"blue\"",
+                    "1.08"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetLayerEffectDoubleParameter"
+                  },
+                  "parameters": [
+                    "",
+                    "\"\"",
+                    "\"Ajuste\"",
+                    "\"saturation\"",
+                    "1.0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Create"
+                  },
+                  "parameters": [
+                    "",
+                    "Ceniza",
+                    "CameraX(\"\",0)",
+                    "CameraY(\"\",0)+-300",
+                    "\"Particulas\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetAngle"
+                  },
+                  "parameters": [
+                    "Ceniza",
+                    "=",
+                    "90"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "Zona",
+                    "=",
+                    "\"Bosque\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "SetLayerAmbientLightColor"
+                  },
+                  "parameters": [
+                    "",
+                    "\"Iluminacion\"",
+                    "\"140;175;150\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetLayerEffectDoubleParameter"
+                  },
+                  "parameters": [
+                    "",
+                    "\"\"",
+                    "\"Ajuste\"",
+                    "\"red\"",
+                    "0.95"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetLayerEffectDoubleParameter"
+                  },
+                  "parameters": [
+                    "",
+                    "\"\"",
+                    "\"Ajuste\"",
+                    "\"green\"",
+                    "1.07"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetLayerEffectDoubleParameter"
+                  },
+                  "parameters": [
+                    "",
+                    "\"\"",
+                    "\"Ajuste\"",
+                    "\"blue\"",
+                    "0.97"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetLayerEffectDoubleParameter"
+                  },
+                  "parameters": [
+                    "",
+                    "\"\"",
+                    "\"Ajuste\"",
+                    "\"saturation\"",
+                    "1.12"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Create"
+                  },
+                  "parameters": [
+                    "",
+                    "Luciernagas",
+                    "CameraX(\"\",0)",
+                    "CameraY(\"\",0)+0",
+                    "\"Particulas\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Create"
+                  },
+                  "parameters": [
+                    "",
+                    "Hojas",
+                    "CameraX(\"\",0)",
+                    "CameraY(\"\",0)+-350",
+                    "\"Particulas\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetAngle"
+                  },
+                  "parameters": [
+                    "Hojas",
+                    "=",
+                    "100"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "Zona",
+                    "=",
+                    "\"Secreto\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "SetLayerAmbientLightColor"
+                  },
+                  "parameters": [
+                    "",
+                    "\"Iluminacion\"",
+                    "\"150;138;172\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetLayerEffectDoubleParameter"
+                  },
+                  "parameters": [
+                    "",
+                    "\"\"",
+                    "\"Ajuste\"",
+                    "\"red\"",
+                    "1.0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetLayerEffectDoubleParameter"
+                  },
+                  "parameters": [
+                    "",
+                    "\"\"",
+                    "\"Ajuste\"",
+                    "\"green\"",
+                    "0.92"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetLayerEffectDoubleParameter"
+                  },
+                  "parameters": [
+                    "",
+                    "\"\"",
+                    "\"Ajuste\"",
+                    "\"blue\"",
+                    "1.1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetLayerEffectDoubleParameter"
+                  },
+                  "parameters": [
+                    "",
+                    "\"\"",
+                    "\"Ajuste\"",
+                    "\"saturation\"",
+                    "0.95"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Create"
+                  },
+                  "parameters": [
+                    "",
+                    "Almas",
+                    "CameraX(\"\",0)",
+                    "CameraY(\"\",0)+150",
+                    "\"Particulas\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetAngle"
+                  },
+                  "parameters": [
+                    "Almas",
+                    "=",
+                    "-90"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "color": {
+            "b": 109,
+            "g": 230,
+            "r": 255,
+            "textB": 0,
+            "textG": 0,
+            "textR": 0
+          },
+          "comment": "Las particulas del ambiente siguen a la camara."
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "MettreXY"
+              },
+              "parameters": [
+                "Polvo",
+                "=",
+                "CameraX(\"\",0)",
+                "=",
+                "CameraY(\"\",0)+0"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreXY"
+              },
+              "parameters": [
+                "Ceniza",
+                "=",
+                "CameraX(\"\",0)",
+                "=",
+                "CameraY(\"\",0)+-300"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreXY"
+              },
+              "parameters": [
+                "Luciernagas",
+                "=",
+                "CameraX(\"\",0)",
+                "=",
+                "CameraY(\"\",0)+0"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreXY"
+              },
+              "parameters": [
+                "Hojas",
+                "=",
+                "CameraX(\"\",0)",
+                "=",
+                "CameraY(\"\",0)+-350"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreXY"
+              },
+              "parameters": [
+                "Almas",
+                "=",
+                "CameraX(\"\",0)",
+                "=",
+                "CameraY(\"\",0)+150"
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": []
+    }
+  ]
+}

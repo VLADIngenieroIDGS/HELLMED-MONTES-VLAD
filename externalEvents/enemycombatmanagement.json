@@ -142,6 +142,18 @@
               },
               "parameters": [
                 "",
+                "Chispas",
+                "HeroAttackHitbox.CenterX()",
+                "Enemies.CenterY()-20",
+                "\"Particulas\""
+              ]
+            },
+            {
+              "type": {
+                "value": "Create"
+              },
+              "parameters": [
+                "",
                 "DmgText",
                 "Enemies.CenterX()",
                 "Enemies.Y()-10",
@@ -295,6 +307,18 @@
                 "Enemies.CenterX()-88",
                 "Enemies.CenterY()-104",
                 "\"\""
+              ]
+            },
+            {
+              "type": {
+                "value": "Create"
+              },
+              "parameters": [
+                "",
+                "AlmaEnemigo",
+                "Enemies.CenterX()",
+                "Enemies.CenterY()",
+                "\"Particulas\""
               ]
             },
             {

@@ -12,7 +12,7 @@
     "antialisingEnabledOnMobile": false,
     "folderProject": true,
     "orientation": "landscape",
-    "packageName": "com.example.silverstreak.notavania",
+    "packageName": "com.utnayarit.hellmed",
     "pixelsRounding": false,
     "projectUuid": "c8389601-2960-4197-baa7-f92e3a976c00",
     "scaleMode": "nearest",
@@ -3306,248 +3306,248 @@
         "kind": "image",
         "metadata": "",
         "name": "IntroEscena01.jpg",
-        "userAdded": true,
-        "smoothed": true
+        "smoothed": true,
+        "userAdded": true
       },
       {
         "file": "A1.mp3",
         "kind": "audio",
         "metadata": "",
         "name": "A1.mp3",
-        "userAdded": true,
         "preloadAsMusic": false,
         "preloadAsSound": true,
-        "preloadInCache": false
+        "preloadInCache": false,
+        "userAdded": true
       },
       {
         "file": "IntroEscena02.jpg",
         "kind": "image",
         "metadata": "",
         "name": "IntroEscena02.jpg",
-        "userAdded": true,
-        "smoothed": true
+        "smoothed": true,
+        "userAdded": true
       },
       {
         "file": "A2.mp3",
         "kind": "audio",
         "metadata": "",
         "name": "A2.mp3",
-        "userAdded": true,
         "preloadAsMusic": false,
         "preloadAsSound": true,
-        "preloadInCache": false
+        "preloadInCache": false,
+        "userAdded": true
       },
       {
         "file": "IntroEscena03.jpg",
         "kind": "image",
         "metadata": "",
         "name": "IntroEscena03.jpg",
-        "userAdded": true,
-        "smoothed": true
+        "smoothed": true,
+        "userAdded": true
       },
       {
         "file": "A3.mp3",
         "kind": "audio",
         "metadata": "",
         "name": "A3.mp3",
-        "userAdded": true,
         "preloadAsMusic": false,
         "preloadAsSound": true,
-        "preloadInCache": false
+        "preloadInCache": false,
+        "userAdded": true
       },
       {
         "file": "IntroEscena04.jpg",
         "kind": "image",
         "metadata": "",
         "name": "IntroEscena04.jpg",
-        "userAdded": true,
-        "smoothed": true
+        "smoothed": true,
+        "userAdded": true
       },
       {
         "file": "A4.mp3",
         "kind": "audio",
         "metadata": "",
         "name": "A4.mp3",
-        "userAdded": true,
         "preloadAsMusic": false,
         "preloadAsSound": true,
-        "preloadInCache": false
+        "preloadInCache": false,
+        "userAdded": true
       },
       {
         "file": "IntroEscena05.jpg",
         "kind": "image",
         "metadata": "",
         "name": "IntroEscena05.jpg",
-        "userAdded": true,
-        "smoothed": true
+        "smoothed": true,
+        "userAdded": true
       },
       {
         "file": "A5.mp3",
         "kind": "audio",
         "metadata": "",
         "name": "A5.mp3",
-        "userAdded": true,
         "preloadAsMusic": false,
         "preloadAsSound": true,
-        "preloadInCache": false
+        "preloadInCache": false,
+        "userAdded": true
       },
       {
         "file": "IntroEscena06.jpg",
         "kind": "image",
         "metadata": "",
         "name": "IntroEscena06.jpg",
-        "userAdded": true,
-        "smoothed": true
+        "smoothed": true,
+        "userAdded": true
       },
       {
         "file": "A6.mp3",
         "kind": "audio",
         "metadata": "",
         "name": "A6.mp3",
-        "userAdded": true,
         "preloadAsMusic": false,
         "preloadAsSound": true,
-        "preloadInCache": false
+        "preloadInCache": false,
+        "userAdded": true
       },
       {
         "file": "IntroEscena07.jpg",
         "kind": "image",
         "metadata": "",
         "name": "IntroEscena07.jpg",
-        "userAdded": true,
-        "smoothed": true
+        "smoothed": true,
+        "userAdded": true
       },
       {
         "file": "A7.mp3",
         "kind": "audio",
         "metadata": "",
         "name": "A7.mp3",
-        "userAdded": true,
         "preloadAsMusic": false,
         "preloadAsSound": true,
-        "preloadInCache": false
+        "preloadInCache": false,
+        "userAdded": true
       },
       {
         "file": "IntroEscena08.jpg",
         "kind": "image",
         "metadata": "",
         "name": "IntroEscena08.jpg",
-        "userAdded": true,
-        "smoothed": true
+        "smoothed": true,
+        "userAdded": true
       },
       {
         "file": "A8.mp3",
         "kind": "audio",
         "metadata": "",
         "name": "A8.mp3",
-        "userAdded": true,
         "preloadAsMusic": false,
         "preloadAsSound": true,
-        "preloadInCache": false
+        "preloadInCache": false,
+        "userAdded": true
       },
       {
         "file": "IntroEscena09.jpg",
         "kind": "image",
         "metadata": "",
         "name": "IntroEscena09.jpg",
-        "userAdded": true,
-        "smoothed": true
+        "smoothed": true,
+        "userAdded": true
       },
       {
         "file": "A9.mp3",
         "kind": "audio",
         "metadata": "",
         "name": "A9.mp3",
-        "userAdded": true,
         "preloadAsMusic": false,
         "preloadAsSound": true,
-        "preloadInCache": false
+        "preloadInCache": false,
+        "userAdded": true
       },
       {
         "file": "IntroEscena10.jpg",
         "kind": "image",
         "metadata": "",
         "name": "IntroEscena10.jpg",
-        "userAdded": true,
-        "smoothed": true
+        "smoothed": true,
+        "userAdded": true
       },
       {
         "file": "A10.mp3",
         "kind": "audio",
         "metadata": "",
         "name": "A10.mp3",
-        "userAdded": true,
         "preloadAsMusic": false,
         "preloadAsSound": true,
-        "preloadInCache": false
+        "preloadInCache": false,
+        "userAdded": true
       },
       {
         "file": "MusicaIntro.mp3",
         "kind": "audio",
         "metadata": "",
         "name": "MusicaIntro.mp3",
-        "userAdded": true,
         "preloadAsMusic": false,
         "preloadAsSound": true,
-        "preloadInCache": false
+        "preloadInCache": false,
+        "userAdded": true
       },
       {
         "file": "MusicaJuego.mp3",
         "kind": "audio",
         "metadata": "",
         "name": "MusicaJuego.mp3",
-        "userAdded": true,
         "preloadAsMusic": false,
         "preloadAsSound": true,
-        "preloadInCache": false
+        "preloadInCache": false,
+        "userAdded": true
       },
       {
         "file": "FuegoFoso-1.png",
         "kind": "image",
         "metadata": "",
         "name": "FuegoFoso-1.png",
-        "userAdded": true,
-        "smoothed": true
+        "smoothed": true,
+        "userAdded": true
       },
       {
         "file": "FuegoFoso-2.png",
         "kind": "image",
         "metadata": "",
         "name": "FuegoFoso-2.png",
-        "userAdded": true,
-        "smoothed": true
+        "smoothed": true,
+        "userAdded": true
       },
       {
         "file": "FuegoFoso-3.png",
         "kind": "image",
         "metadata": "",
         "name": "FuegoFoso-3.png",
-        "userAdded": true,
-        "smoothed": true
+        "smoothed": true,
+        "userAdded": true
       },
       {
         "file": "FuegoFoso-4.png",
         "kind": "image",
         "metadata": "",
         "name": "FuegoFoso-4.png",
-        "userAdded": true,
-        "smoothed": true
+        "smoothed": true,
+        "userAdded": true
       },
       {
         "file": "FuegoFoso-5.png",
         "kind": "image",
         "metadata": "",
         "name": "FuegoFoso-5.png",
-        "userAdded": true,
-        "smoothed": true
+        "smoothed": true,
+        "userAdded": true
       },
       {
         "file": "FuegoFoso-6.png",
         "kind": "image",
         "metadata": "",
         "name": "FuegoFoso-6.png",
-        "userAdded": true,
-        "smoothed": true
+        "smoothed": true,
+        "userAdded": true
       }
     ]
   },
@@ -3700,6 +3700,11 @@
       "type": "structure",
       "children": [
         {
+          "name": "Armadura",
+          "type": "number",
+          "value": 0
+        },
+        {
           "name": "BonusChant",
           "type": "number",
           "value": 0
@@ -3743,6 +3748,16 @@
           "name": "CPY",
           "type": "number",
           "value": 0
+        },
+        {
+          "name": "ChantDesc",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "Cofre",
+          "type": "structure",
+          "children": []
         },
         {
           "name": "D1Open",
@@ -3795,6 +3810,16 @@
           "value": 0
         },
         {
+          "name": "Kills",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "KillsIni",
+          "type": "number",
+          "value": 0
+        },
+        {
           "name": "Life1",
           "type": "number",
           "value": 0
@@ -3810,12 +3835,22 @@
           "children": []
         },
         {
+          "name": "Obj",
+          "type": "structure",
+          "children": []
+        },
+        {
           "name": "Partida",
           "type": "number",
           "value": 1
         },
         {
           "name": "Puntos",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "PuntosIni",
           "type": "number",
           "value": 0
         },
@@ -3830,21 +3865,6 @@
           "value": ""
         },
         {
-          "name": "Kills",
-          "type": "number",
-          "value": 0
-        },
-        {
-          "name": "KillsIni",
-          "type": "number",
-          "value": 0
-        },
-        {
-          "name": "PuntosIni",
-          "type": "number",
-          "value": 0
-        },
-        {
           "name": "Ultima",
           "type": "number",
           "value": 0
@@ -3853,26 +3873,6 @@
           "name": "Vamp",
           "type": "number",
           "value": 0
-        },
-        {
-          "name": "Armadura",
-          "type": "number",
-          "value": 0
-        },
-        {
-          "name": "ChantDesc",
-          "type": "number",
-          "value": 0
-        },
-        {
-          "name": "Cofre",
-          "type": "structure",
-          "children": []
-        },
-        {
-          "name": "Obj",
-          "type": "structure",
-          "children": []
         }
       ]
     },
@@ -3918,7 +3918,7 @@
         {
           "name": "GargolaDMG",
           "type": "number",
-          "value": 13
+          "value": 45
         },
         {
           "name": "GargolaHP",
@@ -3948,12 +3948,12 @@
         {
           "name": "JefeDMG",
           "type": "number",
-          "value": 30
+          "value": 80
         },
         {
           "name": "JefeFuegoDMG",
           "type": "number",
-          "value": 18
+          "value": 45
         },
         {
           "name": "JefeHP",
@@ -3963,7 +3963,7 @@
         {
           "name": "MinotauroDMG",
           "type": "number",
-          "value": 19
+          "value": 60
         },
         {
           "name": "MinotauroHP",
@@ -3978,7 +3978,7 @@
         {
           "name": "MuerteDMG",
           "type": "number",
-          "value": 13
+          "value": 45
         },
         {
           "name": "MuerteHP",
@@ -4157,6 +4157,10 @@
     {
       "__REFERENCE_TO_SPLIT_OBJECT": true,
       "referenceTo": "/externalEvents/pantallas"
+    },
+    {
+      "__REFERENCE_TO_SPLIT_OBJECT": true,
+      "referenceTo": "/externalEvents/ambiente"
     }
   ],
   "externalEventsFolderStructure": {
@@ -4245,6 +4249,9 @@
       },
       {
         "itemName": "Pantallas"
+      },
+      {
+        "itemName": "Ambiente"
       }
     ]
   },

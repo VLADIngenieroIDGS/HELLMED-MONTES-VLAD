@@ -4013,8 +4013,8 @@
                       "conditions": [
                         {
                           "type": {
-                            "value": "IsFlippedX",
-                            "inverted": true
+                            "inverted": true,
+                            "value": "IsFlippedX"
                           },
                           "parameters": [
                             "BossSkull"
